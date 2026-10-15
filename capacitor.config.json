@@ -2,5 +2,6 @@
   "appId": "es.csic.mineralesestrategicos",
   "appName": "Minerales estratégicos",
   "webDir": "www",
-  "android": { "allowMixedContent": false }
+  "zoomEnabled": true,
+  "android": { "allowMixedContent": false, "zoomEnabled": true }
 }
