@@ -3,8 +3,17 @@
 <html lang="es">
 <head>
 <meta charset="utf-8"/>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icono-180.png">
+<link rel="icon" type="image/png" href="icono-192.png">
+<meta name="theme-color" content="#0d263d">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content="Minerales">
+
 <meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" name="viewport"/>
-<title>[Versión autónoma] Exposición interactiva de minerales estratégicos y críticos</title>
+<title>Minerales estratégicos y críticos</title>
 <style>
     :root {
       --blue: #173b5c;
@@ -24254,7 +24263,7 @@ document.querySelectorAll("img[data-img-comun]").forEach(function(i){i.src=IMG[i
   document.addEventListener("contextmenu", function (e) { e.preventDefault(); });
   document.addEventListener("dragstart", function (e) { e.preventDefault(); });
   ["gesturestart", "gesturechange", "gestureend"].forEach(function (t) {
-    document.addEventListener(t, function (e) { e.preventDefault(); });
+    void t;
   });
   document.addEventListener("wheel", function (e) { if (e.ctrlKey) e.preventDefault(); }, { passive: false });
   document.addEventListener("keydown", function (e) {
@@ -24822,5 +24831,6 @@ window.curiosidadesNodos = function (el, nombre, principal) {
 }
 
 </style>
+<script>if ("serviceWorker" in navigator && /github\.io$/.test(location.hostname)) navigator.serviceWorker.register("sw.js");</script>
 </body>
 </html>
