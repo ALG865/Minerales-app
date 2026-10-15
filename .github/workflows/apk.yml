@@ -27,6 +27,7 @@ jobs:
       - name: Crear proyecto Android
         run: |
           npx cap add android
+          cp android-extra/MainActivity.java android/app/src/main/java/es/csic/mineralesestrategicos/MainActivity.java
           npx cap sync android
       - name: Compilar APK
         working-directory: android
