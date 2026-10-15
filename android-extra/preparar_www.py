@@ -13,6 +13,8 @@ def rep(a, b):
 rep('content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"',
     'content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes"')
 rep('html, body { touch-action: pan-x pan-y;', 'html, body { touch-action: manipulation;')
+# En el móvil no se pide pantalla completa: en ese modo Android deja de permitir el zoom con dos dedos.
+rep('var PANTALLA_COMPLETA = true;', 'var PANTALLA_COMPLETA = false;')
 i = s.rindex('</body>')
 s = s[:i] + '<style id="ajustes-movil">\n' + css + '\n</style>\n' + s[i:]
 (aqui.parent / "www" / "index.html").write_text(s, encoding="utf-8")

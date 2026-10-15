@@ -24238,7 +24238,7 @@ document.querySelectorAll("img[data-img-comun]").forEach(function(i){i.src=IMG[i
   // ===== AJUSTES (edita estos valores) =====
   var INACTIVIDAD_MS = 120000;  // tiempo sin tocar antes de avisar (2 min)
   var AVISO_MS       = 15000;   // cuenta atrás del aviso antes de volver al inicio
-  var PANTALLA_COMPLETA = true; // entra en pantalla completa al primer toque
+  var PANTALLA_COMPLETA = false; // entra en pantalla completa al primer toque
   var params = new URLSearchParams(location.search);
   if (params.has("nofs")) PANTALLA_COMPLETA = false;   // añade ?nofs a la URL para desactivarlo (útil al editar)
   if (params.has("noidle")) INACTIVIDAD_MS = 0;         // ?noidle desactiva el reinicio por inactividad
