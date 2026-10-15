@@ -3,7 +3,7 @@
 <html lang="es">
 <head>
 <meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" name="viewport"/>
 <title>[Versión autónoma] Exposición interactiva de minerales estratégicos y críticos</title>
 <style>
     :root {
@@ -1059,6 +1059,13 @@ html:not([data-entrada="tactil"]) .boton-categorias:hover,
    ============================================================ */
 .category-button-applications { grid-column: auto !important; max-width: none !important; margin: 0 !important; }
 .category-button-espana { background: #8c3f45 !important; color: #fff !important; }
+/* Mismos tonos suaves que los botones de cada pantalla */
+.category-button[data-section="fundamentales"]{background:#e6eef9;border:3px solid #3b82d6;color:#1d4f91;}
+.category-button[data-section="estrategicas"]{background:#e6f3e9;border:3px solid #16803c;color:#0f5a29;}
+.category-button[data-section="otros"]{background:#f8e8e6;border:3px solid #b8463d;color:#7d2a23;}
+html:not([data-entrada="tactil"]) .category-button[data-section="fundamentales"]:hover{background:#f2f6fc;}
+html:not([data-entrada="tactil"]) .category-button[data-section="estrategicas"]:hover{background:#f1f9f3;}
+html:not([data-entrada="tactil"]) .category-button[data-section="otros"]:hover{background:#fcf3f2;}
 
 /* Fuentes y créditos */
 .enlace-fuentes { display: block; margin: clamp(14px, 2vh, 26px) auto 0; background: none; border: 0; cursor: pointer; font: 600 clamp(15px, 1.8vh, 20px) Arial, sans-serif; color: #c9d6e2; text-decoration: underline; text-underline-offset: 4px; opacity: .85; }
@@ -1435,7 +1442,7 @@ html:not([data-entrada="tactil"]) .map-box.productores-clicable:hover { outline:
 </style>
 <style id="kiosco-css">
 /* ===== Modo kiosco (pantalla táctil) ===== */
-html, body { touch-action: pan-x pan-y; -webkit-text-size-adjust: 100%; overscroll-behavior: none; }
+html, body { touch-action: manipulation; -webkit-text-size-adjust: 100%; overscroll-behavior: none; }
 html { -webkit-tap-highlight-color: transparent; }
 body { -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; }
 input, textarea { -webkit-user-select: text; user-select: text; }
@@ -1460,7 +1467,9 @@ html[data-entrada="tactil"], html[data-entrada="tactil"] * { cursor: none !impor
  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:calc(2 * var(--u));text-align:center;font-family:Arial,sans-serif;}
 .tabla.green-text{background:#e6f3e9;border:calc(3 * var(--u)) solid #16803c;color:#0f5a29;}
 /* Críticas no estratégicas: casilla blanca con borde azul */
-#materials .tabla:not(.green-text):not(.volteada){border:calc(5 * var(--u)) solid #3b82d6;}
+#materials .tabla:not(.green-text):not(.volteada){border:calc(5 * var(--u)) solid #3b82d6;background:#e6eef9;color:#1d4f91;}
+/* Otros elementos y minerales estratégicos: tono rojizo suave */
+#otherMaterials .tabla:not(.green-text):not(.volteada){background:#f8e8e6;border:calc(3 * var(--u)) solid #b8463d;color:#7d2a23;}
 .tabla .tn{position:absolute;top:calc(8 * var(--u));left:calc(12 * var(--u));font-size:calc(18 * var(--u));font-weight:400;}
 .tabla .ts{font-size:calc(52 * var(--u));font-weight:700;line-height:1;}
 .tabla .ts.l{font-size:calc(34 * var(--u));}
@@ -24353,7 +24362,7 @@ Estaño|Sn|50|Con cobre hizo el bronce, hace 5.000 años.
 Hierro|Fe|26|Su óxido tiñe de rojo el suelo de Marte.
 Mercurio|Hg|80|El único metal líquido a temperatura ambiente.
 Molibdeno|Mo|42|
-Olivino|(Mg,Fe)₂<wbr>SiO₄||
+Olivino|(Mg,Fe)₂SiO₄||
 Oro|Au|79|Es tan maleable que se estira en hilos finísimos.
 Plata|Ag|47|Es el mejor conductor eléctrico de todos los metales.
 Plomo|Pb|82|
@@ -24362,12 +24371,14 @@ Yeso|CaSO₄·2H₂O|Tan blando que se raya con la uña.
 Zinc|Zn|30|Protege el acero del óxido: es el galvanizado.`;
 var D={};
 T.split("\n").forEach(function(l){var a=l.split("|");D[a[0]]={s:a[1]||"",n:a[2]||"",f:a[3]||""};});
-D["Yeso"]={s:"CaSO₄·<wbr>2H₂O",n:"",f:"Tan blando que se raya con la uña."};
+D["Yeso"]={s:"CaSO₄·2H₂O",n:"",f:"Tan blando que se raya con la uña."};
 ["materialsGrid","strategicMaterialsGrid","otherMaterialsGrid"].forEach(function(id){
   var g=document.getElementById(id); if(!g) return;
   g.querySelectorAll(".material-button").forEach(function(b){
     var nom=b.textContent.trim(), d=D[nom]||{s:"",n:"",f:""};
     b.setAttribute("aria-label",nom);
+    // Solo el nombre: no se muestran ni símbolo químico, ni número atómico, ni fórmula.
+    d={s:"",n:"",f:d.f};
     b.classList.add("tabla"); if(!d.s) b.classList.add("solo");
     var cl=d.s.length>7?" xl":(d.s.length>3?" l":"");
     b.innerHTML=(d.n?'<span class="tn">'+d.n+'</span>':'')+(d.s?'<span class="ts'+cl+'">'+d.s+'</span>':'')+
