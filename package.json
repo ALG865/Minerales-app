@@ -1,0 +1,14 @@
+{
+  "name": "minerales-estrategicos",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Exposición de minerales estratégicos y críticos (CSIC) — app Android de prueba",
+  "scripts": {},
+  "dependencies": {
+    "@capacitor/android": "^6.1.2",
+    "@capacitor/core": "^6.1.2"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^6.1.2"
+  }
+}
