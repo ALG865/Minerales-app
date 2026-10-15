@@ -24792,7 +24792,7 @@ window.curiosidadesNodos = function (el, nombre, principal) {
   .material-button.tabla .ts, .material-button.tabla .ts.l, .material-button.tabla .ts.xl { position: static !important; font-size: 17px !important; line-height: 1.1 !important; font-weight: 700 !important; white-space: normal !important; overflow-wrap: break-word; text-align: center; max-width: 100%; }
   .material-button.tabla .tl, .material-button.tabla.solo .tl { position: static !important; font-size: 10.5px !important; line-height: 1.2 !important; font-weight: 700 !important; white-space: normal !important; overflow-wrap: break-word; hyphens: auto; text-align: center; max-width: 100%; }
   /* Pantallas de elemento (nivel 4) y de mineral (nivel 5): una tarjeta por fila */
-  .mos-grid, .m5-grid { grid-template-columns: 1fr !important; grid-auto-rows: auto !important; gap: .8rem !important; }
+  .mos-grid, .m5-grid, .mosaico .mos-grid { height: auto !important; grid-template-rows: none !important; grid-template-columns: 1fr !important; grid-auto-rows: auto !important; gap: .8rem !important; }
   .mos-grid > *, .m5-grid > * { grid-column: auto !important; grid-row: auto !important; min-height: 0 !important; width: auto !important; }
   .screen .m5-grid > .m5-foto { min-height: 340px !important; }
   .m5-pila { display: grid !important; grid-template-columns: 1fr !important; gap: .8rem !important; }
@@ -24826,8 +24826,8 @@ window.curiosidadesNodos = function (el, nombre, principal) {
 @media (min-width: 600px) {
   .materials-grid, #materials .materials-grid, #strategicMaterials .materials-grid, #otherMaterials .materials-grid { grid-template-columns: repeat(6, minmax(0, 1fr)) !important; max-width: 760px; margin: 0 auto !important; }
   #sectorMaterials .materials-grid { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; max-width: 760px; }
-  .mos-grid, .m5-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
-  .screen .m5-grid > .m5-foto { grid-column: 1 / -1 !important; }
+  .mos-grid, .m5-grid, .mosaico .mos-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+  .screen .m5-grid > .m5-foto { grid-column: 1 / -1 !important; min-height: 520px !important; }
 }
 
 </style>
