@@ -17,7 +17,7 @@
   /* Tablas de elementos: 4 columnas con casillas holgadas */
   .materials-grid, #materials .materials-grid, #strategicMaterials .materials-grid, #otherMaterials .materials-grid {
     grid-template-columns: repeat(4, minmax(0, 1fr)) !important; gap: 4px !important; padding: 0 6px !important; box-sizing: border-box; }
-  .material-button.tabla { min-height: 80px !important; height: 100% !important; border-width: 2px !important; border-radius: 10px !important; padding: 16px 2px 6px !important; position: relative !important;
+  .material-button.tabla { min-height: 80px !important; height: 100% !important; border-width: 2px !important; border-radius: 10px !important; padding: 6px 3px !important; position: relative !important;
     display: flex !important; flex-direction: column !important; align-items: center !important; justify-content: center !important; overflow: hidden; }
   .material-button.tabla .tn { position: absolute !important; top: 3px !important; left: 5px !important; font-size: 10px !important; line-height: 1 !important; font-weight: 400 !important; }
   .material-button.tabla .ts, .material-button.tabla .ts.l, .material-button.tabla .ts.xl { position: static !important; font-size: 17px !important; line-height: 1.1 !important; font-weight: 700 !important; white-space: normal !important; overflow-wrap: break-word; text-align: center; max-width: 100%; }
