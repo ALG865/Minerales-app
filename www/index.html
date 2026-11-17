@@ -1436,6 +1436,7 @@ html:not([data-entrada="tactil"]) .paises-materia:hover { color: #173b5c; }
 .prod-etapa span { display: block; font-size: .95rem; margin-top: .2rem; }
 .prod-flecha { align-self: center; font-size: 1.8rem; color: #8c3f45; }
 .prod-nota { grid-column: 1 / -1; font-size: .92rem; margin-top: .4rem; line-height: 1.45; }
+.prod-fuentes[hidden] { display: none !important; }
 .prod-fuentes { font: .85rem/1.45 Arial, sans-serif; color: #c9d6e1; max-width: 1100px; margin: 0 auto 1rem; }
 .paises-lista { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .8rem; }
 .paises-lista .mineral-button { flex: 0 0 auto; padding: .45rem .8rem; }
@@ -2974,7 +2975,7 @@ body:not(:has(#home.active)) .d-qr { display: none; }
     </div>
   </div>
 </div>
-<p class="prod-fuentes" id="produccionFuentes"></p>
+<p class="prod-fuentes" id="produccionFuentes" hidden></p>
 <button class="back-button obtencion-ver-todos" id="produccionVerPaises" type="button">Ver qué produce cada país</button>
 <button class="back-button" id="backFromProduccion" type="button">Volver</button>
 </div>
@@ -27776,6 +27777,33 @@ if (document.readyState === 'loading') document.addEventListener('DOMContentLoad
   .prod-grid > *, .prod-card, .prod-lateral { min-width: 0 !important; max-width: 100% !important; box-sizing: border-box; }
   .prod-card h3, .prod-card p, .prod-card div { overflow-wrap: break-word; }
 }
+/* «Se extrae aquí, se procesa allí»: las dos cajas nunca más anchas que su recuadro, con cualquier tamaño de letra */
+@media (max-width: 900px) {
+  .prod-cadena { grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) !important; gap: .4rem !important; }
+  .prod-etapa { min-width: 0 !important; padding: .7rem .45rem !important; }
+  .prod-etapa small { letter-spacing: .02em !important; overflow-wrap: break-word; hyphens: auto; }
+  .prod-etapa b { font-size: clamp(1.35rem, 7.5vw, 2rem) !important; overflow-wrap: break-word; }
+  .prod-flecha { font-size: 1.4rem !important; }
+}
+/* Lista de países productores: una sola columna en el móvil, para que los nombres largos no se salgan */
+@media (max-width: 480px) { .prod-ranking { columns: 1 !important; margin-left: 1.2rem !important; } }
+/* «Construye tu móvil»: los huecos siempre dentro del teléfono */
+@media (max-width: 900px) {
+  .d-telefono { width: min(100%, 330px) !important; box-sizing: border-box !important; }
+  .d-huecos { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important; }
+  .d-hueco { min-width: 0 !important; overflow-wrap: break-word; hyphens: auto; font-size: .85rem !important; }
+}
+@media (max-width: 900px) {
+  /* «Construye tu móvil»: fichas de los elementos en rejilla de 3, sin que el nombre se salga */
+  .d-fichas { display: grid !important; grid-template-columns: repeat(3, minmax(0, 1fr)) !important; gap: .5rem !important; }
+  .d-ficha { width: auto !important; min-width: 0 !important; padding: .45rem .25rem !important; font-size: .8rem !important; overflow-wrap: anywhere; text-align: center; }
+  .d-ficha b { font-size: 1.6rem !important; }
+  /* Escala de Mohs de la ventana «¿Duro y pesado?»: dos filas de cinco */
+  .m5-escala { grid-template-columns: repeat(5, minmax(0, 1fr)) !important; }
+  .m5-escala div { min-width: 0; overflow-wrap: anywhere; }
+  /* Nombres de formas largos (p. ej. «Rhombohedron») */
+  .m5-forma-nombre { overflow-wrap: anywhere; hyphens: auto; }
+}
 
 </style>
 <script>if ("serviceWorker" in navigator && /github\.io$/.test(location.hostname)) navigator.serviceWorker.register("sw.js");</script>
@@ -27793,7 +27821,7 @@ if (document.readyState === 'loading') document.addEventListener('DOMContentLoad
     var m = document.getElementById(id); if (!m) return;
     var marco = m.parentNode; marco.style.overflow = "hidden";
     m.style.transformOrigin = "0 0"; m.style.touchAction = "pan-y";
-    var s = 1, tx = 0, ty = 0, ini = null, ultimoToque = 0, movido = false;
+    var s = 1, tx = 0, ty = 0, ini = null, ultimoToque = 0, movido = false, dedo = null;
     function limita() {
       var W = m.offsetWidth, H = m.offsetHeight;
       tx = Math.min(0, Math.max(W - W * s, tx)); ty = Math.min(0, Math.max(H - H * s, ty));
@@ -27820,11 +27848,15 @@ if (document.readyState === 'loading') document.addEventListener('DOMContentLoad
         var mx = (ini.cx - ini.tx) / ini.s, my = (ini.cy - ini.ty) / ini.s;
         s = ns; tx = c[0] - mx * s; ty = c[1] - my * s; aplica();
       } else if (e.touches.length === 1 && ini.x != null && s > 1.001) {
+        var dx = e.touches[0].clientX - ini.x, dy = e.touches[0].clientY - ini.y;
+        if (!movido && Math.hypot(dx, dy) < 10) return;   // un toque con el dedo algo movido sigue siendo un toque
         e.preventDefault(); movido = true;
-        tx = ini.tx + e.touches[0].clientX - ini.x; ty = ini.ty + e.touches[0].clientY - ini.y; aplica();
+        tx = ini.tx + dx; ty = ini.ty + dy; aplica();
       }
     }, { passive: false });
     m.addEventListener("touchend", function (e) {
+      // Se guarda dónde levantó el dedo: el móvil puede desplazar el «clic» hacia un punto vecino
+      if (e.changedTouches && e.changedTouches.length === 1 && e.touches.length === 0) dedo = { x: e.changedTouches[0].clientX, y: e.changedTouches[0].clientY, t: Date.now() };
       if (e.touches.length === 0) {
         var ahora = Date.now();
         if (!movido && ahora - ultimoToque < 300) { s = 1; tx = ty = 0; aplica(); }
@@ -27832,7 +27864,28 @@ if (document.readyState === 'loading') document.addEventListener('DOMContentLoad
       } else if (e.touches.length === 1 && s > 1.001) { ini = { x: e.touches[0].clientX, y: e.touches[0].clientY, tx: tx, ty: ty }; }
     });
     // si se ha arrastrado, que no cuente como pulsar un punto
-    m.addEventListener("click", function (e) { if (movido) { e.stopPropagation(); e.preventDefault(); movido = false; } }, true);
+    m.addEventListener("click", function (e) {
+      if (movido) { e.stopPropagation(); e.preventDefault(); movido = false; return; }
+      if (e.__elegido) return;
+      // Los puntos son pequeños para el dedo: se elige el país que contiene el toque o, si no, el punto más cercano
+      var puntos = [].slice.call(m.querySelectorAll(".prod-punto.clicable")); if (!puntos.length) return;
+      var x = e.clientX, y = e.clientY, mejor = null;
+      if (dedo && Date.now() - dedo.t < 800) { x = dedo.x; y = dedo.y; } dedo = null;
+      // Lo que hay justo bajo el dedo (el móvil a veces «corrige» el toque hacia un punto vecino)
+      var bajo = document.elementsFromPoint ? document.elementsFromPoint(x, y) : [e.target];
+      mejor = bajo.filter(function (el) { return el.classList && el.classList.contains("clicable") && m.contains(el); })[0] || null;
+      var forma = mejor ? null : bajo.filter(function (el) { return el.tagName && el.tagName.toLowerCase() === "path" && m.contains(el); })[0];
+      if (forma && forma.isPointInFill && forma.ownerSVGElement && forma.getScreenCTM()) {
+        var svg = forma.ownerSVGElement, M = forma.getScreenCTM().inverse(), dmin = 1e9;
+        puntos.forEach(function (d) { var r = d.getBoundingClientRect(), cx = r.left + r.width / 2, cy = r.top + r.height / 2, pt = svg.createSVGPoint(); pt.x = cx; pt.y = cy; pt = pt.matrixTransform(M);
+          if (forma.isPointInFill(pt)) { var dd = Math.hypot(cx - x, cy - y); if (dd < dmin) { dmin = dd; mejor = d; } } });
+      }
+      if (!mejor) { var dm = 44; puntos.forEach(function (d) { var r = d.getBoundingClientRect(), dd = Math.hypot(r.left + r.width / 2 - x, r.top + r.height / 2 - y); if (dd < dm) { dm = dd; mejor = d; } }); }
+      if (mejor && !(e.target.closest && e.target.closest(".prod-punto") === mejor)) {
+        e.stopPropagation(); e.preventDefault();
+        var ev = new MouseEvent("click", { bubbles: true, clientX: x, clientY: y }); ev.__elegido = true; mejor.dispatchEvent(ev);
+      }
+    }, true);
     // al volver a dibujar el mapa (otro país o materia), se mantiene el zoom; al entrar en la pantalla, se reinicia
     new MutationObserver(function () { m.style.setProperty("--inv", 1 / s); }).observe(m, { childList: true });
     document.addEventListener("click", function (e) { if (e.target.closest && e.target.closest(".productores-clicable, #produccionVerPaises")) { s = 1; tx = ty = 0; aplica(); } }, true);

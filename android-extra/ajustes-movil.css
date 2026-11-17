@@ -110,3 +110,30 @@
   .prod-grid > *, .prod-card, .prod-lateral { min-width: 0 !important; max-width: 100% !important; box-sizing: border-box; }
   .prod-card h3, .prod-card p, .prod-card div { overflow-wrap: break-word; }
 }
+/* «Se extrae aquí, se procesa allí»: las dos cajas nunca más anchas que su recuadro, con cualquier tamaño de letra */
+@media (max-width: 900px) {
+  .prod-cadena { grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) !important; gap: .4rem !important; }
+  .prod-etapa { min-width: 0 !important; padding: .7rem .45rem !important; }
+  .prod-etapa small { letter-spacing: .02em !important; overflow-wrap: break-word; hyphens: auto; }
+  .prod-etapa b { font-size: clamp(1.35rem, 7.5vw, 2rem) !important; overflow-wrap: break-word; }
+  .prod-flecha { font-size: 1.4rem !important; }
+}
+/* Lista de países productores: una sola columna en el móvil, para que los nombres largos no se salgan */
+@media (max-width: 480px) { .prod-ranking { columns: 1 !important; margin-left: 1.2rem !important; } }
+/* «Construye tu móvil»: los huecos siempre dentro del teléfono */
+@media (max-width: 900px) {
+  .d-telefono { width: min(100%, 330px) !important; box-sizing: border-box !important; }
+  .d-huecos { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important; }
+  .d-hueco { min-width: 0 !important; overflow-wrap: break-word; hyphens: auto; font-size: .85rem !important; }
+}
+@media (max-width: 900px) {
+  /* «Construye tu móvil»: fichas de los elementos en rejilla de 3, sin que el nombre se salga */
+  .d-fichas { display: grid !important; grid-template-columns: repeat(3, minmax(0, 1fr)) !important; gap: .5rem !important; }
+  .d-ficha { width: auto !important; min-width: 0 !important; padding: .45rem .25rem !important; font-size: .8rem !important; overflow-wrap: anywhere; text-align: center; }
+  .d-ficha b { font-size: 1.6rem !important; }
+  /* Escala de Mohs de la ventana «¿Duro y pesado?»: dos filas de cinco */
+  .m5-escala { grid-template-columns: repeat(5, minmax(0, 1fr)) !important; }
+  .m5-escala div { min-width: 0; overflow-wrap: anywhere; }
+  /* Nombres de formas largos (p. ej. «Rhombohedron») */
+  .m5-forma-nombre { overflow-wrap: anywhere; hyphens: auto; }
+}
