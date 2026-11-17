@@ -48,8 +48,24 @@ boton_apk = ('<script>(function(){if(window.Capacitor||!/Android/i.test(navigato
   '<style>.boton-apk{display:inline-flex;align-items:center;gap:.5em;margin:1.2rem auto 0;padding:.75em 1.4em;border-radius:999px;'
   'background:#3ddc84;color:#0d263d;font:700 1rem Arial,sans-serif;text-decoration:none;box-shadow:0 4px 14px rgba(0,0,0,.35)}'
   '.boton-apk::before{content:"\\2193";font-size:1.2em}</style>\n') % (APK, texto_apk)
+# Mapa «¿Qué produce cada país?» en el móvil: puntos más pequeños (proporcionales al mapa) y un desplegable para elegir país.
+texto_sel = ("Choose a country" if salida.endswith("_en.html") else "Elige un país")
+selector = ('<script>(function(){var m=document.getElementById("paisesMapa");if(!m)return;'
+  'var sel=document.createElement("select");sel.className="paises-selector";sel.setAttribute("aria-label","%s");'
+  'm.parentNode.insertBefore(sel,m);'
+  'function ajusta(){var ds=[].slice.call(m.querySelectorAll(".prod-punto"));if(!ds.length)return;'
+  'var f=Math.max(.4,Math.min(1,m.clientWidth/1000));ds.forEach(function(d){if(!d.dataset.t0)d.dataset.t0=parseFloat(d.style.width)||12;var t=Math.max(7,d.dataset.t0*f);d.style.width=d.style.height=t+"px";});'
+  'var ps=ds.map(function(d){return d.dataset.pais}).sort(function(a,b){return a.localeCompare(b)});'
+  'var act=(m.querySelector(".prod-punto.actual")||{}).dataset;'
+  'sel.innerHTML="<option value=\\"\\">%s…</option>"+ps.map(function(p){return "<option>"+p+"</option>"}).join("");'
+  'if(act&&act.pais)sel.value=act.pais;}'
+  'sel.addEventListener("change",function(){var d=[].slice.call(m.querySelectorAll(".prod-punto")).filter(function(x){return x.dataset.pais===sel.value})[0];if(d)d.click();});'
+  'new MutationObserver(function(){ajusta()}).observe(m,{childList:true,subtree:true,attributes:true,attributeFilter:["class"]});'
+  'window.addEventListener("resize",ajusta);})();</script>\n'
+  '<style>.paises-selector{display:none;width:100%%;margin:0 0 10px;padding:10px 12px;font:600 16px Arial,sans-serif;border-radius:10px;border:2px solid #c99b45;background:#f4f1e9;color:#0d263d}'
+  '@media (max-width:1100px){.paises-selector{display:block}}</style>\n') % (texto_sel, texto_sel)
 i = s.rindex('</body>')
-s = s[:i] + registro + boton_apk + s[i:]
+s = s[:i] + registro + boton_apk + selector + s[i:]
 s = s[:i] + '<style id="ajustes-movil">\n' + css + '\n</style>\n' + s[i:]
 salida = sys.argv[2] if len(sys.argv) > 2 else "index.html"
 en = salida.endswith("_en.html")
