@@ -88,3 +88,12 @@
   .fuentes-url, .m5-etiqueta span, .m5-peso span, .m5-forma-nombre, .d-cara .gira { font-size: 12.5px !important; }
   .d-elem b { font-size: 15px !important; }
 }
+/* Cifras en móvil estrecho: la cabecera (número + etiqueta) puede partirse en dos líneas y la etiqueta de texto no se sale */
+@media all {
+  .d-cifra-cab { flex-wrap: wrap !important; gap: 4px 6px !important; min-width: 0 !important; }
+  .d-cifra-cab > * { min-width: 0; }
+  .d-elem.sin-simbolo { max-width: 100% !important; width: auto !important; white-space: normal !important; text-align: center; line-height: 1.15; padding: 3px 6px !important; box-sizing: border-box; }
+  .d-elem.sin-simbolo i { white-space: normal !important; overflow-wrap: anywhere; }
+  .d-elem { flex-shrink: 0; }
+}
+@media all { .d-cara .txt, .d-cara p { overflow-wrap: anywhere; hyphens: auto; } }
