@@ -22570,6 +22570,9 @@ html:not([data-entrada="tactil"]) .mos-accion:hover { background: #245779; }
 .m5-titulo { flex: 1 1 auto; min-width: 0; }
 .m5-titulo h2 { margin: 0; font: 700 clamp(34px, 5.6vh, 64px) Georgia, serif; color: #ffd700; line-height: 1.05; }
 .m5-lema { margin: .2em 0 .45em; font-size: clamp(16px, 2.2vh, 25px); color: #e6edf3; }
+.m5-doble { margin: 0 0 .35em; font-size: clamp(13px, 1.6vh, 18px); line-height: 1.25; color: #f2cf7a; font-style: italic; }
+.m5.con-doble .m5-cab { margin-bottom: clamp(6px, 1vh, 12px); }
+.m5.con-doble .m5-lema { margin-bottom: .2em; }
 .m5-chips { display: flex; flex-wrap: wrap; gap: .45em; }
 .m5-chip { padding: .28em .8em; border-radius: 999px; font: 700 clamp(12px, 1.55vh, 17px) Arial; background: rgba(255,255,255,.12); color: #f4f1e9; border: 1px solid rgba(255,255,255,.25); }
 .m5-chip.formula { background: #c99b45; color: #16354f; border: 0; font-family: Georgia, serif; font-size: clamp(14px, 1.8vh, 20px); }
@@ -25894,6 +25897,54 @@ Object.assign(window.yacimientosMinerales, {
     caja.appendChild(cont);
     return caja;
   }
+  // Minerales que tienen botón en dos materias: frase que explica por qué, distinta según la materia desde la que se entra
+  const NOTA_DOBLE = {
+    "Pirita": {
+      hierroScreen: "Tiene un 47 % de hierro, pero casi no se usa como mena de hierro, porque su azufre estropea el acero. También aparece en el azufre, del que fue la gran fuente.",
+      azufreScreen: "Durante más de un siglo fue la gran fuente de azufre para fabricar ácido sulfúrico. También aparece en el hierro, porque contiene un 47 % de este metal, aunque casi no se usa para obtenerlo.",
+      general: "Aparece en el hierro y en el azufre porque está formada por los dos (47 % de hierro y 53 % de azufre). Se ha explotado sobre todo por su azufre."
+    },
+    "Galena": {
+      plomoScreen: "Es la principal mena de plomo. También aparece en el azufre, porque al fundirla se recupera su azufre como ácido sulfúrico.",
+      azufreScreen: "Al fundirla para obtener plomo se desprende su azufre, que se recupera como ácido sulfúrico. También aparece en el plomo, del que es la principal mena.",
+      general: "Aparece en el plomo, del que es la principal mena, y en el azufre, que se recupera como ácido sulfúrico al fundirla."
+    },
+    "Esfalerita o blenda": {
+      zincScreen: "Es la principal mena de zinc. También aparece en el azufre, porque al procesarla se recupera su azufre como ácido sulfúrico.",
+      azufreScreen: "Al procesarla para obtener zinc se desprende su azufre, que se recupera como ácido sulfúrico. También aparece en el zinc, del que es la principal mena.",
+      general: "Aparece en el zinc, del que es la principal mena, y en el azufre, que se recupera como ácido sulfúrico al procesarla."
+    },
+    "Lepidolita": {
+      litioScreen: "Es una mica rica en litio que se ha explotado como mena de este metal. También aparece en las micas, porque es una de ellas.",
+      micasScreen: "Es la mica más rica en litio. También aparece en el litio, porque se ha explotado como mena de este metal.",
+      general: "Aparece en el litio y en las micas porque es una mica rica en litio que se ha explotado como mena de este metal."
+    },
+    "Turquesa": {
+      cobreScreen: "El cobre le da su color, y se forma en la zona alterada de los yacimientos de cobre, pero no se explota como mena de cobre. También aparece en las gemas.",
+      gemasScreen: "Es una gema por su color azul verdoso. También aparece en el cobre, porque ese color se lo da el cobre y se forma en yacimientos de cobre.",
+      general: "Aparece en el cobre, que le da su color, y en las gemas, porque se talla y se pule como piedra ornamental."
+    },
+    "Columbita-tantalita": {
+      niobioScreen: "La columbita, el extremo de la serie rico en niobio, es una mena de niobio, aunque hoy la principal es el pirocloro. También aparece en el tántalo, porque la tantalita es su principal fuente.",
+      tantaloScreen: "Es la principal fuente de tántalo. También aparece en el niobio, porque la columbita, el extremo de la serie rico en niobio, es una mena de ese metal.",
+      general: "Aparece en el niobio y en el tántalo porque es una serie entre la columbita, rica en niobio, y la tantalita, rica en tántalo."
+    },
+    "Fosforita": {
+      fosforitaScreen: "Es la roca de la que se obtienen los fertilizantes fosfatados. También aparece en el fósforo, porque de ella se obtiene también el fósforo elemental.",
+      fosforoScreen: "De esta roca se obtiene el fósforo elemental. También aparece en la fosforita, la materia prima de los fertilizantes, que es esta misma roca.",
+      general: "Aparece en la fosforita y en el fósforo porque de esta roca se obtienen los fertilizantes fosfatados y el fósforo elemental."
+    },
+    "Apatito": {
+      fosforitaScreen: "Es el mineral que forma la fosforita. También aparece en el fósforo, porque es la fuente de este elemento.",
+      fosforoScreen: "Es el mineral del que procede el fósforo. También aparece en la fosforita, porque es el mineral que la forma.",
+      general: "Aparece en la fosforita y en el fósforo porque es el mineral que forma la fosforita, de la que se obtiene el fósforo."
+    }
+  };
+  function notaDoble(nombre, origen) {
+    const n = NOTA_DOBLE[nombre]; if (!n) return "";
+    const id = origen && origen.id;
+    return (id && n[id]) || n.general;
+  }
   function mosaicoMineral(nombre, ficha, pantallaOrigen) {
     if (m5) { m5.remove(); m5 = null; }
     pantalla5.classList.remove("mosaico-activo");
@@ -25921,6 +25972,7 @@ Object.assign(window.yacimientosMinerales, {
     const tit = el("div", "m5-titulo");
     tit.appendChild(el("h2", null, nombre));
     tit.appendChild(el("p", "m5-lema", tx.lema));
+    const nd = notaDoble(nombre, pantallaOrigen); if (nd) { tit.appendChild(el("p", "m5-doble", nd)); m5.classList.add("con-doble"); }
     const chips = el("div", "m5-chips");
     chips.appendChild(el("span", "m5-chip formula", ficha.formula));
     chips.appendChild(el("span", "m5-chip", ficha.group));

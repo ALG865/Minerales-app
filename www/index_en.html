@@ -1959,7 +1959,7 @@ body:not(:has(#home.active)) .d-qr { display: none; }
 <main>
 <!-- NIVEL 1: PORTADA -->
 <section aria-label="Home" class="screen active" id="home">
-<nav class="idiomas" aria-label="Language / Idioma"><a class="idioma" href="exposicion_33_257.html" lang="es" hreflang="es" data-idioma="es" title="Español"><svg viewBox="0 0 750 500" aria-hidden="true"><rect width="750" height="500" fill="#c60b1e"/><rect y="125" width="750" height="250" fill="#ffc400"/></svg><span>Español</span></a><a class="idioma actual" lang="en" hreflang="en" data-idioma="en" aria-current="true" title="English"><svg viewBox="0 0 60 30" aria-hidden="true"><clipPath id="ukc"><path d="M0,0 v30 h60 v-30 z"/></clipPath><clipPath id="ukt"><path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z"/></clipPath><g clip-path="url(#ukc)"><path d="M0,0 v30 h60 v-30 z" fill="#012169"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 L60,30 M60,0 L0,30" clip-path="url(#ukt)" stroke="#C8102E" stroke-width="4"/><path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/><path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/></g></svg><span>English</span></a></nav>
+<nav class="idiomas" aria-label="Language / Idioma"><a class="idioma" href="exposicion_33_258.html" lang="es" hreflang="es" data-idioma="es" title="Español"><svg viewBox="0 0 750 500" aria-hidden="true"><rect width="750" height="500" fill="#c60b1e"/><rect y="125" width="750" height="250" fill="#ffc400"/></svg><span>Español</span></a><a class="idioma actual" lang="en" hreflang="en" data-idioma="en" aria-current="true" title="English"><svg viewBox="0 0 60 30" aria-hidden="true"><clipPath id="ukc"><path d="M0,0 v30 h60 v-30 z"/></clipPath><clipPath id="ukt"><path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z"/></clipPath><g clip-path="url(#ukc)"><path d="M0,0 v30 h60 v-30 z" fill="#012169"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 L60,30 M60,0 L0,30" clip-path="url(#ukt)" stroke="#C8102E" stroke-width="4"/><path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/><path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/></g></svg><span>English</span></a></nav>
 <script>
 // La bandera del otro idioma enlaza con el archivo hermano: exposicion_X.html <-> exposicion_X_en.html
 (function () { var f = decodeURIComponent(location.pathname.split("/").pop() || "index.html"); var en = /_en\.html$/i.test(f); var otro = en ? f.replace(/_en\.html$/i, ".html") : f.replace(/\.html$/i, "_en.html"); var a = document.querySelector("#home .idioma:not(.actual)"); if (a && /\.html$/i.test(f)) a.setAttribute("href", otro); })();
@@ -22570,6 +22570,9 @@ html:not([data-entrada="tactil"]) .mos-accion:hover { background: #245779; }
 .m5-titulo { flex: 1 1 auto; min-width: 0; }
 .m5-titulo h2 { margin: 0; font: 700 clamp(34px, 5.6vh, 64px) Georgia, serif; color: #ffd700; line-height: 1.05; }
 .m5-lema { margin: .2em 0 .45em; font-size: clamp(16px, 2.2vh, 25px); color: #e6edf3; }
+.m5-doble { margin: 0 0 .35em; font-size: clamp(13px, 1.6vh, 18px); line-height: 1.25; color: #f2cf7a; font-style: italic; }
+.m5.con-doble .m5-cab { margin-bottom: clamp(6px, 1vh, 12px); }
+.m5.con-doble .m5-lema { margin-bottom: .2em; }
 .m5-chips { display: flex; flex-wrap: wrap; gap: .45em; }
 .m5-chip { padding: .28em .8em; border-radius: 999px; font: 700 clamp(12px, 1.55vh, 17px) Arial; background: rgba(255,255,255,.12); color: #f4f1e9; border: 1px solid rgba(255,255,255,.25); }
 .m5-chip.formula { background: #c99b45; color: #16354f; border: 0; font-family: Georgia, serif; font-size: clamp(14px, 1.8vh, 20px); }
@@ -25894,6 +25897,54 @@ Object.assign(window.yacimientosMinerales, {
     caja.appendChild(cont);
     return caja;
   }
+  // Minerales que tienen botón en dos materias: frase que explica por qué, distinta según la materia desde la que se entra
+  const NOTA_DOBLE = {
+    "Pyrite": {
+      hierroScreen: "It contains 47% iron, but it is hardly ever used as an iron ore, because its sulfur spoils the steel. It also appears under sulfur, of which it was the great source.",
+      azufreScreen: "For more than a century it was the great source of sulfur for making sulfuric acid. It also appears under iron, because it contains 47% of this metal, although it is hardly ever used to obtain it.",
+      general: "It appears under iron and under sulfur because it is made of both (47% iron and 53% sulfur). It has been mined mainly for its sulfur."
+    },
+    "Galena": {
+      plomoScreen: "It is the main ore of lead. It also appears under sulfur, because when it is smelted its sulfur is recovered as sulfuric acid.",
+      azufreScreen: "Smelting it to obtain lead releases its sulfur, which is recovered as sulfuric acid. It also appears under lead, of which it is the main ore.",
+      general: "It appears under lead, of which it is the main ore, and under sulfur, which is recovered as sulfuric acid when it is smelted."
+    },
+    "Sphalerite (blende)": {
+      zincScreen: "It is the main ore of zinc. It also appears under sulfur, because when it is processed its sulfur is recovered as sulfuric acid.",
+      azufreScreen: "Processing it to obtain zinc releases its sulfur, which is recovered as sulfuric acid. It also appears under zinc, of which it is the main ore.",
+      general: "It appears under zinc, of which it is the main ore, and under sulfur, which is recovered as sulfuric acid when it is processed."
+    },
+    "Lepidolite": {
+      litioScreen: "It is a lithium-rich mica that has been mined as an ore of this metal. It also appears under micas, because it is one of them.",
+      micasScreen: "It is the mica richest in lithium. It also appears under lithium, because it has been mined as an ore of this metal.",
+      general: "It appears under lithium and under micas because it is a lithium-rich mica that has been mined as an ore of this metal."
+    },
+    "Turquoise": {
+      cobreScreen: "Copper gives it its color, and it forms in the weathered zone of copper deposits, but it is not mined as a copper ore. It also appears under gemstones.",
+      gemasScreen: "It is a gemstone because of its blue-green color. It also appears under copper, because that color comes from copper and it forms in copper deposits.",
+      general: "It appears under copper, which gives it its color, and under gemstones, because it is cut and polished as an ornamental stone."
+    },
+    "Columbite-tantalite": {
+      niobioScreen: "Columbite, the niobium-rich end of the series, is an ore of niobium, although today the main one is pyrochlore. It also appears under tantalum, because tantalite is its main source.",
+      tantaloScreen: "It is the main source of tantalum. It also appears under niobium, because columbite, the niobium-rich end of the series, is an ore of that metal.",
+      general: "It appears under niobium and under tantalum because it is a series between columbite, rich in niobium, and tantalite, rich in tantalum."
+    },
+    "Phosphorite": {
+      fosforitaScreen: "It is the rock from which phosphate fertilizers are obtained. It also appears under phosphorus, because elemental phosphorus is also obtained from it.",
+      fosforoScreen: "Elemental phosphorus is obtained from this rock. It also appears under phosphorite, the raw material for fertilizers, which is this same rock.",
+      general: "It appears under phosphorite and under phosphorus because this rock is the source of phosphate fertilizers and of elemental phosphorus."
+    },
+    "Apatite": {
+      fosforitaScreen: "It is the mineral that makes up phosphorite. It also appears under phosphorus, because it is the source of this element.",
+      fosforoScreen: "It is the mineral from which phosphorus comes. It also appears under phosphorite, because it is the mineral that makes it up.",
+      general: "It appears under phosphorite and under phosphorus because it is the mineral that makes up phosphorite, from which phosphorus is obtained."
+    }
+  };
+  function notaDoble(nombre, origen) {
+    const n = NOTA_DOBLE[nombre]; if (!n) return "";
+    const id = origen && origen.id;
+    return (id && n[id]) || n.general;
+  }
   function mosaicoMineral(nombre, ficha, pantallaOrigen) {
     if (m5) { m5.remove(); m5 = null; }
     pantalla5.classList.remove("mosaico-activo");
@@ -25921,6 +25972,7 @@ Object.assign(window.yacimientosMinerales, {
     const tit = el("div", "m5-titulo");
     tit.appendChild(el("h2", null, nombre));
     tit.appendChild(el("p", "m5-lema", tx.lema));
+    const nd = notaDoble(nombre, pantallaOrigen); if (nd) { tit.appendChild(el("p", "m5-doble", nd)); m5.classList.add("con-doble"); }
     const chips = el("div", "m5-chips");
     chips.appendChild(el("span", "m5-chip formula", ficha.formula));
     chips.appendChild(el("span", "m5-chip", ficha.group));
