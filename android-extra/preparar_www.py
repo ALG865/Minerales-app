@@ -87,7 +87,7 @@ mapas_prod = ('<script>(function(){var m=document.getElementById("produccionMapa
   '.pista-zoom{display:none;margin:6px 0 0;font:13px Arial,sans-serif;color:#5a6b7b;text-align:center}'
   '@media (max-width:1100px){.pista-zoom{display:block}}</style>\n'
   '<script>' + (aqui / "zoom_mapas.js").read_text(encoding="utf-8") + '</script>\n'
-  '<script>(function(){var t=%s;["paisesMapa","produccionMapa"].forEach(function(id){var m=document.getElementById(id);if(!m)return;var p=document.createElement("p");p.className="pista-zoom";p.textContent=t;m.parentNode.parentNode.insertBefore(p,m.parentNode.nextSibling);});})();</script>\n' % ('"Pinch with two fingers to zoom in on the map; double-tap to go back"' if salida.endswith("_en.html") else '"Pellizca con dos dedos para ampliar el mapa; doble toque para volver"'))
+  '<script>(function(){var t=%s;["paisesMapa","produccionMapa"].forEach(function(id){var m=document.getElementById(id);if(!m)return;var p=document.createElement("p");p.className="pista-zoom";p.textContent=t;m.parentNode.insertBefore(p,m.nextSibling);});})();</script>\n' % ('"Pinch with two fingers to zoom in on the map; double-tap to go back"' if salida.endswith("_en.html") else '"Pellizca con dos dedos para ampliar el mapa; doble toque para volver"'))
 i = s.rindex('</body>')
 s = s[:i] + registro + boton_apk + selector + mapas_prod + s[i:]
 s = s[:i] + '<style id="ajustes-movil">\n' + css + '\n</style>\n' + s[i:]

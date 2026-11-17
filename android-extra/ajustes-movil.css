@@ -104,3 +104,9 @@
   .d-carta-int > .d-cara { position: relative !important; inset: auto !important; grid-area: 1 / 1; min-height: 170px; }
 }
 @media all { .d-cifras { align-items: stretch !important; } .d-carta { display: flex !important; } .d-carta-int { flex: 1 1 auto; } }
+/* Producción mundial: los recuadros nunca más anchos que la pantalla (también con letra grande) */
+@media (max-width: 900px) {
+  .prod-grid { grid-template-columns: minmax(0, 1fr) !important; }
+  .prod-grid > *, .prod-card, .prod-lateral { min-width: 0 !important; max-width: 100% !important; box-sizing: border-box; }
+  .prod-card h3, .prod-card p, .prod-card div { overflow-wrap: anywhere; }
+}
