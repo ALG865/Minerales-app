@@ -1,7 +1,7 @@
 // Web de la exposición: funciona sin conexión.
 // - Páginas (index, iconos…): primero la red, para tener siempre la versión más reciente; sin red, la copia guardada.
 // - Fotos: se guardan una vez en una caché propia que NO se borra al actualizar la web. La primera visita las descarga todas.
-const CACHE = "minerales-20261117100333";
+const CACHE = "minerales-20261117110326";
 const FOTOS = "minerales-fotos";
 const ARCHIVOS = ["./", "./index.html", "./index_en.html", "./manifest.webmanifest", "./icono-180.png", "./icono-192.png", "./icono-512.png", "./lista-fotos.json"];
 self.addEventListener("install", e => { e.waitUntil(caches.open(CACHE).then(c => c.addAll(ARCHIVOS))); self.skipWaiting(); });
