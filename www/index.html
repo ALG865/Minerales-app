@@ -27719,5 +27719,62 @@ if (document.readyState === 'loading') document.addEventListener('DOMContentLoad
 <style>.boton-apk{display:inline-flex;align-items:center;gap:.5em;margin:1.2rem auto 0;padding:.75em 1.4em;border-radius:999px;background:#3ddc84;color:#0d263d;font:700 1rem Arial,sans-serif;text-decoration:none;box-shadow:0 4px 14px rgba(0,0,0,.35)}.boton-apk::before{content:"\2193";font-size:1.2em}</style>
 <script>(function(){var m=document.getElementById("paisesMapa");if(!m)return;var sel=document.createElement("select");sel.className="paises-selector";sel.setAttribute("aria-label","Elige un país");m.parentNode.insertBefore(sel,m);function ajusta(){var ds=[].slice.call(m.querySelectorAll(".prod-punto"));if(!ds.length)return;var f=Math.max(.4,Math.min(1,m.clientWidth/1000));ds.forEach(function(d){if(!d.dataset.t0)d.dataset.t0=parseFloat(d.style.width)||12;var t=Math.max(7,d.dataset.t0*f);d.style.width=d.style.height=t+"px";});var ps=ds.map(function(d){return d.dataset.pais}).sort(function(a,b){return a.localeCompare(b)});var act=(m.querySelector(".prod-punto.actual")||{}).dataset;sel.innerHTML="<option value=\"\">Elige un país…</option>"+ps.map(function(p){return "<option>"+p+"</option>"}).join("");if(act&&act.pais)sel.value=act.pais;}sel.addEventListener("change",function(){var d=[].slice.call(m.querySelectorAll(".prod-punto")).filter(function(x){return x.dataset.pais===sel.value})[0];if(d)d.click();});new MutationObserver(function(){ajusta()}).observe(m,{childList:true,subtree:true,attributes:true,attributeFilter:["class"]});window.addEventListener("resize",ajusta);})();</script>
 <style>.paises-selector{display:none;width:100%;margin:0 0 10px;padding:10px 12px;font:600 16px Arial,sans-serif;border-radius:10px;border:2px solid #c99b45;background:#f4f1e9;color:#0d263d}@media (max-width:1100px){.paises-selector{display:block}}</style>
+<script>(function(){var m=document.getElementById("produccionMapa");if(!m)return;function ajusta(){var ds=[].slice.call(m.querySelectorAll(".prod-punto"));if(!ds.length)return;var f=Math.max(.45,Math.min(1,m.clientWidth/900));ds.forEach(function(d){if(!d.dataset.t0)d.dataset.t0=parseFloat(d.style.width)||12;var t=Math.max(8,d.dataset.t0*f);if(Math.abs(parseFloat(d.style.width)-t)>.5)d.style.width=d.style.height=t+"px";});var R=m.getBoundingClientRect();ds.forEach(function(d){var sp=d.querySelector("span");if(!sp)return;var q=sp.getBoundingClientRect();if(q.right>R.right-2&&!d.classList.contains("etiqueta-izq")){d.classList.remove("etiqueta-abajo");d.classList.add("etiqueta-izq");q=sp.getBoundingClientRect();}if(q.left<R.left+2){d.classList.remove("etiqueta-izq");d.classList.add("etiqueta-abajo");q=sp.getBoundingClientRect();}if(q.bottom>R.bottom-1){sp.style.top="auto";sp.style.bottom="100%";}});var sps=ds.map(function(d){return d.querySelector("span")}).filter(Boolean);function cruza(a,b){var x=a.getBoundingClientRect(),y=b.getBoundingClientRect();return !(x.right<y.left||y.right<x.left||x.bottom<y.top||y.bottom<x.top);}for(var i=0;i<sps.length;i++)for(var j=0;j<i;j++){if(cruza(sps[i],sps[j])){var d=sps[i].parentNode;d.classList.remove("etiqueta-izq");d.classList.add("etiqueta-abajo");var q=sps[i].getBoundingClientRect();if(q.left<R.left+2)sps[i].style.transform="translate(-"+Math.max(0,50-100*(d.getBoundingClientRect().left-R.left)/q.width)+"%,3px)";if(q.right>R.right-2)sps[i].style.transform="translate(-"+Math.min(100,50+100*(q.right-R.right+4)/q.width)+"%,3px)";if(cruza(sps[i],sps[j]))sps[i].style.top="auto",sps[i].style.bottom="100%";if(cruza(sps[i],sps[j]))sps[i].style.visibility="hidden";}}}var pend=0;new MutationObserver(function(){if(pend)return;pend=requestAnimationFrame(function(){pend=0;ajusta();});}).observe(m,{childList:true});window.addEventListener("resize",ajusta);document.addEventListener("click",function(){setTimeout(ajusta,60);},true);})();</script>
+<style>@media (max-width:700px){.prod-mapa .prod-punto span{font-size:11px!important}}.prod-mapa .prod-punto{transform:translate(-50%,-50%) scale(var(--inv,1))!important}.pista-zoom{display:none;margin:6px 0 0;font:13px Arial,sans-serif;color:#5a6b7b;text-align:center}@media (max-width:1100px){.pista-zoom{display:block}}</style>
+<script>// Zoom con dos dedos dentro de los mapas del mundo (móvil y tableta). Al ampliar, los puntos y sus
+// etiquetas mantienen su tamaño en pantalla, así que quedan proporcionalmente más pequeños y se
+// separan. Un dedo mueve el mapa cuando está ampliado; doble toque vuelve al tamaño normal.
+(function () {
+  ["paisesMapa", "produccionMapa"].forEach(function (id) {
+    var m = document.getElementById(id); if (!m) return;
+    var marco = m.parentNode; marco.style.overflow = "hidden";
+    m.style.transformOrigin = "0 0"; m.style.touchAction = "pan-y";
+    var s = 1, tx = 0, ty = 0, ini = null, ultimoToque = 0, movido = false;
+    function limita() {
+      var W = m.offsetWidth, H = m.offsetHeight;
+      tx = Math.min(0, Math.max(W - W * s, tx)); ty = Math.min(0, Math.max(H - H * s, ty));
+    }
+    function aplica() {
+      limita();
+      m.style.transform = s > 1.001 ? "translate(" + tx + "px," + ty + "px) scale(" + s + ")" : "";
+      m.style.setProperty("--inv", 1 / s);
+      m.style.touchAction = s > 1.001 ? "none" : "pan-y";
+    }
+    function dist(t) { return Math.hypot(t[0].clientX - t[1].clientX, t[0].clientY - t[1].clientY); }
+    function centro(t) { var r = m.parentNode.getBoundingClientRect(); return [(t[0].clientX + t[1].clientX) / 2 - r.left, (t[0].clientY + t[1].clientY) / 2 - r.top]; }
+    m.addEventListener("touchstart", function (e) {
+      movido = false;
+      if (e.touches.length === 2) { var c = centro(e.touches); ini = { d: dist(e.touches), s: s, cx: c[0], cy: c[1], tx: tx, ty: ty }; }
+      else if (e.touches.length === 1 && s > 1.001) { ini = { x: e.touches[0].clientX, y: e.touches[0].clientY, tx: tx, ty: ty }; }
+    }, { passive: true });
+    m.addEventListener("touchmove", function (e) {
+      if (!ini) return;
+      if (e.touches.length === 2 && ini.d) {
+        e.preventDefault(); movido = true;
+        var c = centro(e.touches), ns = Math.max(1, Math.min(8, ini.s * dist(e.touches) / ini.d));
+        // el punto del mapa bajo los dedos se queda bajo los dedos
+        var mx = (ini.cx - ini.tx) / ini.s, my = (ini.cy - ini.ty) / ini.s;
+        s = ns; tx = c[0] - mx * s; ty = c[1] - my * s; aplica();
+      } else if (e.touches.length === 1 && ini.x != null && s > 1.001) {
+        e.preventDefault(); movido = true;
+        tx = ini.tx + e.touches[0].clientX - ini.x; ty = ini.ty + e.touches[0].clientY - ini.y; aplica();
+      }
+    }, { passive: false });
+    m.addEventListener("touchend", function (e) {
+      if (e.touches.length === 0) {
+        var ahora = Date.now();
+        if (!movido && ahora - ultimoToque < 300) { s = 1; tx = ty = 0; aplica(); }
+        ultimoToque = ahora; ini = null;
+      } else if (e.touches.length === 1 && s > 1.001) { ini = { x: e.touches[0].clientX, y: e.touches[0].clientY, tx: tx, ty: ty }; }
+    });
+    // si se ha arrastrado, que no cuente como pulsar un punto
+    m.addEventListener("click", function (e) { if (movido) { e.stopPropagation(); e.preventDefault(); movido = false; } }, true);
+    // al volver a dibujar el mapa (otro país o materia), se mantiene el zoom; al entrar en la pantalla, se reinicia
+    new MutationObserver(function () { m.style.setProperty("--inv", 1 / s); }).observe(m, { childList: true });
+    document.addEventListener("click", function (e) { if (e.target.closest && e.target.closest(".productores-clicable, #produccionVerPaises")) { s = 1; tx = ty = 0; aplica(); } }, true);
+  });
+})();
+</script>
+<script>(function(){var t="Pellizca con dos dedos para ampliar el mapa; doble toque para volver";["paisesMapa","produccionMapa"].forEach(function(id){var m=document.getElementById(id);if(!m)return;var p=document.createElement("p");p.className="pista-zoom";p.textContent=t;m.parentNode.parentNode.insertBefore(p,m.parentNode.nextSibling);});})();</script>
 </body>
 </html>

@@ -64,8 +64,32 @@ selector = ('<script>(function(){var m=document.getElementById("paisesMapa");if(
   'window.addEventListener("resize",ajusta);})();</script>\n'
   '<style>.paises-selector{display:none;width:100%%;margin:0 0 10px;padding:10px 12px;font:600 16px Arial,sans-serif;border-radius:10px;border:2px solid #c99b45;background:#f4f1e9;color:#0d263d}'
   '@media (max-width:1100px){.paises-selector{display:block}}</style>\n') % (texto_sel, texto_sel)
+# Mapa de «Producción mundial» en el móvil: burbujas proporcionales al mapa y etiquetas que no se salen por los lados.
+mapas_prod = ('<script>(function(){var m=document.getElementById("produccionMapa");if(!m)return;'
+  'function ajusta(){var ds=[].slice.call(m.querySelectorAll(".prod-punto"));if(!ds.length)return;'
+  'var f=Math.max(.45,Math.min(1,m.clientWidth/900));'
+  'ds.forEach(function(d){if(!d.dataset.t0)d.dataset.t0=parseFloat(d.style.width)||12;var t=Math.max(8,d.dataset.t0*f);if(Math.abs(parseFloat(d.style.width)-t)>.5)d.style.width=d.style.height=t+"px";});'
+  'var R=m.getBoundingClientRect();ds.forEach(function(d){var sp=d.querySelector("span");if(!sp)return;'
+  'var q=sp.getBoundingClientRect();if(q.right>R.right-2&&!d.classList.contains("etiqueta-izq")){d.classList.remove("etiqueta-abajo");d.classList.add("etiqueta-izq");q=sp.getBoundingClientRect();}'
+  'if(q.left<R.left+2){d.classList.remove("etiqueta-izq");d.classList.add("etiqueta-abajo");q=sp.getBoundingClientRect();}'
+  'if(q.bottom>R.bottom-1){sp.style.top="auto";sp.style.bottom="100%";}});'
+  'var sps=ds.map(function(d){return d.querySelector("span")}).filter(Boolean);'
+  'function cruza(a,b){var x=a.getBoundingClientRect(),y=b.getBoundingClientRect();return !(x.right<y.left||y.right<x.left||x.bottom<y.top||y.bottom<x.top);}'
+  'for(var i=0;i<sps.length;i++)for(var j=0;j<i;j++){if(cruza(sps[i],sps[j])){var d=sps[i].parentNode;d.classList.remove("etiqueta-izq");d.classList.add("etiqueta-abajo");'
+  'var q=sps[i].getBoundingClientRect();if(q.left<R.left+2)sps[i].style.transform="translate(-"+Math.max(0,50-100*(d.getBoundingClientRect().left-R.left)/q.width)+"%,3px)";'
+  'if(q.right>R.right-2)sps[i].style.transform="translate(-"+Math.min(100,50+100*(q.right-R.right+4)/q.width)+"%,3px)";'
+  'if(cruza(sps[i],sps[j]))sps[i].style.top="auto",sps[i].style.bottom="100%";'
+  'if(cruza(sps[i],sps[j]))sps[i].style.visibility="hidden";}}}'
+  'var pend=0;new MutationObserver(function(){if(pend)return;pend=requestAnimationFrame(function(){pend=0;ajusta();});}).observe(m,{childList:true});'
+  'window.addEventListener("resize",ajusta);document.addEventListener("click",function(){setTimeout(ajusta,60);},true);})();</script>\n'
+  '<style>@media (max-width:700px){.prod-mapa .prod-punto span{font-size:11px!important}}'
+  '.prod-mapa .prod-punto{transform:translate(-50%,-50%) scale(var(--inv,1))!important}'
+  '.pista-zoom{display:none;margin:6px 0 0;font:13px Arial,sans-serif;color:#5a6b7b;text-align:center}'
+  '@media (max-width:1100px){.pista-zoom{display:block}}</style>\n'
+  '<script>' + (aqui / "zoom_mapas.js").read_text(encoding="utf-8") + '</script>\n'
+  '<script>(function(){var t=%s;["paisesMapa","produccionMapa"].forEach(function(id){var m=document.getElementById(id);if(!m)return;var p=document.createElement("p");p.className="pista-zoom";p.textContent=t;m.parentNode.parentNode.insertBefore(p,m.parentNode.nextSibling);});})();</script>\n' % ('"Pinch with two fingers to zoom in on the map; double-tap to go back"' if salida.endswith("_en.html") else '"Pellizca con dos dedos para ampliar el mapa; doble toque para volver"'))
 i = s.rindex('</body>')
-s = s[:i] + registro + boton_apk + selector + s[i:]
+s = s[:i] + registro + boton_apk + selector + mapas_prod + s[i:]
 s = s[:i] + '<style id="ajustes-movil">\n' + css + '\n</style>\n' + s[i:]
 salida = sys.argv[2] if len(sys.argv) > 2 else "index.html"
 en = salida.endswith("_en.html")
