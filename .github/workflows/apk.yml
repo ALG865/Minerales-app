@@ -41,7 +41,9 @@ jobs:
           chmod +x gradlew
           ./gradlew assembleDebug --no-daemon
       - name: Renombrar
-        run: cp android/app/build/outputs/apk/debug/app-debug.apk minerales-estrategicos-${{ github.run_number }}.apk
+        run: |
+          cp android/app/build/outputs/apk/debug/app-debug.apk minerales-estrategicos-${{ github.run_number }}.apk
+          cp android/app/build/outputs/apk/debug/app-debug.apk minerales-estrategicos.apk
       - uses: actions/upload-artifact@v4
         with:
           name: minerales-estrategicos-apk
@@ -52,5 +54,7 @@ jobs:
           tag_name: prueba-${{ github.run_number }}
           name: Minerales estratégicos — prueba ${{ github.run_number }}
           body: App completa de la exposición (fotos reducidas a 1000 px para el móvil). Descárgalo desde el móvil y ábrelo para instalarlo.
-          files: minerales-estrategicos-${{ github.run_number }}.apk
+          files: |
+            minerales-estrategicos-${{ github.run_number }}.apk
+            minerales-estrategicos.apk
           make_latest: true
