@@ -1959,7 +1959,7 @@ body:not(:has(#home.active)) .d-qr { display: none; }
 <main>
 <!-- NIVEL 1: PORTADA -->
 <section aria-label="Home" class="screen active" id="home">
-<nav class="idiomas" aria-label="Language / Idioma"><a class="idioma" href="exposicion_33_258.html" lang="es" hreflang="es" data-idioma="es" title="Español"><svg viewBox="0 0 750 500" aria-hidden="true"><rect width="750" height="500" fill="#c60b1e"/><rect y="125" width="750" height="250" fill="#ffc400"/></svg><span>Español</span></a><a class="idioma actual" lang="en" hreflang="en" data-idioma="en" aria-current="true" title="English"><svg viewBox="0 0 60 30" aria-hidden="true"><clipPath id="ukc"><path d="M0,0 v30 h60 v-30 z"/></clipPath><clipPath id="ukt"><path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z"/></clipPath><g clip-path="url(#ukc)"><path d="M0,0 v30 h60 v-30 z" fill="#012169"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 L60,30 M60,0 L0,30" clip-path="url(#ukt)" stroke="#C8102E" stroke-width="4"/><path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/><path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/></g></svg><span>English</span></a></nav>
+<nav class="idiomas" aria-label="Language / Idioma"><a class="idioma" href="exposicion_33_259.html" lang="es" hreflang="es" data-idioma="es" title="Español"><svg viewBox="0 0 750 500" aria-hidden="true"><rect width="750" height="500" fill="#c60b1e"/><rect y="125" width="750" height="250" fill="#ffc400"/></svg><span>Español</span></a><a class="idioma actual" lang="en" hreflang="en" data-idioma="en" aria-current="true" title="English"><svg viewBox="0 0 60 30" aria-hidden="true"><clipPath id="ukc"><path d="M0,0 v30 h60 v-30 z"/></clipPath><clipPath id="ukt"><path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z"/></clipPath><g clip-path="url(#ukc)"><path d="M0,0 v30 h60 v-30 z" fill="#012169"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 L60,30 M60,0 L0,30" clip-path="url(#ukt)" stroke="#C8102E" stroke-width="4"/><path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/><path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/></g></svg><span>English</span></a></nav>
 <script>
 // La bandera del otro idioma enlaza con el archivo hermano: exposicion_X.html <-> exposicion_X_en.html
 (function () { var f = decodeURIComponent(location.pathname.split("/").pop() || "index.html"); var en = /_en\.html$/i.test(f); var otro = en ? f.replace(/_en\.html$/i, ".html") : f.replace(/\.html$/i, "_en.html"); var a = document.querySelector("#home .idioma:not(.actual)"); if (a && /\.html$/i.test(f)) a.setAttribute("href", otro); })();
@@ -25900,44 +25900,44 @@ Object.assign(window.yacimientosMinerales, {
   // Minerales que tienen botón en dos materias: frase que explica por qué, distinta según la materia desde la que se entra
   const NOTA_DOBLE = {
     "Pyrite": {
-      hierroScreen: "It contains 47% iron, but it is hardly ever used as an iron ore, because its sulfur spoils the steel. It also appears under sulfur, of which it was the great source.",
-      azufreScreen: "For more than a century it was the great source of sulfur for making sulfuric acid. It also appears under iron, because it contains 47% of this metal, although it is hardly ever used to obtain it.",
-      general: "It appears under iron and under sulfur because it is made of both (47% iron and 53% sulfur). It has been mined mainly for its sulfur."
+      hierroScreen: "It contains 47% iron, but it is hardly ever used as an iron ore, because its sulfur spoils the steel.",
+      azufreScreen: "For more than a century it was the great source of sulfur for making sulfuric acid.",
+      general: "It contains 47% iron and 53% sulfur, but it has been mined mainly for its sulfur."
     },
     "Galena": {
-      plomoScreen: "It is the main ore of lead. It also appears under sulfur, because when it is smelted its sulfur is recovered as sulfuric acid.",
-      azufreScreen: "Smelting it to obtain lead releases its sulfur, which is recovered as sulfuric acid. It also appears under lead, of which it is the main ore.",
-      general: "It appears under lead, of which it is the main ore, and under sulfur, which is recovered as sulfuric acid when it is smelted."
+      plomoScreen: "It is the main ore of lead.",
+      azufreScreen: "Smelting it to obtain lead releases its sulfur, which is recovered as sulfuric acid.",
+      general: "It is the main ore of lead; when it is smelted, its sulfur is also recovered as sulfuric acid."
     },
     "Sphalerite (blende)": {
-      zincScreen: "It is the main ore of zinc. It also appears under sulfur, because when it is processed its sulfur is recovered as sulfuric acid.",
-      azufreScreen: "Processing it to obtain zinc releases its sulfur, which is recovered as sulfuric acid. It also appears under zinc, of which it is the main ore.",
-      general: "It appears under zinc, of which it is the main ore, and under sulfur, which is recovered as sulfuric acid when it is processed."
+      zincScreen: "It is the main ore of zinc.",
+      azufreScreen: "Processing it to obtain zinc releases its sulfur, which is recovered as sulfuric acid.",
+      general: "It is the main ore of zinc; when it is processed, its sulfur is also recovered as sulfuric acid."
     },
     "Lepidolite": {
-      litioScreen: "It is a lithium-rich mica that has been mined as an ore of this metal. It also appears under micas, because it is one of them.",
-      micasScreen: "It is the mica richest in lithium. It also appears under lithium, because it has been mined as an ore of this metal.",
-      general: "It appears under lithium and under micas because it is a lithium-rich mica that has been mined as an ore of this metal."
+      litioScreen: "It is a lithium-rich mica that has been mined as an ore of this metal.",
+      micasScreen: "It is the mica richest in lithium.",
+      general: "It is the mica richest in lithium and has been mined as an ore of this metal."
     },
     "Turquoise": {
-      cobreScreen: "Copper gives it its color, and it forms in the weathered zone of copper deposits, but it is not mined as a copper ore. It also appears under gemstones.",
-      gemasScreen: "It is a gemstone because of its blue-green color. It also appears under copper, because that color comes from copper and it forms in copper deposits.",
-      general: "It appears under copper, which gives it its color, and under gemstones, because it is cut and polished as an ornamental stone."
+      cobreScreen: "Copper gives it its color, and it forms in the weathered zone of copper deposits, although it is not mined as an ore of this metal.",
+      gemasScreen: "It is cut and polished as a gemstone for its blue-green color.",
+      general: "It owes its blue-green color to copper and is cut and polished as a gemstone."
     },
     "Columbite-tantalite": {
-      niobioScreen: "Columbite, the niobium-rich end of the series, is an ore of niobium, although today the main one is pyrochlore. It also appears under tantalum, because tantalite is its main source.",
-      tantaloScreen: "It is the main source of tantalum. It also appears under niobium, because columbite, the niobium-rich end of the series, is an ore of that metal.",
-      general: "It appears under niobium and under tantalum because it is a series between columbite, rich in niobium, and tantalite, rich in tantalum."
+      niobioScreen: "Columbite, the niobium-rich end of the series, is an ore of niobium, although today the main one is pyrochlore.",
+      tantaloScreen: "It is the main source of tantalum.",
+      general: "It is a series between columbite, rich in niobium, and tantalite, rich in tantalum, and it is the main source of tantalum."
     },
     "Phosphorite": {
-      fosforitaScreen: "It is the rock from which phosphate fertilizers are obtained. It also appears under phosphorus, because elemental phosphorus is also obtained from it.",
-      fosforoScreen: "Elemental phosphorus is obtained from this rock. It also appears under phosphorite, the raw material for fertilizers, which is this same rock.",
-      general: "It appears under phosphorite and under phosphorus because this rock is the source of phosphate fertilizers and of elemental phosphorus."
+      fosforitaScreen: "It is the rock from which phosphate fertilizers are obtained.",
+      fosforoScreen: "Elemental phosphorus is obtained from this rock.",
+      general: "Phosphate fertilizers and elemental phosphorus are obtained from this rock."
     },
     "Apatite": {
-      fosforitaScreen: "It is the mineral that makes up phosphorite. It also appears under phosphorus, because it is the source of this element.",
-      fosforoScreen: "It is the mineral from which phosphorus comes. It also appears under phosphorite, because it is the mineral that makes it up.",
-      general: "It appears under phosphorite and under phosphorus because it is the mineral that makes up phosphorite, from which phosphorus is obtained."
+      fosforitaScreen: "It is the mineral that makes up phosphorite.",
+      fosforoScreen: "It is the mineral from which phosphorus comes.",
+      general: "It is the mineral that makes up phosphorite, from which phosphorus is obtained."
     }
   };
   function notaDoble(nombre, origen) {
