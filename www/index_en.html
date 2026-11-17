@@ -27756,6 +27756,11 @@ if (document.readyState === 'loading') document.addEventListener('DOMContentLoad
   /* Nombres de formas largos (p. ej. «Rhombohedron») */
   .m5-forma-nombre { overflow-wrap: anywhere; hyphens: auto; }
 }
+/* «Saber más» siempre abajo a la derecha de su tarjeta, sin pisar el título (también con letra grande) */
+@media (max-width: 900px) {
+  .mos-mas, .m5-tarjeta-dureza .mos-mas { top: auto !important; bottom: 10px !important; right: 14px !important; }
+  .screen *:has(> .mos-mas) { padding-bottom: 2.6rem !important; }
+}
 
 </style>
 <script>if ("serviceWorker" in navigator && /github\.io$/.test(location.hostname)) navigator.serviceWorker.register("sw.js");</script>
