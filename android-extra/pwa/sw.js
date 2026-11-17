@@ -17,7 +17,7 @@ self.addEventListener("fetch", e => {
     e.respondWith(caches.open(FOTOS).then(c => c.match(e.request).then(r => r || fetch(e.request).then(n => { if (n.ok) c.put(e.request, n.clone()); return n; }))));
     return;
   }
-  e.respondWith(fetch(e.request).then(r => {
+  e.respondWith(fetch(e.request, { cache: "no-cache" }).then(r => {   // sin caché HTTP: siempre la última versión publicada
     if (r.ok) { const copia = r.clone(); caches.open(CACHE).then(c => c.put(e.request, copia)); }
     return r;
   }).catch(() => caches.match(e.request).then(r => r || caches.match("./index.html"))));
