@@ -33,7 +33,17 @@ cabecera = '''<link rel="manifest" href="manifest.webmanifest">
 <meta name="apple-mobile-web-app-title" content="Minerales">
 '''
 rep('<meta charset="utf-8"/>', '<meta charset="utf-8"/>\n' + cabecera)
-registro = '<script>if ("serviceWorker" in navigator && /github\\.io$/.test(location.hostname)) navigator.serviceWorker.register("sw.js");</script>\n'
+registro = ('<script>(function(){if(!("serviceWorker" in navigator)||!/github\\.io$/.test(location.hostname))return;'
+  'navigator.serviceWorker.register("sw.js");'
+  'var EN=document.documentElement.lang==="en";var hecho=false;try{hecho=localStorage.getItem("fotosGuardadas")==="1"}catch(_){}'
+  'if(hecho)return;var b=document.createElement("div");b.id="aviso-fotos";'
+  'b.style.cssText="position:fixed;left:50%;bottom:10px;transform:translateX(-50%);z-index:9999;background:rgba(7,27,45,.9);color:#fff;border:1px solid #c9a227;border-radius:999px;padding:6px 14px;font:13px Arial,sans-serif;display:none";'
+  'document.body.appendChild(b);'
+  'navigator.serviceWorker.addEventListener("message",function(e){var d=e.data;if(!d||d.tipo!=="progreso")return;'
+  'if(d.fin){b.textContent=EN?"Saved: the exhibition now works offline":"Listo: la exposición ya funciona sin conexión";try{localStorage.setItem("fotosGuardadas","1")}catch(_){}setTimeout(function(){b.style.display="none"},4000);}'
+  'else{b.textContent=(EN?"Saving photos for offline use: ":"Guardando las fotos para usar sin conexión: ")+Math.round(100*d.hechas/d.total)+" %";}b.style.display="block";});'
+  'navigator.serviceWorker.ready.then(function(r){(r.active||navigator.serviceWorker.controller).postMessage({tipo:"precargar"});});'
+  '})();</script>\n')
 www = aqui.parent / "www"
 for f in ["manifest.webmanifest", "icono-180.png", "icono-192.png", "icono-512.png"]:
     shutil.copy(aqui / "pwa" / f, www / f)

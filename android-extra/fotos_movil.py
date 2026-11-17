@@ -20,4 +20,6 @@ if __name__ == "__main__":
     usadas = set(rutas)
     for p in (www / "FICHAS DE MINERALES").rglob("*.webp"):
         if str(p.relative_to(www)) not in usadas: p.unlink()
+    import json
+    (www / "lista-fotos.json").write_text(json.dumps([__import__("urllib.parse").parse.quote(r) for r in rutas]), encoding="utf-8")
     print(len(rutas), "fotos;", n, "nuevas o cambiadas")
