@@ -1430,7 +1430,9 @@ html:not([data-entrada="tactil"]) .paises-materia:hover { color: #173b5c; }
 .prod-etapa { background: #fff; border-radius: 12px; padding: .8rem; text-align: center; border: 2px solid #d9dee2; }
 .prod-etapa small { display: block; font-size: .78rem; text-transform: uppercase; letter-spacing: .05em; color: #5c7186; margin-bottom: .3rem; }
 .prod-etapa b { display: block; font-size: 2rem; color: #173b5c; line-height: 1.1; }
-.prod-etapa b.texto { font-size: 1.15rem; line-height: 1.25; overflow-wrap: anywhere; }
+.prod-etapa b.texto { font-size: 1.15rem; line-height: 1.25; overflow-wrap: break-word; }
+/* Si solo hay extracción (sin refino), el recuadro ocupa todo el ancho */
+.prod-cadena > .prod-etapa:first-child:nth-last-child(2) { grid-column: 1 / -1; }
 .prod-etapa span { display: block; font-size: .95rem; margin-top: .2rem; }
 .prod-flecha { align-self: center; font-size: 1.8rem; color: #8c3f45; }
 .prod-nota { grid-column: 1 / -1; font-size: .92rem; margin-top: .4rem; line-height: 1.45; }
@@ -1960,7 +1962,7 @@ body:not(:has(#home.active)) .d-qr { display: none; }
 <main>
 <!-- NIVEL 1: PORTADA -->
 <section aria-label="Home" class="screen active" id="home">
-<nav class="idiomas" aria-label="Language / Idioma"><a class="idioma" href="exposicion_33_260.html" lang="es" hreflang="es" data-idioma="es" title="Español"><svg viewBox="0 0 750 500" aria-hidden="true"><rect width="750" height="500" fill="#c60b1e"/><rect y="125" width="750" height="250" fill="#ffc400"/></svg><span>Español</span></a><a class="idioma actual" lang="en" hreflang="en" data-idioma="en" aria-current="true" title="English"><svg viewBox="0 0 60 30" aria-hidden="true"><clipPath id="ukc"><path d="M0,0 v30 h60 v-30 z"/></clipPath><clipPath id="ukt"><path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z"/></clipPath><g clip-path="url(#ukc)"><path d="M0,0 v30 h60 v-30 z" fill="#012169"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 L60,30 M60,0 L0,30" clip-path="url(#ukt)" stroke="#C8102E" stroke-width="4"/><path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/><path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/></g></svg><span>English</span></a></nav>
+<nav class="idiomas" aria-label="Language / Idioma"><a class="idioma" href="exposicion_33_261.html" lang="es" hreflang="es" data-idioma="es" title="Español"><svg viewBox="0 0 750 500" aria-hidden="true"><rect width="750" height="500" fill="#c60b1e"/><rect y="125" width="750" height="250" fill="#ffc400"/></svg><span>Español</span></a><a class="idioma actual" lang="en" hreflang="en" data-idioma="en" aria-current="true" title="English"><svg viewBox="0 0 60 30" aria-hidden="true"><clipPath id="ukc"><path d="M0,0 v30 h60 v-30 z"/></clipPath><clipPath id="ukt"><path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z"/></clipPath><g clip-path="url(#ukc)"><path d="M0,0 v30 h60 v-30 z" fill="#012169"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 L60,30 M60,0 L0,30" clip-path="url(#ukt)" stroke="#C8102E" stroke-width="4"/><path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/><path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/></g></svg><span>English</span></a></nav>
 <script>
 // La bandera del otro idioma enlaza con el archivo hermano: exposicion_X.html <-> exposicion_X_en.html
 (function () { var f = decodeURIComponent(location.pathname.split("/").pop() || "index.html"); var en = /_en\.html$/i.test(f); var otro = en ? f.replace(/_en\.html$/i, ".html") : f.replace(/\.html$/i, "_en.html"); var a = document.querySelector("#home .idioma:not(.actual)"); if (a && /\.html$/i.test(f)) a.setAttribute("href", otro); })();
@@ -27722,7 +27724,7 @@ if (document.readyState === 'loading') document.addEventListener('DOMContentLoad
 @media (max-width: 900px) {
   .prod-grid { grid-template-columns: minmax(0, 1fr) !important; }
   .prod-grid > *, .prod-card, .prod-lateral { min-width: 0 !important; max-width: 100% !important; box-sizing: border-box; }
-  .prod-card h3, .prod-card p, .prod-card div { overflow-wrap: anywhere; }
+  .prod-card h3, .prod-card p, .prod-card div { overflow-wrap: break-word; }
 }
 
 </style>

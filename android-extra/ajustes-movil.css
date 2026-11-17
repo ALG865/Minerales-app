@@ -108,5 +108,5 @@
 @media (max-width: 900px) {
   .prod-grid { grid-template-columns: minmax(0, 1fr) !important; }
   .prod-grid > *, .prod-card, .prod-lateral { min-width: 0 !important; max-width: 100% !important; box-sizing: border-box; }
-  .prod-card h3, .prod-card p, .prod-card div { overflow-wrap: anywhere; }
+  .prod-card h3, .prod-card p, .prod-card div { overflow-wrap: break-word; }
 }

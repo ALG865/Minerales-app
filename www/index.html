@@ -1430,7 +1430,9 @@ html:not([data-entrada="tactil"]) .paises-materia:hover { color: #173b5c; }
 .prod-etapa { background: #fff; border-radius: 12px; padding: .8rem; text-align: center; border: 2px solid #d9dee2; }
 .prod-etapa small { display: block; font-size: .78rem; text-transform: uppercase; letter-spacing: .05em; color: #5c7186; margin-bottom: .3rem; }
 .prod-etapa b { display: block; font-size: 2rem; color: #173b5c; line-height: 1.1; }
-.prod-etapa b.texto { font-size: 1.15rem; line-height: 1.25; overflow-wrap: anywhere; }
+.prod-etapa b.texto { font-size: 1.15rem; line-height: 1.25; overflow-wrap: break-word; }
+/* Si solo hay extracción (sin refino), el recuadro ocupa todo el ancho */
+.prod-cadena > .prod-etapa:first-child:nth-last-child(2) { grid-column: 1 / -1; }
 .prod-etapa span { display: block; font-size: .95rem; margin-top: .2rem; }
 .prod-flecha { align-self: center; font-size: 1.8rem; color: #8c3f45; }
 .prod-nota { grid-column: 1 / -1; font-size: .92rem; margin-top: .4rem; line-height: 1.45; }
@@ -27770,7 +27772,7 @@ if (document.readyState === 'loading') document.addEventListener('DOMContentLoad
 @media (max-width: 900px) {
   .prod-grid { grid-template-columns: minmax(0, 1fr) !important; }
   .prod-grid > *, .prod-card, .prod-lateral { min-width: 0 !important; max-width: 100% !important; box-sizing: border-box; }
-  .prod-card h3, .prod-card p, .prod-card div { overflow-wrap: anywhere; }
+  .prod-card h3, .prod-card p, .prod-card div { overflow-wrap: break-word; }
 }
 
 </style>
