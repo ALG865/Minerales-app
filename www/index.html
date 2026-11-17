@@ -1430,9 +1430,9 @@ html:not([data-entrada="tactil"]) .paises-materia:hover { color: #173b5c; }
 .prod-etapa { background: #fff; border-radius: 12px; padding: .8rem; text-align: center; border: 2px solid #d9dee2; }
 .prod-etapa small { display: block; font-size: .78rem; text-transform: uppercase; letter-spacing: .05em; color: #5c7186; margin-bottom: .3rem; }
 .prod-etapa b { display: block; font-size: 2rem; color: #173b5c; line-height: 1.1; }
-.prod-etapa b.texto { font-size: 1.15rem; line-height: 1.25; overflow-wrap: break-word; }
+.prod-etapa .dato-texto { font-style: italic; color: #5c7186; }
 /* Si solo hay extracción (sin refino), el recuadro ocupa todo el ancho */
-.prod-cadena > .prod-etapa:first-child:nth-last-child(2) { grid-column: 1 / -1; }
+.prod-cadena > .prod-etapa:first-child:nth-last-child(2) { grid-column: 1 / -1; justify-self: center; width: 100%; max-width: 20rem; box-sizing: border-box; }
 .prod-etapa span { display: block; font-size: .95rem; margin-top: .2rem; }
 .prod-flecha { align-self: center; font-size: 1.8rem; color: #8c3f45; }
 .prod-nota { grid-column: 1 / -1; font-size: .92rem; margin-top: .4rem; line-height: 1.45; }
@@ -22299,8 +22299,10 @@ window.addEventListener("DOMContentLoaded", function () {
         d.paises.forEach(([p]) => { const li = document.createElement("li"); li.textContent = p; ol.appendChild(li); });
         barras.appendChild(ol);
       }
-      // Si el dato es una frase («principal productor») y no una cifra, va en letra más pequeña
-      const etapa = (tit, dato) => '<div class="prod-etapa"><small>' + tit + '</small><b' + (/\p{L}{4,}/u.test(String(dato[1]).replace(/\([^)]*\)/g, "")) ? ' class="texto"' : '') + '>' + dato[1] + '</b><span>' + dato[0] + '</span></div>';
+      // Si el dato es una frase («principal productor») y no una cifra, el país va en grande y la frase debajo, en cursiva
+      const etapa = (tit, dato) => /\p{L}{4,}/u.test(String(dato[1]).replace(/\([^)]*\)/g, ""))
+        ? '<div class="prod-etapa"><small>' + tit + '</small><b>' + dato[0] + '</b><span class="dato-texto">' + dato[1] + '</span></div>'
+        : '<div class="prod-etapa"><small>' + tit + '</small><b>' + dato[1] + '</b><span>' + dato[0] + '</span></div>';
       document.getElementById("produccionCadena").innerHTML =
         etapa(d.etiquetaExtraccion || "Extracción minera", d.extraccion) +
         (d.refino ? '<div class="prod-flecha">→</div>' + etapa(d.etiquetaRefino || "Refino y procesado", d.refino) : "") +
