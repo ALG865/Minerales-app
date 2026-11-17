@@ -27705,6 +27705,13 @@ if (document.readyState === 'loading') document.addEventListener('DOMContentLoad
   .d-elem { flex-shrink: 0; }
 }
 @media all { .d-cara .txt, .d-cara p { overflow-wrap: anywhere; hyphens: auto; } }
+/* Tarjetas que se dan la vuelta (Cifras): la tarjeta crece con su texto, también con la letra del móvil grande */
+@media all {
+  .d-carta { min-height: 0 !important; height: auto !important; }
+  .d-carta-int { display: grid !important; height: auto !important; min-height: 0 !important; }
+  .d-carta-int > .d-cara { position: relative !important; inset: auto !important; grid-area: 1 / 1; min-height: 170px; }
+}
+@media all { .d-cifras { align-items: stretch !important; } .d-carta { display: flex !important; } .d-carta-int { flex: 1 1 auto; } }
 
 </style>
 <script>if ("serviceWorker" in navigator && /github\.io$/.test(location.hostname)) navigator.serviceWorker.register("sw.js");</script>
