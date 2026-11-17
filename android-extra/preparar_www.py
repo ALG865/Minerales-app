@@ -38,8 +38,17 @@ www = aqui.parent / "www"
 for f in ["manifest.webmanifest", "icono-180.png", "icono-192.png", "icono-512.png"]:
     shutil.copy(aqui / "pwa" / f, www / f)
 (www / "sw.js").write_text((aqui / "pwa" / "sw.js").read_text(encoding="utf-8").replace("VERSION", time.strftime("%Y%m%d%H%M%S")), encoding="utf-8")
+# Botón «Descargar la app para Android»: solo en la web (no dentro de la app) y solo en aparatos Android.
+APK = "https://github.com/ALG865/Minerales-app/releases/latest/download/minerales-estrategicos.apk"
+texto_apk = "Download the Android app" if salida.endswith("_en.html") else "Descargar la app para Android"
+boton_apk = ('<script>(function(){if(window.Capacitor||!/Android/i.test(navigator.userAgent))return;'
+  'var c=document.querySelector("#home .home-content");if(!c)return;var a=document.createElement("a");'
+  'a.href="%s";a.className="boton-apk";a.textContent="%s";a.setAttribute("download","");c.appendChild(a);})();</script>\n'
+  '<style>.boton-apk{display:inline-flex;align-items:center;gap:.5em;margin:1.2rem auto 0;padding:.75em 1.4em;border-radius:999px;'
+  'background:#3ddc84;color:#0d263d;font:700 1rem Arial,sans-serif;text-decoration:none;box-shadow:0 4px 14px rgba(0,0,0,.35)}'
+  '.boton-apk::before{content:"\\2193";font-size:1.2em}</style>\n') % (APK, texto_apk)
 i = s.rindex('</body>')
-s = s[:i] + registro + s[i:]
+s = s[:i] + registro + boton_apk + s[i:]
 s = s[:i] + '<style id="ajustes-movil">\n' + css + '\n</style>\n' + s[i:]
 salida = sys.argv[2] if len(sys.argv) > 2 else "index.html"
 en = salida.endswith("_en.html")
