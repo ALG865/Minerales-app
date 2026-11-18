@@ -1052,6 +1052,40 @@ html:not([data-entrada="tactil"]) .mineral-principal-buttons .mineral-button:hov
 html:not([data-entrada="tactil"]) .boton-categorias:hover,
 .boton-categorias:focus-visible { background: #245779 !important; }
 .nota-estrategica { margin-top: 1.2em; font-style: italic; }
+
+/* Esquema geológico de los tipos de yacimiento */
+.obt-esquema { margin: 0 0 1.4rem; }
+.obt-esquema .amb-pt.atenuado { opacity: .45; }
+.obt-esquema .amb-pt { transition: opacity .3s; }
+.obt-esq-ayuda { font-family: Arial, sans-serif; text-align: center; margin: 0 0 .5rem; font-size: .95rem; opacity: .85; }
+.obt-esq-marco { background: #f4efe4; border-radius: 16px; padding: 10px; box-shadow: 0 6px 22px rgba(0,0,0,.25); }
+.obt-esq-marco svg { display: block; width: 100%; height: auto; }
+.obt-esquema .amb-pt { cursor: pointer; }
+.obt-esquema .amb-pt:hover .amb-fondo, .obt-esquema .amb-pt:focus .amb-fondo { fill: #fff3b0; }
+.obt-esquema .amb-pt:hover circle, .obt-esquema .amb-pt:focus circle { fill: #ffe766; }
+.obt-placas-btn { font-family: Arial, sans-serif !important; display: block; margin: .9rem auto 0; background: transparent; color: inherit; border: 1.5px solid currentColor; border-radius: 999px; padding: .55rem 1.2rem; font: inherit; font-size: .98rem; cursor: pointer; opacity: .9; }
+.obt-placas-btn:hover { opacity: 1; background: rgba(255,255,255,.08); }
+.obtencion-tipo.obt-destello { animation: obtDestello 1.6s ease-out; }
+@keyframes obtDestello { 0% { box-shadow: 0 0 0 4px #ffd700; } 100% { box-shadow: 0 0 0 0 rgba(255,215,0,0); } }
+.obt-placas-modal { position: fixed; inset: 0; z-index: 9000; background: rgba(8,20,34,.78); display: flex; align-items: flex-start; justify-content: center; overflow-y: auto; padding: 2rem 1rem; }
+.obt-placas-modal[hidden] { display: none; }
+.obt-placas-caja { position: relative; background: #fbf8f1; color: #1e2b38; border-radius: 18px; max-width: 1100px; width: 100%; padding: 1.4rem 1.4rem 1.6rem; text-align: left; font-family: Arial, sans-serif; }
+.obt-placas-caja h3 { margin: 0 2.4rem .4rem 0; color: #173b5c; font-size: 1.35rem; }
+.obt-placas-intro { margin: 0 0 1rem; line-height: 1.5; }
+.obt-placas-caja .obt-esq-marco { box-shadow: none; padding: 6px; }
+.obt-placas-cerrar { position: absolute; top: .6rem; right: .7rem; width: 2.4rem; height: 2.4rem; border-radius: 50%; border: none; background: #173b5c; color: #fff; font-size: 1.5rem; line-height: 1; cursor: pointer; }
+.obt-pl-ley { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr)); gap: .9rem 1.4rem; margin-top: 1.1rem; }
+.obt-pl-item { display: flex; gap: .65rem; align-items: flex-start; }
+.obt-pl-item .obtencion-num { flex: none; background: #ffd700; color: #173b5c; border: 2px solid #173b5c; }
+.obt-pl-item strong { display: block; color: #173b5c; }
+.obt-pl-item span:not(.obtencion-num) { display: block; line-height: 1.4; }
+@media (max-width: 700px) {
+  .obt-esquema .amb-nom, .obt-esquema .amb-fondo { display: none; }
+  .obt-esquema .amb-c { transform: scale(1.9); }
+  .obt-esq-marco { padding: 5px; border-radius: 12px; }
+  .obt-placas-modal { padding: 1rem .5rem; }
+  .obt-placas-caja { padding: 1rem .9rem 1.2rem; }
+}
 </style>
 
 
@@ -1963,7 +1997,7 @@ body:not(:has(#home.active)) .d-qr { display: none; }
 <main>
 <!-- NIVEL 1: PORTADA -->
 <section aria-label="Home" class="screen active" id="home">
-<nav class="idiomas" aria-label="Language / Idioma"><a class="idioma" href="exposicion_33_267.html" lang="es" hreflang="es" data-idioma="es" title="Español"><svg viewBox="0 0 750 500" aria-hidden="true"><rect width="750" height="500" fill="#c60b1e"/><rect y="125" width="750" height="250" fill="#ffc400"/></svg><span>Español</span></a><a class="idioma actual" lang="en" hreflang="en" data-idioma="en" aria-current="true" title="English"><svg viewBox="0 0 60 30" aria-hidden="true"><clipPath id="ukc"><path d="M0,0 v30 h60 v-30 z"/></clipPath><clipPath id="ukt"><path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z"/></clipPath><g clip-path="url(#ukc)"><path d="M0,0 v30 h60 v-30 z" fill="#012169"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 L60,30 M60,0 L0,30" clip-path="url(#ukt)" stroke="#C8102E" stroke-width="4"/><path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/><path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/></g></svg><span>English</span></a></nav>
+<nav class="idiomas" aria-label="Language / Idioma"><a class="idioma" href="exposicion_33_268.html" lang="es" hreflang="es" data-idioma="es" title="Español"><svg viewBox="0 0 750 500" aria-hidden="true"><rect width="750" height="500" fill="#c60b1e"/><rect y="125" width="750" height="250" fill="#ffc400"/></svg><span>Español</span></a><a class="idioma actual" lang="en" hreflang="en" data-idioma="en" aria-current="true" title="English"><svg viewBox="0 0 60 30" aria-hidden="true"><clipPath id="ukc"><path d="M0,0 v30 h60 v-30 z"/></clipPath><clipPath id="ukt"><path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z"/></clipPath><g clip-path="url(#ukc)"><path d="M0,0 v30 h60 v-30 z" fill="#012169"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 L60,30 M60,0 L0,30" clip-path="url(#ukt)" stroke="#C8102E" stroke-width="4"/><path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/><path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/></g></svg><span>English</span></a></nav>
 <script>
 // La bandera del otro idioma enlaza con el archivo hermano: exposicion_X.html <-> exposicion_X_en.html
 (function () { var f = decodeURIComponent(location.pathname.split("/").pop() || "index.html"); var en = /_en\.html$/i.test(f); var otro = en ? f.replace(/_en\.html$/i, ".html") : f.replace(/\.html$/i, "_en.html"); var a = document.querySelector("#home .idioma:not(.actual)"); if (a && /\.html$/i.test(f)) a.setAttribute("href", otro); })();
@@ -3003,6 +3037,172 @@ body:not(:has(#home.active)) .d-qr { display: none; }
 <div class="materials-content">
 <h2 id="obtencionTiposTitulo">Deposit types and extraction</h2>
 <p class="obtencion-intro" id="obtencionTiposIntro"></p>
+<div class="obt-esquema" id="obtEsquema">
+<p class="obt-esq-ayuda">Where each type of deposit forms. Tap a number to go to its description.</p>
+<div class="obt-esq-marco"><svg class="obt-esq-svg" viewBox="0 0 1044 568" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Geological block showing the twelve deposit types" font-family="Arial, sans-serif">
+<defs>
+<linearGradient id="eb-gCielo" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d3e4ef"/><stop offset="1" stop-color="#f1f5f7"/></linearGradient>
+<linearGradient id="eb-gMar" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8dbbd8"/><stop offset="1" stop-color="#4f86ad"/></linearGradient>
+<pattern id="eb-pArenisca" width="12" height="10" patternUnits="userSpaceOnUse"><rect width="12" height="10" fill="#e8d6a4"/><circle cx="3" cy="3" r=".9" fill="#a88c55"/><circle cx="9" cy="7" r=".9" fill="#a88c55"/></pattern>
+<pattern id="eb-pLutita" width="16" height="8" patternUnits="userSpaceOnUse"><rect width="16" height="8" fill="#b9ad97"/><path d="M1 4 H7 M9 4 H15" stroke="#8c806b" stroke-width="1"/></pattern>
+<pattern id="eb-pCaliza" width="24" height="12" patternUnits="userSpaceOnUse"><rect width="24" height="12" fill="#cfd6d6"/><path d="M0 0 H24 M0 6 H24 M6 0 V6 M18 6 V12" stroke="#97a3a5" stroke-width="1"/></pattern>
+<pattern id="eb-pBasamento" width="26" height="14" patternUnits="userSpaceOnUse"><rect width="26" height="14" fill="#a99a87"/><path d="M0 7 q6.5 -5 13 0 t13 0" fill="none" stroke="#8a7b69" stroke-width="1"/></pattern>
+<pattern id="eb-pGranito" width="16" height="16" patternUnits="userSpaceOnUse"><rect width="16" height="16" fill="#eab199"/><path d="M4 2 V7 M1.5 4.5 H6.5 M12 10 V15 M9.5 12.5 H14.5" stroke="#b5654a" stroke-width="1.2"/></pattern>
+<pattern id="eb-pGabro" width="14" height="12" patternUnits="userSpaceOnUse"><rect width="14" height="12" fill="#4d5b55"/><path d="M2 3 l2.5 4 l2.5 -4 M8 8 l2.5 4 l2.5 -4" fill="none" stroke="#8fa197" stroke-width="1"/></pattern>
+<pattern id="eb-pBasalto" width="10" height="10" patternUnits="userSpaceOnUse"><rect width="10" height="10" fill="#57524e"/><circle cx="3" cy="3" r="1" fill="#7a746e"/><circle cx="8" cy="7" r="1" fill="#7a746e"/></pattern>
+<pattern id="eb-pCarbonatita" width="12" height="12" patternUnits="userSpaceOnUse"><rect width="12" height="12" fill="#ecdcab"/><circle cx="4" cy="4" r="1.4" fill="#c97a35"/><circle cx="10" cy="10" r="1" fill="#8e5a2b"/></pattern>
+<pattern id="eb-pSal" width="10" height="10" patternUnits="userSpaceOnUse"><rect width="10" height="10" fill="#f7f1f1"/><rect x="2" y="2" width="4" height="4" fill="none" stroke="#d9a9ae" stroke-width=".8"/></pattern>
+<linearGradient id="eb-gLaterita" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9c3a26"/><stop offset=".55" stop-color="#cf8136"/><stop offset="1" stop-color="#ead39c"/></linearGradient>
+<linearGradient id="eb-gMagma" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#d9482a"/><stop offset="1" stop-color="#f3a03b"/></linearGradient>
+<marker id="eb-mFlecha" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 1 L9 5 L0 9z" fill="context-stroke"/></marker>
+<marker id="eb-mFlechaA" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 1 L9 5 L0 9z" fill="#1f7fa6"/></marker>
+<marker id="eb-mFlechaB" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 1 L9 5 L0 9z" fill="#fff6d8"/></marker>
+<marker id="eb-mFlechaG" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 1 L9 5 L0 9z" fill="#7d858b"/></marker>
+<clipPath id="eb-cFrente"><rect x="0" y="120" width="1000" height="440"/><rect x="428" y="0" width="182" height="121"/></clipPath></defs>
+<rect width="1044" height="568" fill="#f4efe4"/><rect width="1044" height="120" fill="url(#eb-gCielo)"/>
+<path d="M0.0 120.0 L44.0 68.0 L1044.0 68.0 L1000.0 120.0Z" fill="#93b86a"/>
+<path d="M0.0 120.0 L44.0 68.0 L209.0 68.0 L212.4 88.8 L189.2 104.4 L216.0 120.0Z" fill="#eadfbf"/>
+<path d="M0.0 120.0 L44.0 68.0 L194.0 68.0 L196.4 88.8 L173.2 104.4 L200.0 120.0Z" fill="#7fb4d8"/>
+<g stroke="#fff" stroke-width="1.6" fill="none" opacity=".6"><path d="M43 104 q6 -4 12 0 q6 4 12 0"/><path d="M111 84 q6 -4 12 0 q6 4 12 0"/><path d="M121 107 q6 -4 12 0 q6 4 12 0"/></g>
+<ellipse cx="282" cy="97" rx="48" ry="9" fill="#f3d6da" stroke="#fff" stroke-width="2.5"/>
+<path d="M350 68 Q354 76 358 77 Q350 86 341 88 Q349 96 356 98 Q349 107 341 110 Q346 118 352 120" fill="none" stroke="#5f9dca" stroke-width="6" stroke-linecap="round"/>
+<ellipse cx="678" cy="98" rx="44" ry="9" fill="#7db4d6"/>
+<path d="M720.0 120.0 L763.6 73.2 L905.6 73.2 L862.0 120.0Z" fill="#b0583a" opacity=".55"/>
+<g fill="#5f8f45"><circle cx="913" cy="104" r="4.5"/><circle cx="937" cy="94" r="4.5"/><circle cx="955" cy="102" r="4.5"/><circle cx="989" cy="86" r="4.5"/><circle cx="1005" cy="97" r="4.5"/><circle cx="267" cy="76" r="4.5"/><circle cx="425" cy="78" r="4.5"/><circle cx="637" cy="76" r="4.5"/><circle cx="740" cy="73" r="4.5"/></g>
+<ellipse cx="458" cy="98" rx="12" ry="3" fill="#cfe7ef" stroke="#e9c46a" stroke-width="2"/>
+<path d="M458 98 q-6 -14 0 -26 q6 -12 -2 -24" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" opacity=".85"/>
+<path d="M1000.0 120.0 L1044.0 68.0 L1044.0 508.0 L1000.0 560.0Z" fill="url(#eb-pBasamento)"/>
+<path d="M1000.0 120.0 L1044.0 68.0 L1044.0 108.4 L1000.0 160.4Z" fill="url(#eb-pArenisca)"/>
+<path d="M1000.0 160.4 L1044.0 108.4 L1044.0 148.4 L1000.0 200.4Z" fill="url(#eb-pLutita)"/>
+<path d="M1000.0 200.4 L1044.0 148.4 L1044.0 193.4 L1000.0 245.4Z" fill="url(#eb-pCaliza)"/>
+<path d="M1000.0 245.4 L1044.0 193.4 L1044.0 233.4 L1000.0 285.4Z" fill="url(#eb-pArenisca)"/>
+<path d="M1000.0 120.0 L1044.0 68.0 L1044.0 508.0 L1000.0 560.0Z" fill="#2a1f14" opacity=".28"/>
+<g clip-path="url(#eb-cFrente)">
+<rect y="120" width="1000" height="440" fill="url(#eb-pBasamento)"/>
+<path d="M0 120.0 L10 120.0 L20 120.0 L30 120.0 L40 120.0 L50 120.0 L60 120.0 L70 120.0 L80 120.0 L90 120.0 L100 120.0 L110 120.0 L120 120.0 L130 120.0 L140 120.0 L150 120.0 L160 120.0 L170 120.0 L180 120.0 L190 120.0 L200 120.0 L210 120.0 L220 120.0 L230 120.0 L240 120.0 L250 120.0 L260 120.0 L270 120.0 L280 120.0 L290 120.0 L300 120.0 L310 120.0 L320 120.0 L330 120.0 L340 120.0 L350 120.0 L360 120.0 L370 120.0 L380 120.0 L390 120.0 L400 120.0 L410 120.0 L420 120.0 L430 120.0 L440 120.0 L450 120.0 L460 120.0 L470 120.0 L480 120.0 L490 120.0 L500 120.0 L510 120.0 L520 120.0 L530 120.0 L540 120.0 L550 120.1 L560 120.1 L570 120.2 L580 120.4 L590 120.7 L600 121.2 L610 121.9 L620 122.9 L630 124.2 L640 126.0 L650 128.1 L660 130.6 L670 133.2 L680 135.9 L690 138.3 L700 140.3 L710 141.6 L720 142.0 L730 141.6 L740 140.3 L750 138.3 L760 135.8 L770 133.1 L780 130.3 L790 127.7 L800 125.1 L810 122.6 L820 120.1 L830 117.3 L840 114.0 L850 110.2 L860 105.7 L870 100.9 L880 95.9 L890 91.5 L900 88.1 L910 86.2 L920 86.2 L930 88.1 L940 91.4 L950 95.8 L960 100.6 L970 105.3 L980 109.5 L990 112.9 L1000 115.4 L1000 160.4 L990 157.9 L980 154.5 L970 150.3 L960 145.6 L950 140.8 L940 136.4 L930 133.1 L920 131.2 L910 131.2 L900 133.1 L890 136.5 L880 140.9 L870 145.9 L860 150.7 L850 155.2 L840 159.0 L830 162.3 L820 165.1 L810 167.6 L800 170.1 L790 172.7 L780 175.3 L770 178.1 L760 180.8 L750 183.3 L740 185.3 L730 186.6 L720 187.0 L710 186.6 L700 185.3 L690 183.3 L680 180.9 L670 178.2 L660 175.6 L650 173.1 L640 171.0 L630 169.2 L620 167.9 L610 166.9 L600 166.2 L590 165.7 L580 165.4 L570 165.2 L560 165.1 L550 165.1 L540 165.0 L530 165.0 L520 165.0 L510 165.0 L500 165.0 L490 165.0 L480 165.0 L470 165.0 L460 165.0 L450 165.0 L440 165.0 L430 165.0 L420 165.0 L410 165.0 L400 165.0 L390 165.0 L380 165.0 L370 165.0 L360 165.0 L350 165.0 L340 165.0 L330 165.0 L320 165.0 L310 165.0 L300 165.0 L290 165.0 L280 165.0 L270 165.0 L260 165.0 L250 165.0 L240 165.0 L230 165.0 L220 165.0 L210 165.0 L200 165.0 L190 165.0 L180 165.0 L170 165.0 L160 165.0 L150 165.0 L140 165.0 L130 165.0 L120 165.0 L110 165.0 L100 165.0 L90 165.0 L80 165.0 L70 165.0 L60 165.0 L50 165.0 L40 165.0 L30 165.0 L20 165.0 L10 165.0 L0 165.0Z" fill="url(#eb-pArenisca)"/>
+<path d="M0 165.0 L10 165.0 L20 165.0 L30 165.0 L40 165.0 L50 165.0 L60 165.0 L70 165.0 L80 165.0 L90 165.0 L100 165.0 L110 165.0 L120 165.0 L130 165.0 L140 165.0 L150 165.0 L160 165.0 L170 165.0 L180 165.0 L190 165.0 L200 165.0 L210 165.0 L220 165.0 L230 165.0 L240 165.0 L250 165.0 L260 165.0 L270 165.0 L280 165.0 L290 165.0 L300 165.0 L310 165.0 L320 165.0 L330 165.0 L340 165.0 L350 165.0 L360 165.0 L370 165.0 L380 165.0 L390 165.0 L400 165.0 L410 165.0 L420 165.0 L430 165.0 L440 165.0 L450 165.0 L460 165.0 L470 165.0 L480 165.0 L490 165.0 L500 165.0 L510 165.0 L520 165.0 L530 165.0 L540 165.0 L550 165.1 L560 165.1 L570 165.2 L580 165.4 L590 165.7 L600 166.2 L610 166.9 L620 167.9 L630 169.2 L640 171.0 L650 173.1 L660 175.6 L670 178.2 L680 180.9 L690 183.3 L700 185.3 L710 186.6 L720 187.0 L730 186.6 L740 185.3 L750 183.3 L760 180.8 L770 178.1 L780 175.3 L790 172.7 L800 170.1 L810 167.6 L820 165.1 L830 162.3 L840 159.0 L850 155.2 L860 150.7 L870 145.9 L880 140.9 L890 136.5 L900 133.1 L910 131.2 L920 131.2 L930 133.1 L940 136.4 L950 140.8 L960 145.6 L970 150.3 L980 154.5 L990 157.9 L1000 160.4 L1000 200.4 L990 197.9 L980 194.5 L970 190.3 L960 185.6 L950 180.8 L940 176.4 L930 173.1 L920 171.2 L910 171.2 L900 173.1 L890 176.5 L880 180.9 L870 185.9 L860 190.7 L850 195.2 L840 199.0 L830 202.3 L820 205.1 L810 207.6 L800 210.1 L790 212.7 L780 215.3 L770 218.1 L760 220.8 L750 223.3 L740 225.3 L730 226.6 L720 227.0 L710 226.6 L700 225.3 L690 223.3 L680 220.9 L670 218.2 L660 215.6 L650 213.1 L640 211.0 L630 209.2 L620 207.9 L610 206.9 L600 206.2 L590 205.7 L580 205.4 L570 205.2 L560 205.1 L550 205.1 L540 205.0 L530 205.0 L520 205.0 L510 205.0 L500 205.0 L490 205.0 L480 205.0 L470 205.0 L460 205.0 L450 205.0 L440 205.0 L430 205.0 L420 205.0 L410 205.0 L400 205.0 L390 205.0 L380 205.0 L370 205.0 L360 205.0 L350 205.0 L340 205.0 L330 205.0 L320 205.0 L310 205.0 L300 205.0 L290 205.0 L280 205.0 L270 205.0 L260 205.0 L250 205.0 L240 205.0 L230 205.0 L220 205.0 L210 205.0 L200 205.0 L190 205.0 L180 205.0 L170 205.0 L160 205.0 L150 205.0 L140 205.0 L130 205.0 L120 205.0 L110 205.0 L100 205.0 L90 205.0 L80 205.0 L70 205.0 L60 205.0 L50 205.0 L40 205.0 L30 205.0 L20 205.0 L10 205.0 L0 205.0Z" fill="url(#eb-pLutita)"/>
+<path d="M0 205.0 L10 205.0 L20 205.0 L30 205.0 L40 205.0 L50 205.0 L60 205.0 L70 205.0 L80 205.0 L90 205.0 L100 205.0 L110 205.0 L120 205.0 L130 205.0 L140 205.0 L150 205.0 L160 205.0 L170 205.0 L180 205.0 L190 205.0 L200 205.0 L210 205.0 L220 205.0 L230 205.0 L240 205.0 L250 205.0 L260 205.0 L270 205.0 L280 205.0 L290 205.0 L300 205.0 L310 205.0 L320 205.0 L330 205.0 L340 205.0 L350 205.0 L360 205.0 L370 205.0 L380 205.0 L390 205.0 L400 205.0 L410 205.0 L420 205.0 L430 205.0 L440 205.0 L450 205.0 L460 205.0 L470 205.0 L480 205.0 L490 205.0 L500 205.0 L510 205.0 L520 205.0 L530 205.0 L540 205.0 L550 205.1 L560 205.1 L570 205.2 L580 205.4 L590 205.7 L600 206.2 L610 206.9 L620 207.9 L630 209.2 L640 211.0 L650 213.1 L660 215.6 L670 218.2 L680 220.9 L690 223.3 L700 225.3 L710 226.6 L720 227.0 L730 226.6 L740 225.3 L750 223.3 L760 220.8 L770 218.1 L780 215.3 L790 212.7 L800 210.1 L810 207.6 L820 205.1 L830 202.3 L840 199.0 L850 195.2 L860 190.7 L870 185.9 L880 180.9 L890 176.5 L900 173.1 L910 171.2 L920 171.2 L930 173.1 L940 176.4 L950 180.8 L960 185.6 L970 190.3 L980 194.5 L990 197.9 L1000 200.4 L1000 245.4 L990 242.9 L980 239.5 L970 235.3 L960 230.6 L950 225.8 L940 221.4 L930 218.1 L920 216.2 L910 216.2 L900 218.1 L890 221.5 L880 225.9 L870 230.9 L860 235.7 L850 240.2 L840 244.0 L830 247.3 L820 250.1 L810 252.6 L800 255.1 L790 257.7 L780 260.3 L770 263.1 L760 265.8 L750 268.3 L740 270.3 L730 271.6 L720 272.0 L710 271.6 L700 270.3 L690 268.3 L680 265.9 L670 263.2 L660 260.6 L650 258.1 L640 256.0 L630 254.2 L620 252.9 L610 251.9 L600 251.2 L590 250.7 L580 250.4 L570 250.2 L560 250.1 L550 250.1 L540 250.0 L530 250.0 L520 250.0 L510 250.0 L500 250.0 L490 250.0 L480 250.0 L470 250.0 L460 250.0 L450 250.0 L440 250.0 L430 250.0 L420 250.0 L410 250.0 L400 250.0 L390 250.0 L380 250.0 L370 250.0 L360 250.0 L350 250.0 L340 250.0 L330 250.0 L320 250.0 L310 250.0 L300 250.0 L290 250.0 L280 250.0 L270 250.0 L260 250.0 L250 250.0 L240 250.0 L230 250.0 L220 250.0 L210 250.0 L200 250.0 L190 250.0 L180 250.0 L170 250.0 L160 250.0 L150 250.0 L140 250.0 L130 250.0 L120 250.0 L110 250.0 L100 250.0 L90 250.0 L80 250.0 L70 250.0 L60 250.0 L50 250.0 L40 250.0 L30 250.0 L20 250.0 L10 250.0 L0 250.0Z" fill="url(#eb-pCaliza)"/>
+<path d="M0 250.0 L10 250.0 L20 250.0 L30 250.0 L40 250.0 L50 250.0 L60 250.0 L70 250.0 L80 250.0 L90 250.0 L100 250.0 L110 250.0 L120 250.0 L130 250.0 L140 250.0 L150 250.0 L160 250.0 L170 250.0 L180 250.0 L190 250.0 L200 250.0 L210 250.0 L220 250.0 L230 250.0 L240 250.0 L250 250.0 L260 250.0 L270 250.0 L280 250.0 L290 250.0 L300 250.0 L310 250.0 L320 250.0 L330 250.0 L340 250.0 L350 250.0 L360 250.0 L370 250.0 L380 250.0 L390 250.0 L400 250.0 L410 250.0 L420 250.0 L430 250.0 L440 250.0 L450 250.0 L460 250.0 L470 250.0 L480 250.0 L490 250.0 L500 250.0 L510 250.0 L520 250.0 L530 250.0 L540 250.0 L550 250.1 L560 250.1 L570 250.2 L580 250.4 L590 250.7 L600 251.2 L610 251.9 L620 252.9 L630 254.2 L640 256.0 L650 258.1 L660 260.6 L670 263.2 L680 265.9 L690 268.3 L700 270.3 L710 271.6 L720 272.0 L730 271.6 L740 270.3 L750 268.3 L760 265.8 L770 263.1 L780 260.3 L790 257.7 L800 255.1 L810 252.6 L820 250.1 L830 247.3 L840 244.0 L850 240.2 L860 235.7 L870 230.9 L880 225.9 L890 221.5 L900 218.1 L910 216.2 L920 216.2 L930 218.1 L940 221.4 L950 225.8 L960 230.6 L970 235.3 L980 239.5 L990 242.9 L1000 245.4 L1000 285.4 L990 282.9 L980 279.5 L970 275.3 L960 270.6 L950 265.8 L940 261.4 L930 258.1 L920 256.2 L910 256.2 L900 258.1 L890 261.5 L880 265.9 L870 270.9 L860 275.7 L850 280.2 L840 284.0 L830 287.3 L820 290.1 L810 292.6 L800 295.1 L790 297.7 L780 300.3 L770 303.1 L760 305.8 L750 308.3 L740 310.3 L730 311.6 L720 312.0 L710 311.6 L700 310.3 L690 308.3 L680 305.9 L670 303.2 L660 300.6 L650 298.1 L640 296.0 L630 294.2 L620 292.9 L610 291.9 L600 291.2 L590 290.7 L580 290.4 L570 290.2 L560 290.1 L550 290.1 L540 290.0 L530 290.0 L520 290.0 L510 290.0 L500 290.0 L490 290.0 L480 290.0 L470 290.0 L460 290.0 L450 290.0 L440 290.0 L430 290.0 L420 290.0 L410 290.0 L400 290.0 L390 290.0 L380 290.0 L370 290.0 L360 290.0 L350 290.0 L340 290.0 L330 290.0 L320 290.0 L310 290.0 L300 290.0 L290 290.0 L280 290.0 L270 290.0 L260 290.0 L250 290.0 L240 290.0 L230 290.0 L220 290.0 L210 290.0 L200 290.0 L190 290.0 L180 290.0 L170 290.0 L160 290.0 L150 290.0 L140 290.0 L130 290.0 L120 290.0 L110 290.0 L100 290.0 L90 290.0 L80 290.0 L70 290.0 L60 290.0 L50 290.0 L40 290.0 L30 290.0 L20 290.0 L10 290.0 L0 290.0Z" fill="url(#eb-pArenisca)"/>
+<path d="M0 165.0 L10 165.0 L20 165.0 L30 165.0 L40 165.0 L50 165.0 L60 165.0 L70 165.0 L80 165.0 L90 165.0 L100 165.0 L110 165.0 L120 165.0 L130 165.0 L140 165.0 L150 165.0 L160 165.0 L170 165.0 L180 165.0 L190 165.0 L200 165.0 L210 165.0 L220 165.0 L230 165.0 L240 165.0 L250 165.0 L260 165.0 L270 165.0 L280 165.0 L290 165.0 L300 165.0 L310 165.0 L320 165.0 L330 165.0 L340 165.0 L350 165.0 L360 165.0 L370 165.0 L380 165.0 L390 165.0 L400 165.0 L410 165.0 L420 165.0 L430 165.0 L440 165.0 L450 165.0 L460 165.0 L470 165.0 L480 165.0 L490 165.0 L500 165.0 L510 165.0 L520 165.0 L530 165.0 L540 165.0 L550 165.1 L560 165.1 L570 165.2 L580 165.4 L590 165.7 L600 166.2 L610 166.9 L620 167.9 L630 169.2 L640 171.0 L650 173.1 L660 175.6 L670 178.2 L680 180.9 L690 183.3 L700 185.3 L710 186.6 L720 187.0 L730 186.6 L740 185.3 L750 183.3 L760 180.8 L770 178.1 L780 175.3 L790 172.7 L800 170.1 L810 167.6 L820 165.1 L830 162.3 L840 159.0 L850 155.2 L860 150.7 L870 145.9 L880 140.9 L890 136.5 L900 133.1 L910 131.2 L920 131.2 L930 133.1 L940 136.4 L950 140.8 L960 145.6 L970 150.3 L980 154.5 L990 157.9 L1000 160.4" fill="none" stroke="#6e604c" stroke-width="1.1"/>
+<path d="M0 205.0 L10 205.0 L20 205.0 L30 205.0 L40 205.0 L50 205.0 L60 205.0 L70 205.0 L80 205.0 L90 205.0 L100 205.0 L110 205.0 L120 205.0 L130 205.0 L140 205.0 L150 205.0 L160 205.0 L170 205.0 L180 205.0 L190 205.0 L200 205.0 L210 205.0 L220 205.0 L230 205.0 L240 205.0 L250 205.0 L260 205.0 L270 205.0 L280 205.0 L290 205.0 L300 205.0 L310 205.0 L320 205.0 L330 205.0 L340 205.0 L350 205.0 L360 205.0 L370 205.0 L380 205.0 L390 205.0 L400 205.0 L410 205.0 L420 205.0 L430 205.0 L440 205.0 L450 205.0 L460 205.0 L470 205.0 L480 205.0 L490 205.0 L500 205.0 L510 205.0 L520 205.0 L530 205.0 L540 205.0 L550 205.1 L560 205.1 L570 205.2 L580 205.4 L590 205.7 L600 206.2 L610 206.9 L620 207.9 L630 209.2 L640 211.0 L650 213.1 L660 215.6 L670 218.2 L680 220.9 L690 223.3 L700 225.3 L710 226.6 L720 227.0 L730 226.6 L740 225.3 L750 223.3 L760 220.8 L770 218.1 L780 215.3 L790 212.7 L800 210.1 L810 207.6 L820 205.1 L830 202.3 L840 199.0 L850 195.2 L860 190.7 L870 185.9 L880 180.9 L890 176.5 L900 173.1 L910 171.2 L920 171.2 L930 173.1 L940 176.4 L950 180.8 L960 185.6 L970 190.3 L980 194.5 L990 197.9 L1000 200.4" fill="none" stroke="#6e604c" stroke-width="1.1"/>
+<path d="M0 250.0 L10 250.0 L20 250.0 L30 250.0 L40 250.0 L50 250.0 L60 250.0 L70 250.0 L80 250.0 L90 250.0 L100 250.0 L110 250.0 L120 250.0 L130 250.0 L140 250.0 L150 250.0 L160 250.0 L170 250.0 L180 250.0 L190 250.0 L200 250.0 L210 250.0 L220 250.0 L230 250.0 L240 250.0 L250 250.0 L260 250.0 L270 250.0 L280 250.0 L290 250.0 L300 250.0 L310 250.0 L320 250.0 L330 250.0 L340 250.0 L350 250.0 L360 250.0 L370 250.0 L380 250.0 L390 250.0 L400 250.0 L410 250.0 L420 250.0 L430 250.0 L440 250.0 L450 250.0 L460 250.0 L470 250.0 L480 250.0 L490 250.0 L500 250.0 L510 250.0 L520 250.0 L530 250.0 L540 250.0 L550 250.1 L560 250.1 L570 250.2 L580 250.4 L590 250.7 L600 251.2 L610 251.9 L620 252.9 L630 254.2 L640 256.0 L650 258.1 L660 260.6 L670 263.2 L680 265.9 L690 268.3 L700 270.3 L710 271.6 L720 272.0 L730 271.6 L740 270.3 L750 268.3 L760 265.8 L770 263.1 L780 260.3 L790 257.7 L800 255.1 L810 252.6 L820 250.1 L830 247.3 L840 244.0 L850 240.2 L860 235.7 L870 230.9 L880 225.9 L890 221.5 L900 218.1 L910 216.2 L920 216.2 L930 218.1 L940 221.4 L950 225.8 L960 230.6 L970 235.3 L980 239.5 L990 242.9 L1000 245.4" fill="none" stroke="#6e604c" stroke-width="1.1"/>
+<path d="M0 290.0 L10 290.0 L20 290.0 L30 290.0 L40 290.0 L50 290.0 L60 290.0 L70 290.0 L80 290.0 L90 290.0 L100 290.0 L110 290.0 L120 290.0 L130 290.0 L140 290.0 L150 290.0 L160 290.0 L170 290.0 L180 290.0 L190 290.0 L200 290.0 L210 290.0 L220 290.0 L230 290.0 L240 290.0 L250 290.0 L260 290.0 L270 290.0 L280 290.0 L290 290.0 L300 290.0 L310 290.0 L320 290.0 L330 290.0 L340 290.0 L350 290.0 L360 290.0 L370 290.0 L380 290.0 L390 290.0 L400 290.0 L410 290.0 L420 290.0 L430 290.0 L440 290.0 L450 290.0 L460 290.0 L470 290.0 L480 290.0 L490 290.0 L500 290.0 L510 290.0 L520 290.0 L530 290.0 L540 290.0 L550 290.1 L560 290.1 L570 290.2 L580 290.4 L590 290.7 L600 291.2 L610 291.9 L620 292.9 L630 294.2 L640 296.0 L650 298.1 L660 300.6 L670 303.2 L680 305.9 L690 308.3 L700 310.3 L710 311.6 L720 312.0 L730 311.6 L740 310.3 L750 308.3 L760 305.8 L770 303.1 L780 300.3 L790 297.7 L800 295.1 L810 292.6 L820 290.1 L830 287.3 L840 284.0 L850 280.2 L860 275.7 L870 270.9 L880 265.9 L890 261.5 L900 258.1 L910 256.2 L920 256.2 L930 258.1 L940 261.4 L950 265.8 L960 270.6 L970 275.3 L980 279.5 L990 282.9 L1000 285.4" fill="none" stroke="#6e604c" stroke-width="1.1"/>
+<path d="M700 330 q25 -26 50 0 t50 0 t50 0 t50 0 t50 0 t50 0" fill="none" stroke="#8d8676" stroke-width="5" opacity=".75"/>
+<path d="M700 360 q25 -26 50 0 t50 0 t50 0 t50 0 t50 0 t50 0" fill="none" stroke="#6f6457" stroke-width="5" opacity=".75"/>
+<path d="M700 390 q25 -26 50 0 t50 0 t50 0 t50 0 t50 0 t50 0" fill="none" stroke="#8d8676" stroke-width="5" opacity=".75"/>
+<path d="M700 420 q25 -26 50 0 t50 0 t50 0 t50 0 t50 0 t50 0" fill="none" stroke="#6f6457" stroke-width="5" opacity=".75"/>
+<path d="M700 450 q25 -26 50 0 t50 0 t50 0 t50 0 t50 0 t50 0" fill="none" stroke="#8d8676" stroke-width="5" opacity=".75"/>
+<path d="M700 480 q25 -26 50 0 t50 0 t50 0 t50 0 t50 0 t50 0" fill="none" stroke="#6f6457" stroke-width="5" opacity=".75"/>
+<g fill="#9c2236"><circle cx="736" cy="346" r="3.2"/><circle cx="812" cy="384" r="3.2"/><circle cx="888" cy="352" r="3.2"/><circle cx="764" cy="440" r="3.2"/><circle cx="930" cy="470" r="3.2"/><circle cx="842" cy="500" r="3.2"/></g>
+<path d="M20 560 Q30 430 150 410 Q262 410 286 560 Z" fill="url(#eb-pGabro)" stroke="#2a332f" stroke-width="1.2"/>
+<g fill="none" stroke-linecap="round"><path d="M50 478 Q150 450 262 478" stroke="#14191a" stroke-width="5"/><path d="M42 505 Q150 478 272 505" stroke="#7e9446" stroke-width="4"/><path d="M36 530 Q150 504 278 530" stroke="#14191a" stroke-width="5"/></g>
+<path d="M306 560 Q308 430 320 340 Q328 312 342 312 Q354 340 356 430 Q358 500 360 560 Z" fill="url(#eb-pCarbonatita)" stroke="#8e5a2b" stroke-width="1.2"/>
+<path d="M372 560 Q376 420 418 330 Q452 244 520 226 Q596 236 636 318 Q672 410 676 560 Z" fill="none" stroke="#f1e6d6" stroke-width="18" opacity=".55"/>
+<path d="M372 560 Q376 420 418 330 Q452 244 520 226 Q596 236 636 318 Q672 410 676 560 Z" fill="url(#eb-pGranito)" stroke="#8b4a35" stroke-width="1.4"/>
+<path d="M566 231 Q590 238 604 250 L596 256 Q584 246 560 240 Z" fill="#6f8a4a" stroke="#4d6332" stroke-width="1"/>
+<path d="M446 262 Q458 246 478 236 L484 246 Q466 254 456 268Z" fill="#6f8a4a" stroke="#4d6332" stroke-width="1"/>
+<g stroke="#8b5a46" stroke-width="1"><path d="M560 286 L590 246 L600 252 L570 292Z" fill="#f6e2d2"/><path d="M500 296 L488 258 L498 254 L510 292Z" fill="#f6e2d2"/></g>
+<g><path d="M574 272 l5 -7 l5 3 l-5 7z" fill="#2f6b8a"/><path d="M584 258 l4 -6 l4 3 l-4 6z" fill="#7b4b8f"/><path d="M494 274 l4 -6 l4 3 l-4 6z" fill="#2f6b8a"/></g>
+<path d="M392 122 L356 330" stroke="#3b2f25" stroke-width="2.2" stroke-dasharray="8 4" fill="none"/>
+<g stroke="#d6a21e" stroke-width="2.6" fill="none" stroke-linecap="round"><path d="M388 150 L374 228 L366 300"/><path d="M470 234 L456 184"/><path d="M488 228 L484 180 L494 146"/><path d="M452 204 L498 194"/><path d="M460 220 L502 212"/><path d="M548 230 L562 180"/></g>
+<g fill="#d6a21e"><circle cx="470" cy="204" r="2.2"/><circle cx="486" cy="216" r="2.2"/><circle cx="462" cy="190" r="2.2"/><circle cx="478" cy="196" r="2.2"/></g>
+<path d="M512 228 Q508 180 514 124 L522 124 Q520 180 526 228Z" fill="url(#eb-gMagma)"/>
+<path d="M436 126 L500 52 Q518 40 536 52 L602 126Z" fill="url(#eb-pBasalto)" stroke="#33302d" stroke-width="1.2"/>
+<g fill="none" stroke="#2c2a28" stroke-width="1.2" opacity=".8"><path d="M452 108 L506 66 L532 66 L586 108"/><path d="M468 92 L510 74 L528 74 L570 92"/></g>
+<g><ellipse cx="482" cy="112" rx="8" ry="5.5" fill="#8a5fb5" stroke="#e5ddee" stroke-width="2"/><ellipse cx="552" cy="114" rx="7" ry="5" fill="#8a5fb5" stroke="#e5ddee" stroke-width="2"/><ellipse cx="520" cy="98" rx="5.5" ry="4" fill="#9ccbd6" stroke="#eef3f5" stroke-width="2"/></g>
+<path d="M516 50 q-10 -16 4 -26 q-6 -10 8 -12" fill="none" stroke="#b3bcc3" stroke-width="5" stroke-linecap="round" opacity=".7"/>
+<path d="M0 120 H200 Q168 150 136 172 L0 178 Z" fill="url(#eb-gMar)"/>
+<path d="M0 178 L136 172 Q168 150 200 120 L208 120 Q176 162 140 186 L0 194 Z" fill="#eee7d4" stroke="#b6a985" stroke-width="1"/>
+<g fill="#5e4e3c"><ellipse cx="30" cy="186" rx="3" ry="1.6"/><ellipse cx="62" cy="185" rx="3" ry="1.6"/><ellipse cx="96" cy="182" rx="3" ry="1.6"/><ellipse cx="120" cy="180" rx="3" ry="1.6"/></g>
+<path d="M34 148 q8 -6 16 0 q8 6 16 0" stroke="#fff" stroke-width="2" fill="none" opacity=".7"/>
+<path d="M218 120 Q262 136 306 120 Z" fill="#ecc4cb"/>
+<path d="M214 128 Q262 150 310 128 L310 150 Q262 170 214 150Z" fill="url(#eb-pSal)" stroke="#c9989e" stroke-width="1"/>
+<path d="M322 120 Q352 142 382 120Z" fill="#5f9dca"/><path d="M322 120 Q352 146 382 120 Q352 138 322 120Z" fill="#9c8b72"/>
+<g fill="#f2c230" stroke="#94700f" stroke-width=".6"><circle cx="342" cy="133" r="2.3"/><circle cx="354" cy="136" r="2"/><circle cx="364" cy="132" r="2.1"/></g>
+<path d="M614 120 Q660 134 706 120Z" fill="#7db4d6"/>
+<g><path d="M610 132 Q660 146 710 132 L710 137 Q660 151 610 137Z" fill="#f2ede6"/><path d="M610 137 Q660 151 710 137 L710 142 Q660 156 610 142Z" fill="#cbbcdc"/><path d="M610 142 Q660 156 710 142 L710 148 Q660 162 610 148Z" fill="#f2ede6"/></g>
+<path d="M720 120 Q752 84 790 92 Q830 82 862 120Z" fill="#79a35b"/>
+<path d="M720 120 Q752 94 790 100 Q830 92 862 120 L862 158 Q790 150 720 158Z" fill="url(#eb-gLaterita)"/>
+<path d="M800 191.1 L810 188.6 L820 186.1 L830 183.3 L840 180.0 L850 176.2 L860 171.7 L870 166.9 L880 161.9 L890 157.5 L900 154.1 L910 152.2 L920 152.2 L930 154.1 L940 157.4 L950 161.8 L960 166.6 L970 171.3 L980 175.5 L990 178.9 L1000 181.4" fill="none" stroke="#1c1a18" stroke-width="6"/>
+<path d="M872 266 Q915 222 958 266 Q915 248 872 266Z" fill="#2c2622"/>
+<path d="M890 252 Q915 230 940 252 Q915 244 890 252Z" fill="#e2e6ea" opacity=".85"/>
+<path d="M50 184 Q62 176 76 183 Z" fill="#6b4a2b"/>
+<path d="M58 182 L61 160 L67 160 L70 182Z" fill="#3a2a1e" stroke="#c9a03a" stroke-width=".8"/>
+<g fill="#c9a03a"><circle cx="60" cy="178" r="1.2"/><circle cx="68" cy="172" r="1.1"/><circle cx="64" cy="166" r="1"/></g>
+<path d="M64 160 q-7 -8 0 -14 q8 -6 1 -13 q-6 -6 3 -10" fill="none" stroke="#1d1b1a" stroke-width="5" stroke-linecap="round" opacity=".75"/>
+<path d="M64 160 q-7 -8 0 -14 q8 -6 1 -13" fill="none" stroke="#1d1b1a" stroke-width="8" stroke-linecap="round" opacity=".25"/>
+<path d="M519 222 L519 138" stroke="#fff6d8" stroke-width="1.6" fill="none" marker-end="url(#eb-mFlechaB)"/>
+<g stroke="#1f7fa6" stroke-width="1.7" stroke-dasharray="4 3" fill="none" marker-end="url(#eb-mFlechaA)"><path d="M498 240 Q490 222 478 206"/><path d="M540 236 Q550 218 556 196"/><path d="M432 290 Q404 262 384 236"/></g>
+<g stroke="#79a35b" stroke-width="4"><path d="M208 120 H218"/><path d="M306 120 H322"/><path d="M382 120 H436"/><path d="M602 120 H614"/><path d="M706 120 H720"/><path d="M862 120 H1000"/></g>
+<path d="M0 120 H1000" stroke="#5c4c3a" stroke-width=".8" opacity=".4"/>
+<g font-size="12.5" font-weight="700" letter-spacing=".05em" stroke="#f4efe4" stroke-width="3.5" paint-order="stroke" stroke-linejoin="round"><text x="16" y="216" fill="#4a3b2c">SEDIMENTARY</text><text x="16" y="232" fill="#4a3b2c">AND SURFACE</text><text x="470" y="470" fill="#7a2f17">MAGMATIC</text><text x="820" y="545" fill="#3f3a33">METAMORPHIC</text><text x="420" y="236" fill="#7a5a10">HYDROTHERMAL</text></g>
+</g><path d="M0.0 120.0 L44.0 68.0 L1044.0 68.0 L1044 68 L1044 508 L1000 560" fill="none" stroke="#4a3b2c" stroke-width="1.4"/><path d="M0 120 H1000 V560" fill="none" stroke="#4a3b2c" stroke-width="1.4"/><path d="M546 34 Q630 22 668 88" stroke="#7d858b" stroke-width="1.6" stroke-dasharray="5 4" fill="none" marker-end="url(#eb-mFlechaG)"/><g fill="#9aa1a6" opacity=".7"><circle cx="600" cy="34" r="1.4"/><circle cx="622" cy="44" r="1.4"/><circle cx="640" cy="58" r="1.4"/><circle cx="626" cy="64" r="1.4"/><circle cx="652" cy="72" r="1.4"/><circle cx="640" cy="80" r="1.4"/></g>
+<g class="amb-pt" data-tipo="0" transform="translate(40 452)" style="cursor:pointer"><rect class="amb-fondo" x="-13" y="-12" width="179" height="24" rx="12" fill="#fffdf6" stroke="#173b5c" stroke-width="1.6" opacity=".95"/><text class="amb-nom" x="17" dy="4.2" font-size="11.5" font-weight="700" fill="#173b5c">Mafic and ultramafic</text><g class="amb-c"><circle r="12" fill="#ffd700" stroke="#173b5c" stroke-width="2"/><text text-anchor="middle" dy="4.5" font-weight="700" font-size="13" fill="#173b5c">1</text></g></g><g class="amb-pt" data-tipo="1" transform="translate(292 400)" style="cursor:pointer"><rect class="amb-fondo" x="-13" y="-12" width="112" height="24" rx="12" fill="#fffdf6" stroke="#173b5c" stroke-width="1.6" opacity=".95"/><text class="amb-nom" x="17" dy="4.2" font-size="11.5" font-weight="700" fill="#173b5c">Carbonatites</text><g class="amb-c"><circle r="12" fill="#ffd700" stroke="#173b5c" stroke-width="2"/><text text-anchor="middle" dy="4.5" font-weight="700" font-size="13" fill="#173b5c">2</text></g></g><g class="amb-pt" data-tipo="2" transform="translate(598 288)" style="cursor:pointer"><rect class="amb-fondo" x="-13" y="-12" width="99" height="24" rx="12" fill="#fffdf6" stroke="#173b5c" stroke-width="1.6" opacity=".95"/><text class="amb-nom" x="17" dy="4.2" font-size="11.5" font-weight="700" fill="#173b5c">Pegmatites</text><g class="amb-c"><circle r="12" fill="#ffd700" stroke="#173b5c" stroke-width="2"/><text text-anchor="middle" dy="4.5" font-weight="700" font-size="13" fill="#173b5c">3</text></g></g><g class="amb-pt" data-tipo="3" transform="translate(396 190)" style="cursor:pointer"><rect class="amb-fondo" x="-13" y="-12" width="206" height="24" rx="12" fill="#fffdf6" stroke="#173b5c" stroke-width="1.6" opacity=".95"/><text class="amb-nom" x="17" dy="4.2" font-size="11.5" font-weight="700" fill="#173b5c">Veins, porphyries and skarns</text><g class="amb-c"><circle r="12" fill="#ffd700" stroke="#173b5c" stroke-width="2"/><text text-anchor="middle" dy="4.5" font-weight="700" font-size="13" fill="#173b5c">4</text></g></g><g class="amb-pt" data-tipo="4" transform="translate(448 92)" style="cursor:pointer"><rect class="amb-fondo" x="-13" y="-12" width="139" height="24" rx="12" fill="#fffdf6" stroke="#173b5c" stroke-width="1.6" opacity=".95"/><text class="amb-nom" x="17" dy="4.2" font-size="11.5" font-weight="700" fill="#173b5c">Volcanic rocks</text><g class="amb-c"><circle r="12" fill="#ffd700" stroke="#173b5c" stroke-width="2"/><text text-anchor="middle" dy="4.5" font-weight="700" font-size="13" fill="#173b5c">5</text></g></g><g class="amb-pt" data-tipo="5" transform="translate(800 420)" style="cursor:pointer"><rect class="amb-fondo" x="-13" y="-12" width="112" height="24" rx="12" fill="#fffdf6" stroke="#173b5c" stroke-width="1.6" opacity=".95"/><text class="amb-nom" x="17" dy="4.2" font-size="11.5" font-weight="700" fill="#173b5c">Metamorphic</text><g class="amb-c"><circle r="12" fill="#ffd700" stroke="#173b5c" stroke-width="2"/><text text-anchor="middle" dy="4.5" font-weight="700" font-size="13" fill="#173b5c">6</text></g></g><g class="amb-pt" data-tipo="6" transform="translate(214 150)" style="cursor:pointer"><rect class="amb-fondo" x="-13" y="-12" width="99" height="24" rx="12" fill="#fffdf6" stroke="#173b5c" stroke-width="1.6" opacity=".95"/><text class="amb-nom" x="17" dy="4.2" font-size="11.5" font-weight="700" fill="#173b5c">Evaporites</text><g class="amb-c"><circle r="12" fill="#ffd700" stroke="#173b5c" stroke-width="2"/><text text-anchor="middle" dy="4.5" font-weight="700" font-size="13" fill="#173b5c">7</text></g></g><g class="amb-pt" data-tipo="7" transform="translate(22 100)" style="cursor:pointer"><rect class="amb-fondo" x="-13" y="-12" width="173" height="24" rx="12" fill="#fffdf6" stroke="#173b5c" stroke-width="1.6" opacity=".95"/><text class="amb-nom" x="17" dy="4.2" font-size="11.5" font-weight="700" fill="#173b5c">Chemical precipitates</text><g class="amb-c"><circle r="12" fill="#ffd700" stroke="#173b5c" stroke-width="2"/><text text-anchor="middle" dy="4.5" font-weight="700" font-size="13" fill="#173b5c">8</text></g></g><g class="amb-pt" data-tipo="8" transform="translate(330 140)" style="cursor:pointer"><rect class="amb-fondo" x="-13" y="-12" width="86" height="24" rx="12" fill="#fffdf6" stroke="#173b5c" stroke-width="1.6" opacity=".95"/><text class="amb-nom" x="17" dy="4.2" font-size="11.5" font-weight="700" fill="#173b5c">Placers</text><g class="amb-c"><circle r="12" fill="#ffd700" stroke="#173b5c" stroke-width="2"/><text text-anchor="middle" dy="4.5" font-weight="700" font-size="13" fill="#173b5c">9</text></g></g><g class="amb-pt" data-tipo="9" transform="translate(736 104)" style="cursor:pointer"><rect class="amb-fondo" x="-13" y="-12" width="166" height="24" rx="12" fill="#fffdf6" stroke="#173b5c" stroke-width="1.6" opacity=".95"/><text class="amb-nom" x="17" dy="4.2" font-size="11.5" font-weight="700" fill="#173b5c">Laterites and bauxites</text><g class="amb-c"><circle r="12" fill="#ffd700" stroke="#173b5c" stroke-width="2"/><text text-anchor="middle" dy="4.5" font-weight="700" font-size="13" fill="#173b5c">10</text></g></g><g class="amb-pt" data-tipo="10" transform="translate(612 146)" style="cursor:pointer"><rect class="amb-fondo" x="-13" y="-12" width="132" height="24" rx="12" fill="#fffdf6" stroke="#173b5c" stroke-width="1.6" opacity=".95"/><text class="amb-nom" x="17" dy="4.2" font-size="11.5" font-weight="700" fill="#173b5c">Lakes and ash</text><g class="amb-c"><circle r="12" fill="#ffd700" stroke="#173b5c" stroke-width="2"/><text text-anchor="middle" dy="4.5" font-weight="700" font-size="13" fill="#173b5c">11</text></g></g><g class="amb-pt" data-tipo="11" transform="translate(868 216)" style="cursor:pointer"><rect class="amb-fondo" x="-13" y="-12" width="179" height="24" rx="12" fill="#fffdf6" stroke="#173b5c" stroke-width="1.6" opacity=".95"/><text class="amb-nom" x="17" dy="4.2" font-size="11.5" font-weight="700" fill="#173b5c">Coal, oil and gas</text><g class="amb-c"><circle r="12" fill="#ffd700" stroke="#173b5c" stroke-width="2"/><text text-anchor="middle" dy="4.5" font-weight="700" font-size="13" fill="#173b5c">12</text></g></g><g class="amb-pt" data-tipo="3" transform="translate(92 150)" style="cursor:pointer"><g class="amb-c"><circle r="10" fill="#ffd700" stroke="#173b5c" stroke-width="2"/><text text-anchor="middle" dy="4" font-weight="700" font-size="11.5" fill="#173b5c">4</text></g></g></svg></div>
+<button class="obt-placas-btn" id="obtPlacasBtn" type="button">Another view: deposits and plate tectonics</button>
+</div>
+<div class="obt-placas-modal" id="obtPlacasModal" hidden><div class="obt-placas-caja" role="dialog" aria-modal="true" aria-labelledby="obtPlacasTit">
+<button class="obt-placas-cerrar" id="obtPlacasCerrar" type="button" aria-label="Close">×</button>
+<h3 id="obtPlacasTit">Deposits and plate tectonics</h3>
+<p class="obt-placas-intro">Many deposits form at plate boundaries: where plates pull apart, where one sinks beneath another and where a continent begins to split. The oldest are preserved in the heart of the continents.</p>
+<div class="obt-esq-marco"><svg class="obt-placas-svg" viewBox="0 0 1100 470" xmlns="http://www.w3.org/2000/svg" font-family="Arial, sans-serif" role="img" aria-label="Deposits and plate tectonics">
+<defs>
+<linearGradient id="ep-gC" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d3e4ef"/><stop offset="1" stop-color="#f1f5f7"/></linearGradient>
+<linearGradient id="ep-gM" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8dbbd8"/><stop offset="1" stop-color="#3f7299"/></linearGradient>
+<linearGradient id="ep-gMa" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e3b27a"/><stop offset="1" stop-color="#b8693a"/></linearGradient>
+<linearGradient id="ep-gMg" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#d9482a"/><stop offset="1" stop-color="#f3a03b"/></linearGradient>
+<pattern id="ep-pCo" width="26" height="14" patternUnits="userSpaceOnUse"><rect width="26" height="14" fill="#c9b49c"/><path d="M0 7 q6.5 -5 13 0 t13 0" fill="none" stroke="#a8937b" stroke-width="1"/></pattern>
+<pattern id="ep-pCr" width="26" height="14" patternUnits="userSpaceOnUse"><rect width="26" height="14" fill="#a99a87"/><path d="M0 7 q6.5 -5 13 0 t13 0" fill="none" stroke="#8a7b69" stroke-width="1"/></pattern>
+<pattern id="ep-pBa" width="10" height="10" patternUnits="userSpaceOnUse"><rect width="10" height="10" fill="#4f4b48"/><circle cx="3" cy="3" r="1" fill="#6f6a65"/><circle cx="8" cy="7" r="1" fill="#6f6a65"/></pattern>
+<marker id="ep-mW" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4.5" markerHeight="4.5" orient="auto"><path d="M0 1 L9 5 L0 9z" fill="#fff"/></marker>
+<marker id="ep-mR" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4.5" markerHeight="4.5" orient="auto"><path d="M0 1 L9 5 L0 9z" fill="#8d3a1c"/></marker>
+</defs>
+<rect width="1100" height="470" fill="#f4efe4"/><rect width="1100" height="172" fill="url(#ep-gC)"/>
+<rect y="170" width="540" height="96" fill="url(#ep-gM)"/>
+<clipPath id="ep-cS"><rect width="1100" height="470"/></clipPath><g clip-path="url(#ep-cS)">
+<path d="M0 252 L95 226 Q130 206 165 226 L270 250 L420 254 Q450 258 470 268 L1100 268 L1100 470 L0 470Z" fill="url(#ep-gMa)"/>
+<path d="M0 470 H1100" stroke="none"/>
+<path d="M0 252 L95 226 Q113 216 124 213" stroke="url(#ep-pBa)" stroke-width="28" fill="none"/>
+<path d="M137 213 Q148 216 165 226 L270 250 L420 254 Q500 262 590 335 Q680 410 760 520" stroke="url(#ep-pBa)" stroke-width="28" fill="none"/>
+<path d="M100 262 Q130 236 160 262 Q130 286 100 262Z" fill="url(#ep-gMg)"/><path d="M130 248 L130 206" stroke="#f3a03b" stroke-width="10"/>
+<g stroke="#fff" stroke-width="2" fill="none" marker-end="url(#ep-mW)"><path d="M90 236 L40 249"/><path d="M200 241 L260 254"/><path d="M340 258 L400 260"/><path d="M560 318 Q600 350 630 385"/></g>
+<path d="M455 268 Q490 240 520 172 L545 168 L560 150 L575 112 L590 150 L610 142 L715 140 L760 162 L960 166 L985 190 L1040 190 L1062 166 L1100 166 L1100 330 Q1050 300 1010 302 Q975 300 960 360 Q930 430 850 432 Q780 430 740 360 Q690 320 600 312 Q520 300 470 270Z" fill="url(#ep-pCo)" stroke="#6e604c" stroke-width="1.2"/>
+<path d="M760 166 L960 166 Q955 300 930 400 Q890 432 850 432 Q800 430 772 380 Q760 300 760 168Z" fill="url(#ep-pCr)" opacity=".9"/>
+<path d="M640 392 Q610 330 600 290 Q586 220 578 140" stroke="url(#ep-gMg)" stroke-width="7" fill="none" stroke-linecap="round"/>
+<g fill="#e46a32"><ellipse cx="628" cy="365" rx="9" ry="12"/><ellipse cx="606" cy="300" rx="7" ry="10"/></g>
+<path d="M548 166 L575 112 L602 166Z" fill="url(#ep-pBa)" stroke="#33302d" stroke-width="1"/>
+<path d="M575 112 q-8 -14 4 -24 q-6 -10 6 -14" fill="none" stroke="#b3bcc3" stroke-width="5" stroke-linecap="round" opacity=".7"/>
+<ellipse cx="588" cy="226" rx="20" ry="26" fill="#e9a35a" stroke="#8d4f22" stroke-width="1.2"/>
+<g fill="#2f8a6e"><circle cx="580" cy="214" r="1.8"/><circle cx="594" cy="222" r="1.8"/><circle cx="584" cy="234" r="1.8"/><circle cx="596" cy="240" r="1.8"/><circle cx="588" cy="206" r="1.8"/></g>
+<g stroke="#d6a21e" stroke-width="2" stroke-linecap="round"><path d="M606 200 L618 168"/><path d="M566 200 L556 172"/></g>
+<path d="M640 141 L700 140 L702 145 L638 146Z" fill="#fbf7f4" stroke="#d9a9ae" stroke-width=".8"/>
+<rect x="782" y="170" width="90" height="6" fill="#a5442e"/>
+<rect x="782" y="176" width="90" height="6" fill="#8f8a85"/>
+<rect x="782" y="182" width="90" height="6" fill="#a5442e"/>
+<rect x="782" y="188" width="90" height="6" fill="#8f8a85"/>
+<rect x="782" y="194" width="90" height="6" fill="#a5442e"/>
+<path d="M898 166 L926 166 Q918 260 914 420 L910 420 Q906 260 898 166Z" fill="#3c4a46" stroke="#1d2523" stroke-width="1"/>
+<g fill="#eef6fb" stroke="#7fa9c1" stroke-width=".6"><path d="M906 190 l3 -4 l3 4 l-3 4z"/><path d="M912 214 l3 -4 l3 4 l-3 4z"/><path d="M906 240 l3 -4 l3 4 l-3 4z"/></g>
+<g stroke="#3b2f25" stroke-width="1.8" stroke-dasharray="6 3"><path d="M960 166 L995 300"/><path d="M1062 166 L1026 300"/></g>
+<path d="M985 190 L1040 190 Q1012 198 985 190Z" fill="#7db4d6"/>
+<path d="M1012 330 Q1008 260 1012 196" stroke="url(#ep-gMg)" stroke-width="6" fill="none"/>
+<path d="M998 190 L1012 172 L1026 190Z" fill="#ecdcab" stroke="#8e5a2b" stroke-width="1"/>
+<path d="M1012 470 Q1010 400 1012 335" stroke="#d9482a" stroke-width="3" stroke-dasharray="5 4" fill="none" marker-end="url(#ep-mR)"/>
+<path d="M109 216 L111 198 L115 198 L117 216Z" fill="#3a2a1e"/><path d="M113 198 q-6 -8 0 -14 q7 -6 0 -13" stroke="#1d1b1a" stroke-width="5" fill="none" stroke-linecap="round" opacity=".75"/>
+<path d="M147 216 L149 198 L153 198 L155 216Z" fill="#3a2a1e"/><path d="M151 198 q-6 -8 0 -14 q7 -6 0 -13" stroke="#1d1b1a" stroke-width="5" fill="none" stroke-linecap="round" opacity=".75"/>
+<g fill="#2b2622"><ellipse cx="250" cy="233" rx="3.2" ry="2"/><ellipse cx="282" cy="239" rx="3.2" ry="2"/><ellipse cx="310" cy="238" rx="3.2" ry="2"/><ellipse cx="345" cy="239" rx="3.2" ry="2"/><ellipse cx="372" cy="240" rx="3.2" ry="2"/><ellipse cx="400" cy="240" rx="3.2" ry="2"/></g>
+<g font-size="14" font-style="italic" fill="#4a3b2c" opacity=".85"><text x="300" y="282">oceanic crust</text><text x="660" y="290">continental crust</text><text x="250" y="420" fill="#6b3416">mantle</text></g>
+<g font-size="15" font-weight="700" letter-spacing=".06em" fill="#173b5c" text-anchor="middle"><text x="130" y="30">RIDGE</text><text x="325" y="30">ABYSSAL PLAIN</text><text x="452" y="30">TRENCH</text><text x="560" y="30">ARC</text><text x="690" y="30">HIGH PLATEAU</text><text x="860" y="30">CRATON</text><text x="1012" y="30">RIFT</text></g>
+<g stroke="#173b5c" stroke-width=".8" stroke-dasharray="2 3" opacity=".5"><path d="M130 40 V160"/><path d="M325 40 V160"/><path d="M452 40 V160"/><path d="M560 40 V62"/><path d="M690 40 V128"/><path d="M860 40 V155"/><path d="M1012 40 V160"/></g>
+</g>
+<g transform="translate(150 150)"><circle r="16" fill="#ffd700" stroke="#173b5c" stroke-width="2.4"/><text text-anchor="middle" dy="6" font-weight="700" font-size="17" fill="#173b5c">1</text></g>
+<g transform="translate(325 210)"><circle r="16" fill="#ffd700" stroke="#173b5c" stroke-width="2.4"/><text text-anchor="middle" dy="6" font-weight="700" font-size="17" fill="#173b5c">2</text></g>
+<g transform="translate(628 226)"><circle r="16" fill="#ffd700" stroke="#173b5c" stroke-width="2.4"/><text text-anchor="middle" dy="6" font-weight="700" font-size="17" fill="#173b5c">3</text></g>
+<g transform="translate(670 122)"><circle r="16" fill="#ffd700" stroke="#173b5c" stroke-width="2.4"/><text text-anchor="middle" dy="6" font-weight="700" font-size="17" fill="#173b5c">4</text></g>
+<g transform="translate(840 200)"><circle r="16" fill="#ffd700" stroke="#173b5c" stroke-width="2.4"/><text text-anchor="middle" dy="6" font-weight="700" font-size="17" fill="#173b5c">5</text></g>
+<g transform="translate(1050 140)"><circle r="16" fill="#ffd700" stroke="#173b5c" stroke-width="2.4"/><text text-anchor="middle" dy="6" font-weight="700" font-size="17" fill="#173b5c">6</text></g>
+</svg></div>
+<div class="obt-pl-ley"><div class="obt-pl-item"><span class="obtencion-num">1</span><div><strong>Mid-ocean ridge</strong><span>Black smokers: massive copper and zinc sulfides.</span></div></div><div class="obt-pl-item"><span class="obtencion-num">2</span><div><strong>Abyssal plain</strong><span>Manganese nodules, with cobalt and nickel.</span></div></div><div class="obt-pl-item"><span class="obtencion-num">3</span><div><strong>Volcanic arc</strong><span>Copper and molybdenum porphyries; epithermal gold and silver.</span></div></div><div class="obt-pl-item"><span class="obtencion-num">4</span><div><strong>High plateau</strong><span>Salt flats with lithium, boron and potash.</span></div></div><div class="obt-pl-item"><span class="obtencion-num">5</span><div><strong>Craton</strong><span>Banded iron and diamonds in kimberlites.</span></div></div><div class="obt-pl-item"><span class="obtencion-num">6</span><div><strong>Continental rift</strong><span>Carbonatites: rare earths and niobium.</span></div></div></div>
+</div></div>
 <div class="obtencion-lista" id="obtencionTiposLista"></div>
 <button class="back-button obtencion-ver-todos" id="obtencionVerTodos" type="button" hidden style="display:none">See all deposit types</button>
 <button class="back-button" id="backFromObtencionTipos">Back</button>
@@ -19069,6 +19269,7 @@ window.addEventListener("DOMContentLoaded", function () {
         obtencionTiposTitulo.textContent = numTipos + " deposit types";
         obtencionTiposIntro.textContent = "This material is obtained from " + numTipos.toLowerCase() + " different deposit types. Each one shows the elements and minerals that form and are obtained in a similar way. Tap any of them to see its fact sheet.";
       }
+      if (window.obtEsqActualiza) window.obtEsqActualiza(indices);
       window.scrollTo(0, 0);
     }
 
@@ -19087,6 +19288,43 @@ window.addEventListener("DOMContentLoaded", function () {
 
     // Desde la ficha de un mineral: abre solo los tipos de yacimiento indicados
     // y al volver regresa a la ficha del mineral.
+
+    // Esquema geológico: los números llevan a su tarjeta; el botón abre el corte de placas.
+    (function () {
+      const esq = document.getElementById("obtEsquema");
+      if (!esq) return;
+      esq.querySelectorAll(".amb-pt").forEach(g => {
+        g.setAttribute("tabindex", "0");
+        g.setAttribute("role", "button");
+        const ir = () => {
+          let card = obtencionTiposLista.querySelector('.obtencion-tipo[data-tipo="' + g.dataset.tipo + '"]');
+          if (!card) return;
+          if (card.style.display === "none") { mostrarObtencion([+g.dataset.tipo], null); }
+          card.scrollIntoView({ behavior: "smooth", block: "start" });
+          card.classList.remove("obt-destello"); void card.offsetWidth; card.classList.add("obt-destello");
+        };
+        g.addEventListener("click", ir);
+        g.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); ir(); } });
+        const nom = g.querySelector(".amb-nom");
+        if (nom) g.setAttribute("aria-label", g.querySelector(".amb-c text").textContent + ". " + nom.textContent);
+      });
+      // Ajusta el ancho de cada etiqueta a su texto (cambia con el idioma).
+      const ajustar = () => esq.querySelectorAll(".amb-pt").forEach(g => {
+        const t = g.querySelector(".amb-nom"), r = g.querySelector(".amb-fondo");
+        if (!t || !r) return;
+        try { const w = t.getBBox().width; if (w > 0) r.setAttribute("width", Math.round(w + 36)); } catch (e) {}
+      });
+      new MutationObserver(() => { if (obtencionTipos.classList.contains("active") || getComputedStyle(obtencionTipos).display !== "none") requestAnimationFrame(ajustar); })
+        .observe(obtencionTipos, { attributes: true, attributeFilter: ["class", "style"] });
+      requestAnimationFrame(ajustar);
+      window.obtEsqActualiza = indices => esq.querySelectorAll(".amb-pt").forEach(g => g.classList.toggle("atenuado", !!indices && !indices.includes(+g.dataset.tipo)));
+      const modal = document.getElementById("obtPlacasModal");
+      const cerrar = () => { modal.hidden = true; document.body.style.overflow = ""; };
+      document.getElementById("obtPlacasBtn").addEventListener("click", () => { modal.hidden = false; document.body.style.overflow = "hidden"; document.getElementById("obtPlacasCerrar").focus(); });
+      document.getElementById("obtPlacasCerrar").addEventListener("click", cerrar);
+      modal.addEventListener("click", e => { if (e.target === modal) cerrar(); });
+      document.addEventListener("keydown", e => { if (e.key === "Escape" && !modal.hidden) cerrar(); });
+    })();
     window.tiposYacimientoTitulos = tiposObtencion.map(t => t.titulo);
     window.abrirTiposYacimiento = function (indices, materiaScreen) {
       obtencionReturnScreen = document.getElementById("mineralLevel5");
