@@ -27809,6 +27809,11 @@ if (document.readyState === 'loading') document.addEventListener('DOMContentLoad
   .mos-mas, .m5-tarjeta-dureza .mos-mas { top: auto !important; bottom: 10px !important; right: 14px !important; }
   .screen *:has(> .mos-mas) { padding-bottom: 2.6rem !important; }
 }
+/* Tableta (iPad): tira de miniaturas más pequeña (9 por fila) y foto grande más alta, para que se note el cambio al elegir una */
+@media (min-width: 600px) {
+  .m5-miniaturas.desliza button, .m5-miniaturas.desliza.tira button { flex: 0 0 calc((100% - 48px) / 9) !important; }
+  .screen .m5-grid > .m5-foto { min-height: 660px !important; }
+}
 
 </style>
 <script>if ("serviceWorker" in navigator && /github\.io$/.test(location.hostname)) navigator.serviceWorker.register("sw.js");</script>
