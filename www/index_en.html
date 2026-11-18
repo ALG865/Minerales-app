@@ -1963,7 +1963,7 @@ body:not(:has(#home.active)) .d-qr { display: none; }
 <main>
 <!-- NIVEL 1: PORTADA -->
 <section aria-label="Home" class="screen active" id="home">
-<nav class="idiomas" aria-label="Language / Idioma"><a class="idioma" href="exposicion_33_263.html" lang="es" hreflang="es" data-idioma="es" title="Español"><svg viewBox="0 0 750 500" aria-hidden="true"><rect width="750" height="500" fill="#c60b1e"/><rect y="125" width="750" height="250" fill="#ffc400"/></svg><span>Español</span></a><a class="idioma actual" lang="en" hreflang="en" data-idioma="en" aria-current="true" title="English"><svg viewBox="0 0 60 30" aria-hidden="true"><clipPath id="ukc"><path d="M0,0 v30 h60 v-30 z"/></clipPath><clipPath id="ukt"><path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z"/></clipPath><g clip-path="url(#ukc)"><path d="M0,0 v30 h60 v-30 z" fill="#012169"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 L60,30 M60,0 L0,30" clip-path="url(#ukt)" stroke="#C8102E" stroke-width="4"/><path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/><path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/></g></svg><span>English</span></a></nav>
+<nav class="idiomas" aria-label="Language / Idioma"><a class="idioma" href="exposicion_33_264.html" lang="es" hreflang="es" data-idioma="es" title="Español"><svg viewBox="0 0 750 500" aria-hidden="true"><rect width="750" height="500" fill="#c60b1e"/><rect y="125" width="750" height="250" fill="#ffc400"/></svg><span>Español</span></a><a class="idioma actual" lang="en" hreflang="en" data-idioma="en" aria-current="true" title="English"><svg viewBox="0 0 60 30" aria-hidden="true"><clipPath id="ukc"><path d="M0,0 v30 h60 v-30 z"/></clipPath><clipPath id="ukt"><path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z"/></clipPath><g clip-path="url(#ukc)"><path d="M0,0 v30 h60 v-30 z" fill="#012169"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 L60,30 M60,0 L0,30" clip-path="url(#ukt)" stroke="#C8102E" stroke-width="4"/><path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/><path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/></g></svg><span>English</span></a></nav>
 <script>
 // La bandera del otro idioma enlaza con el archivo hermano: exposicion_X.html <-> exposicion_X_en.html
 (function () { var f = decodeURIComponent(location.pathname.split("/").pop() || "index.html"); var en = /_en\.html$/i.test(f); var otro = en ? f.replace(/_en\.html$/i, ".html") : f.replace(/\.html$/i, "_en.html"); var a = document.querySelector("#home .idioma:not(.actual)"); if (a && /\.html$/i.test(f)) a.setAttribute("href", otro); })();
@@ -2731,6 +2731,7 @@ body:not(:has(#home.active)) .d-qr { display: none; }
 <path d="M436 246 L486 236" stroke="#16803c" stroke-width="5"/>
 <rect x="456" y="160" width="40" height="64" rx="6" fill="#cfe6f5" fill-opacity=".6" stroke="#7fa6c2" stroke-width="1.2"/>
 <path d="M470 168 L478 108" stroke="#2f6fb5" stroke-width="5" stroke-linecap="round"/><path d="M474 108 l10 2 l-2 16 l-10 -2z" fill="#fff" stroke="#9aa8b5"/>
+<g class="tarro-barro"><ellipse cx="77" cy="381" rx="38" ry="6" fill="#000" opacity=".12"/><rect x="46" y="318" width="62" height="60" rx="13" fill="#8f9a7e"/><rect x="52" y="336" width="50" height="18" rx="3" fill="#f1ece0"/><path d="M60 345 H94" stroke="#8f9a7e" stroke-width="2.4" stroke-linecap="round"/><rect x="42" y="306" width="70" height="16" rx="6" fill="#e8e1d2" stroke="#c9bfab" stroke-width="1.2"/><ellipse cx="77" cy="307" rx="27" ry="4.5" fill="#a9b39a"/></g>
 </g>
 </svg></div><div data-dibujo="super" hidden><svg viewBox="0 0 560 420" role="img" aria-label="Supermarket shelf">
 <rect width="560" height="420" rx="14" fill="#f2efe8"/>
@@ -26760,11 +26761,11 @@ function iniciarDescubre() {
     estano: ['Tin', 'estanioScreen', 0], oro: ['Gold', 'oroScreen', 0], hierro: ['Iron', 'hierroScreen', 0], zinc: ['Zinc', 'zincScreen', 0],
     plata: ['Silver', 'plataScreen', 0], paladio: ['Palladium', 'metales_del_grupo_del_platinoScreen', 1], fluor: ['Fluorine (fluorite)', 'fluoritaScreen', 1],
     fosforo: ['Phosphorus', 'fosforoScreen', 1], cromo: ['Chromium', 'cromoScreen', 0], molibdeno: ['Molybdenum', 'molibdenoScreen', 0], indio: ['Indium', '', 0],
-    tierrasLuz: ['Rare earths', 'tierras_raras_ligerasScreen', 1], itrio: ['Yttrium', 'tierras_raras_pesadasScreen', 1],
+    tierrasLuz: ['Rare earths', 'tierras_raras_ligerasScreen', 1], itrio: ['Yttrium', 'tierras_raras_pesadasScreen', 1], gadolinio: ['Gadolinium', 'tierras_raras_pesadasScreen', 1],
     titanio: ['Titanium', 'titanio_metalicoScreen', 1], hafnio: ['Hafnium', 'hafnioScreen', 1], wolframio: ['Tungsten', 'wolframioScreen', 1],
     vanadio: ['Vanadium', 'vanadioScreen', 1], niobio: ['Niobium', 'niobioScreen', 1], antimonio: ['Antimony', 'antimonyScreen', 1],
     fosforita: ['Phosphate (phosphorite)', 'fosforitaScreen', 1], potasa: ['Potash', 'salesScreen', 0], yeso: ['Gypsum', 'yesoScreen', 0],
-    feldespato: ['Feldspar', 'feldespatoScreen', 1], arcillas: ['Kaolin', 'arcillasEspecialesScreen', 0], arcillasComunes: ['Common clays', '', 0], calcita: ['Calcite', 'calcitaScreen', 0],
+    feldespato: ['Feldspar', 'feldespatoScreen', 1], arcillas: ['Special clays', 'arcillasEspecialesScreen', 0], arcillasComunes: ['Common clays', '', 0], calcita: ['Calcite', 'calcitaScreen', 0],
     teluro: ['Tellurium', '', 0], barita: ['Barium (baryte)', 'baritaScreen', 1], sal: ['Salt (halite)', 'salesScreen', 0], trona: ['Sodium carbonate (trona)', 'salesScreen', 0],
     azufre: ['Sulfur', 'azufreScreen', 0], micas: ['Mica', 'micasScreen', 0], talco: ['Talc', '', 0], platino: ['Platinum', 'metales_del_grupo_del_platinoScreen', 1], arsenico: ['Arsenic', 'arsenicoScreen', 1], bismuto: ['Bismuth', 'bismutoScreen', 1], estroncio: ['Strontium', 'estroncioScreen', 1], helio: ['Helium', 'helioScreen', 1]
   };
@@ -26854,25 +26855,26 @@ function iniciarDescubre() {
     hospital: {
       orden: ['resonancia', 'rayos', 'protesis', 'marcapasos', 'dientes', 'escayola', 'pastillas', 'antiacido', 'medicinas'],
       p: {
-        resonancia: ['MRI scanner', 'A giant magnet cooled with liquid helium to −269 °C.', ['helio', 'niobio', 'titanio', 'cobre'], [114, 112]],
+        resonancia: ['MRI scanner', 'A giant magnet cooled with liquid helium to −269 °C. Gadolinium enhances the image.', ['helio', 'niobio', 'titanio', 'cobre', 'gadolinio'], [114, 112]],
         rayos: ['X-rays', 'X-rays are born in a tungsten disc. Barium makes your stomach visible.', ['wolframio', 'barita'], [300, 108]],
         protesis: ['Hip replacement', 'Titanium and cobalt-chromium: strong, light and rust-free inside the body.', ['titanio', 'cobalto', 'cromo', 'molibdeno'], [440, 150]],
         marcapasos: ['Pacemaker', 'A lithium battery that lasts for years and platinum electrodes.', ['litio', 'platino', 'titanio'], [512, 100]],
         dientes: ['Dentist', 'Fluorine that protects enamel, and fillings made of glass or silver.', ['fluor', 'silicio', 'plata'], [72, 270]],
         escayola: ['Plaster cast', 'Gypsum heated and mixed with water: it holds broken bones still.', ['yeso'], [214, 238]],
-        pastillas: ['Tablets: excipients', 'What gives the tablet its shape: talc, kaolin, magnesium and the white of titanium.', ['talco', 'arcillas', 'magnesio', 'titanio'], [176, 364]],
-        antiacido: ['Antacids and diarrhea', 'They soothe the stomach: calcium carbonate, magnesium, aluminum, clays and bismuth.', ['calcita', 'magnesio', 'aluminio', 'arcillas', 'bismuto'], [282, 366]],
-        medicinas: ['Medicines with minerals', 'Active ingredients: lithium, platinum against cancer, iron against anemia and zinc in ointments.', ['litio', 'platino', 'hierro', 'zinc'], [419, 347]]
+        pastillas: ['Pills and syrups', 'Excipients give them body, texture and color.', ['talco', 'arcillas', 'silicio', 'calcita', 'magnesio', 'titanio'], [176, 364]],
+        antiacido: ['Stomach and diarrhea', 'Clays trap water and toxins; calcium, magnesium and aluminum salts neutralize acid.', ['arcillas', 'calcita', 'magnesio', 'aluminio', 'bismuto'], [282, 366]],
+        medicinas: ['Medicines with minerals', 'Minerals that heal: they are the active ingredient of the medicine.', ['litio', 'platino', 'hierro', 'potasa', 'zinc', 'plata', 'azufre'], [419, 347]]
       }
     },
     bano: {
-      orden: ['crema', 'sombras', 'polvos', 'pasta', 'espejo'],
+      orden: ['crema', 'sombras', 'polvos', 'pasta', 'espejo', 'barro'],
       p: {
         crema: ['Sunscreen', 'Titanium and zinc oxides: an invisible shield against the sun.', ['titanio', 'zinc'], [96, 199]],
         sombras: ['Eyeshadow', 'The pearly shine is mica; the browns and reds are iron oxides.', ['micas', 'hierro'], [220, 333]],
         polvos: ['Face powder', 'Talc, the softest mineral in the world.', ['talco', 'arcillas'], [400, 338]],
         pasta: ['Toothpaste', 'Fluorine from fluorite and calcium carbonate that polishes.', ['fluor', 'calcita'], [464, 238]],
-        espejo: ['Mirror', 'Sand glass with a very thin layer of silver or aluminum.', ['silicio', 'plata', 'aluminio'], [280, 120]]
+        espejo: ['Mirror', 'Sand glass with a very thin layer of silver or aluminum.', ['silicio', 'plata', 'aluminio'], [280, 120]],
+        barro: ['Clay masks and muds', 'Clays that cleanse and soothe the skin, at home and in spas.', ['arcillas'], [77, 345]]
       }
     },
     super: {
@@ -26926,14 +26928,15 @@ function iniciarDescubre() {
     'mochila.calculadora': { silicio: 'Chip and solar cell.', litio: 'Button battery.', zinc: 'Other button batteries.' },
     'mochila.purpurina': { micas: 'Pearly shine.', titanio: 'The white in paints.', hierro: 'Red and ocher pigments.' },
     'mochila.tijeras': { hierro: 'The steel of the blades.', cromo: 'Keeps them from rusting.', niquel: 'Stronger steel.' },
-    'hospital.resonancia': { helio: 'Cools the magnet to −269 °C.', niobio: 'Superconducting cable.', titanio: 'Goes with niobium in that cable.', cobre: 'Wraps the magnet\'s cables.' },
+    'hospital.resonancia': { helio: 'Cools the magnet to −269 °C.', niobio: 'Superconducting cable.', titanio: 'Goes with niobium in that cable.', cobre: 'Wraps the magnet\'s cables.', gadolinio: 'The contrast agent that is injected.' },
     'hospital.rayos': { wolframio: 'Where X-rays are born.', barita: 'Contrast to see the stomach.' },
     'hospital.protesis': { titanio: 'Light, strong stem.', cobalto: 'A hard ball that doesn\'t wear out.', cromo: 'An alloy that doesn\'t rust.', molibdeno: 'Hardens the alloy.' },
     'hospital.marcapasos': { litio: 'The battery that lasts for years.', platino: 'Electrodes that touch the heart.', titanio: 'The casing.' },
     'hospital.escayola': { yeso: 'Plaster casts for fractures.' },
-    'hospital.pastillas': { talco: 'Helps the powder flow.', arcillas: 'Kaolin that gives the tablet body.', magnesio: 'Stearate that keeps it from sticking.', titanio: 'White coating.' },
-    'hospital.antiacido': { calcita: 'Calcium carbonate that neutralizes acid.', magnesio: 'Magnesium hydroxide antacid.', aluminio: 'Aluminum hydroxide antacid.', arcillas: 'Smectite and kaolin against diarrhea.', bismuto: 'Bismuth salt for the stomach.' },
-    'hospital.medicinas': { litio: 'Treats bipolar disorder.', platino: 'Cisplatin against cancer.', hierro: 'Against anemia.', zinc: 'Zinc oxide ointment for the skin.' },
+    'hospital.pastillas': { talco: 'Helps the powder flow.', arcillas: 'Kaolin, bentonite, sepiolite and palygorskite: they add body and thicken syrups.', silicio: 'Silica that prevents lumps.', calcita: 'Calcium carbonate as a filler.', magnesio: 'Stearate that keeps it from sticking.', titanio: 'White coating.' },
+    'hospital.antiacido': { arcillas: 'Smectite, palygorskite and kaolin against diarrhea.', calcita: 'Calcium carbonate that neutralizes acid.', magnesio: 'Magnesium hydroxide and almagate.', aluminio: 'Aluminum hydroxide and almagate.', bismuto: 'Protects the stomach lining.' },
+    'hospital.medicinas': { litio: 'Treats bipolar disorder.', platino: 'Cisplatin against cancer.', hierro: 'Against anemia.', potasa: 'Potassium chloride when potassium is low.', zinc: 'Zinc oxide ointment for the skin.', plata: 'Silver cream for burns.', azufre: 'Ointments for acne.' },
+    'bano.barro': { arcillas: 'Smectite and kaolin absorb oil and impurities.' },
     'hospital.dientes': { fluor: 'Protects enamel.', silicio: 'Glass for white fillings.', plata: 'Old fillings.' },
     'bano.crema': { titanio: 'Reflects the sun\'s rays.', zinc: 'Protects the skin.' },
     'bano.sombras': { micas: 'Pearly shine.', hierro: 'Brown and red colors.' },

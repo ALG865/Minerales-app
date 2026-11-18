@@ -2731,6 +2731,7 @@ body:not(:has(#home.active)) .d-qr { display: none; }
 <path d="M436 246 L486 236" stroke="#16803c" stroke-width="5"/>
 <rect x="456" y="160" width="40" height="64" rx="6" fill="#cfe6f5" fill-opacity=".6" stroke="#7fa6c2" stroke-width="1.2"/>
 <path d="M470 168 L478 108" stroke="#2f6fb5" stroke-width="5" stroke-linecap="round"/><path d="M474 108 l10 2 l-2 16 l-10 -2z" fill="#fff" stroke="#9aa8b5"/>
+<g class="tarro-barro"><ellipse cx="77" cy="381" rx="38" ry="6" fill="#000" opacity=".12"/><rect x="46" y="318" width="62" height="60" rx="13" fill="#8f9a7e"/><rect x="52" y="336" width="50" height="18" rx="3" fill="#f1ece0"/><path d="M60 345 H94" stroke="#8f9a7e" stroke-width="2.4" stroke-linecap="round"/><rect x="42" y="306" width="70" height="16" rx="6" fill="#e8e1d2" stroke="#c9bfab" stroke-width="1.2"/><ellipse cx="77" cy="307" rx="27" ry="4.5" fill="#a9b39a"/></g>
 </g>
 </svg></div><div data-dibujo="super" hidden><svg viewBox="0 0 560 420" role="img" aria-label="Estantería de supermercado">
 <rect width="560" height="420" rx="14" fill="#f2efe8"/>
@@ -26808,11 +26809,11 @@ function iniciarDescubre() {
     estano: ['Estaño', 'estanioScreen', 0], oro: ['Oro', 'oroScreen', 0], hierro: ['Hierro', 'hierroScreen', 0], zinc: ['Zinc', 'zincScreen', 0],
     plata: ['Plata', 'plataScreen', 0], paladio: ['Paladio', 'metales_del_grupo_del_platinoScreen', 1], fluor: ['Flúor (fluorita)', 'fluoritaScreen', 1],
     fosforo: ['Fósforo', 'fosforoScreen', 1], cromo: ['Cromo', 'cromoScreen', 0], molibdeno: ['Molibdeno', 'molibdenoScreen', 0], indio: ['Indio', '', 0],
-    tierrasLuz: ['Tierras raras', 'tierras_raras_ligerasScreen', 1], itrio: ['Itrio', 'tierras_raras_pesadasScreen', 1],
+    tierrasLuz: ['Tierras raras', 'tierras_raras_ligerasScreen', 1], itrio: ['Itrio', 'tierras_raras_pesadasScreen', 1], gadolinio: ['Gadolinio', 'tierras_raras_pesadasScreen', 1],
     titanio: ['Titanio', 'titanio_metalicoScreen', 1], hafnio: ['Hafnio', 'hafnioScreen', 1], wolframio: ['Wolframio', 'wolframioScreen', 1],
     vanadio: ['Vanadio', 'vanadioScreen', 1], niobio: ['Niobio', 'niobioScreen', 1], antimonio: ['Antimonio', 'antimonyScreen', 1],
     fosforita: ['Fosfato (fosforita)', 'fosforitaScreen', 1], potasa: ['Potasa', 'salesScreen', 0], yeso: ['Yeso', 'yesoScreen', 0],
-    feldespato: ['Feldespato', 'feldespatoScreen', 1], arcillas: ['Caolín', 'arcillasEspecialesScreen', 0], arcillasComunes: ['Arcillas comunes', '', 0], calcita: ['Calcita', 'calcitaScreen', 0],
+    feldespato: ['Feldespato', 'feldespatoScreen', 1], arcillas: ['Arcillas especiales', 'arcillasEspecialesScreen', 0], arcillasComunes: ['Arcillas comunes', '', 0], calcita: ['Calcita', 'calcitaScreen', 0],
     teluro: ['Teluro', '', 0], barita: ['Bario (barita)', 'baritaScreen', 1], sal: ['Sal (halita)', 'salesScreen', 0], trona: ['Carbonato de sodio (trona)', 'salesScreen', 0],
     azufre: ['Azufre', 'azufreScreen', 0], micas: ['Mica', 'micasScreen', 0], talco: ['Talco', '', 0], platino: ['Platino', 'metales_del_grupo_del_platinoScreen', 1], arsenico: ['Arsénico', 'arsenicoScreen', 1], bismuto: ['Bismuto', 'bismutoScreen', 1], estroncio: ['Estroncio', 'estroncioScreen', 1], helio: ['Helio', 'helioScreen', 1]
   };
@@ -26902,25 +26903,26 @@ function iniciarDescubre() {
     hospital: {
       orden: ['resonancia', 'rayos', 'protesis', 'marcapasos', 'dientes', 'escayola', 'pastillas', 'antiacido', 'medicinas'],
       p: {
-        resonancia: ['Resonancia magnética', 'Un imán gigante enfriado con helio líquido a −269 °C.', ['helio', 'niobio', 'titanio', 'cobre'], [114, 112]],
+        resonancia: ['Resonancia magnética', 'Un imán gigante enfriado con helio líquido a −269 °C. El gadolinio realza la imagen.', ['helio', 'niobio', 'titanio', 'cobre', 'gadolinio'], [114, 112]],
         rayos: ['Rayos X', 'Los rayos X nacen en un disco de wolframio. El bario hace visible tu estómago.', ['wolframio', 'barita'], [300, 108]],
         protesis: ['Prótesis de cadera', 'Titanio y cobalto-cromo: fuertes, ligeros y no se oxidan dentro del cuerpo.', ['titanio', 'cobalto', 'cromo', 'molibdeno'], [440, 150]],
         marcapasos: ['Marcapasos', 'Una pila de litio que dura años y electrodos de platino.', ['litio', 'platino', 'titanio'], [512, 100]],
         dientes: ['Dentista', 'Flúor que protege el esmalte y empastes de vidrio o de plata.', ['fluor', 'silicio', 'plata'], [72, 270]],
         escayola: ['Escayola', 'Yeso calentado y mezclado con agua: inmoviliza los huesos rotos.', ['yeso'], [214, 238]],
-        pastillas: ['Pastillas: excipientes', 'Lo que da forma a la pastilla: talco, caolín, magnesio y el blanco del titanio.', ['talco', 'arcillas', 'magnesio', 'titanio'], [176, 364]],
-        antiacido: ['Antiácidos y diarrea', 'Calman el estómago: carbonato cálcico, magnesio, aluminio, arcillas y bismuto.', ['calcita', 'magnesio', 'aluminio', 'arcillas', 'bismuto'], [282, 366]],
-        medicinas: ['Medicinas con minerales', 'Principios activos: litio, platino contra el cáncer, hierro contra la anemia y zinc en pomadas.', ['litio', 'platino', 'hierro', 'zinc'], [419, 347]]
+        pastillas: ['Pastillas y jarabes', 'Los excipientes les dan cuerpo, textura y color.', ['talco', 'arcillas', 'silicio', 'calcita', 'magnesio', 'titanio'], [176, 364]],
+        antiacido: ['Estómago y diarrea', 'Las arcillas atrapan agua y toxinas; las sales de calcio, magnesio y aluminio neutralizan el ácido.', ['arcillas', 'calcita', 'magnesio', 'aluminio', 'bismuto'], [282, 366]],
+        medicinas: ['Medicinas con minerales', 'Minerales que curan: son el principio activo del medicamento.', ['litio', 'platino', 'hierro', 'potasa', 'zinc', 'plata', 'azufre'], [419, 347]]
       }
     },
     bano: {
-      orden: ['crema', 'sombras', 'polvos', 'pasta', 'espejo'],
+      orden: ['crema', 'sombras', 'polvos', 'pasta', 'espejo', 'barro'],
       p: {
         crema: ['Crema solar', 'Óxidos de titanio y zinc: un escudo invisible contra el sol.', ['titanio', 'zinc'], [96, 199]],
         sombras: ['Sombras de ojos', 'El brillo nacarado es mica; los marrones y rojos, óxidos de hierro.', ['micas', 'hierro'], [220, 333]],
         polvos: ['Polvos', 'Talco, el mineral más blando del mundo.', ['talco', 'arcillas'], [400, 338]],
         pasta: ['Pasta de dientes', 'Flúor de la fluorita y carbonato cálcico que pule.', ['fluor', 'calcita'], [464, 238]],
-        espejo: ['Espejo', 'Vidrio de arena con una capa finísima de plata o aluminio.', ['silicio', 'plata', 'aluminio'], [280, 120]]
+        espejo: ['Espejo', 'Vidrio de arena con una capa finísima de plata o aluminio.', ['silicio', 'plata', 'aluminio'], [280, 120]],
+        barro: ['Mascarillas y barros', 'Arcillas que limpian y calman la piel, en casa y en los balnearios.', ['arcillas'], [77, 345]]
       }
     },
     super: {
@@ -26974,14 +26976,15 @@ function iniciarDescubre() {
     'mochila.calculadora': { silicio: 'Chip y placa solar.', litio: 'Pila de botón.', zinc: 'Otras pilas de botón.' },
     'mochila.purpurina': { micas: 'Brillo nacarado.', titanio: 'El blanco de las pinturas.', hierro: 'Pigmentos rojos y ocres.' },
     'mochila.tijeras': { hierro: 'El acero de las hojas.', cromo: 'Evita que se oxiden.', niquel: 'Acero más resistente.' },
-    'hospital.resonancia': { helio: 'Enfría el imán a −269 °C.', niobio: 'Cable superconductor.', titanio: 'Va con el niobio en ese cable.', cobre: 'Envuelve los cables del imán.' },
+    'hospital.resonancia': { helio: 'Enfría el imán a −269 °C.', niobio: 'Cable superconductor.', titanio: 'Va con el niobio en ese cable.', cobre: 'Envuelve los cables del imán.', gadolinio: 'El contraste que se inyecta.' },
     'hospital.rayos': { wolframio: 'Donde nacen los rayos X.', barita: 'Contraste para ver el estómago.' },
     'hospital.protesis': { titanio: 'Vástago ligero y fuerte.', cobalto: 'Bola dura que no se desgasta.', cromo: 'Aleación que no se oxida.', molibdeno: 'Endurece la aleación.' },
     'hospital.marcapasos': { litio: 'La pila que dura años.', platino: 'Electrodos que tocan el corazón.', titanio: 'La carcasa.' },
     'hospital.escayola': { yeso: 'Escayola para las fracturas.' },
-    'hospital.pastillas': { talco: 'Ayuda a que el polvo fluya.', arcillas: 'Caolín que da cuerpo a la pastilla.', magnesio: 'Estearato que evita que se pegue.', titanio: 'Recubrimiento blanco.' },
-    'hospital.antiacido': { calcita: 'Carbonato cálcico que neutraliza el ácido.', magnesio: 'Hidróxido de magnesio antiácido.', aluminio: 'Hidróxido de aluminio antiácido.', arcillas: 'Esmectita y caolín contra la diarrea.', bismuto: 'Sal de bismuto para el estómago.' },
-    'hospital.medicinas': { litio: 'Trata el trastorno bipolar.', platino: 'Cisplatino contra el cáncer.', hierro: 'Contra la anemia.', zinc: 'Pomada de óxido de zinc para la piel.' },
+    'hospital.pastillas': { talco: 'Ayuda a que el polvo fluya.', arcillas: 'Caolín, bentonita, sepiolita y palygorskita: dan cuerpo y espesan los jarabes.', silicio: 'Sílice que evita los grumos.', calcita: 'Carbonato cálcico de relleno.', magnesio: 'Estearato que evita que se pegue.', titanio: 'Recubrimiento blanco.' },
+    'hospital.antiacido': { arcillas: 'Esmectita, palygorskita y caolín contra la diarrea.', calcita: 'Carbonato cálcico que neutraliza el ácido.', magnesio: 'Hidróxido de magnesio y almagato.', aluminio: 'Hidróxido de aluminio y almagato.', bismuto: 'Protege la pared del estómago.' },
+    'hospital.medicinas': { litio: 'Trata el trastorno bipolar.', platino: 'Cisplatino contra el cáncer.', hierro: 'Contra la anemia.', potasa: 'Cloruro potásico cuando falta potasio.', zinc: 'Pomada de óxido de zinc para la piel.', plata: 'Crema de plata para las quemaduras.', azufre: 'Pomadas para el acné.' },
+    'bano.barro': { arcillas: 'Esmectita y caolín absorben grasa e impurezas.' },
     'hospital.dientes': { fluor: 'Protege el esmalte.', silicio: 'Vidrio de los empastes blancos.', plata: 'Empastes antiguos.' },
     'bano.crema': { titanio: 'Refleja los rayos del sol.', zinc: 'Protege la piel.' },
     'bano.sombras': { micas: 'Brillo nacarado.', hierro: 'Colores marrones y rojos.' },
