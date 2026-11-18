@@ -30,7 +30,7 @@ cabecera = '''<link rel="manifest" href="manifest.webmanifest">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
-<meta name="apple-mobile-web-app-title" content="Minerales">
+<meta name="apple-mobile-web-app-title" content="M. estratégicos">
 '''
 rep('<meta charset="utf-8"/>', '<meta charset="utf-8"/>\n' + cabecera)
 # Las fotos se guardan en el aparato a medida que se abren las fichas (no se descargan todas de golpe, para no gastar datos).
