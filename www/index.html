@@ -19107,38 +19107,38 @@ window.addEventListener("DOMContentLoaded", function () {
     const tiposObtencion = [
       {
         ambiente: 0, titulo: "Rocas máficas y ultramáficas",
-        descripcion: "Rocas ígneas oscuras, pobres en sílice y ricas en hierro y magnesio (gabros, peridotitas, dunitas), nacidas de magmas del manto. Al cristalizar, los minerales densos —cromita, magnetita, ilmenita, sulfuros de níquel y cobre, minerales del grupo del platino— se concentran en capas o bolsadas. Aquí se incluyen las kimberlitas, que suben muy deprisa desde el manto con los diamantes. Se explotan en minas subterráneas y a cielo abierto; el mineral se concentra y se funde, y los diamantes se separan de la roca triturada.",
+        descripcion: "Rocas ígneas oscuras, pobres en sílice y ricas en hierro y magnesio (gabros, peridotitas y dunitas, estas casi solo de olivino), nacidas de magmas del manto. Al cristalizar, los minerales densos —cromita, magnetita (a menudo con vanadio), ilmenita, sulfuros de níquel, cobre y cobalto, minerales del grupo del platino— se concentran en capas o bolsadas. Aquí se incluyen las kimberlitas, que suben muy deprisa desde el manto con los diamantes. Se explotan en minas subterráneas y a cielo abierto; el mineral se concentra y se funde, y los diamantes se separan de la roca triturada.",
         materiales: ["Cobalto", "Cromo", "Gemas", "Hierro", "Metales del grupo del platino", "Níquel (calidad de batería)", "Olivino", "Titanio metálico", "Vanadio"]
       },
       {
         ambiente: 0, titulo: "Carbonatitas y rocas alcalinas",
-        descripcion: "Rocas ígneas poco comunes: las carbonatitas, formadas casi solo por carbonatos, y las rocas alcalinas pobres en sílice, como las sienitas nefelínicas. Proceden de magmas profundos muy ricos en elementos raros, por lo que albergan los principales yacimientos de niobio y de tierras raras ligeras, además de apatito, fuente de fósforo. Se explotan en grandes minas a cielo abierto.",
-        materiales: ["Fósforo", "Niobio", "Sodalita", "Tierras raras ligeras", "Titanio metálico", "Zeolitas"]
+        descripcion: "Rocas ígneas poco comunes: las carbonatitas, formadas casi solo por carbonatos, y las rocas alcalinas pobres en sílice, como las sienitas nefelínicas, donde aparece la sodalita. Proceden de magmas profundos muy ricos en elementos raros, por lo que albergan los principales yacimientos de niobio y de tierras raras ligeras, además de apatito, fuente de fósforo. Se explotan en grandes minas a cielo abierto.",
+        materiales: ["Fósforo", "Niobio", "Sodalita", "Tierras raras ligeras"]
       },
       {
         ambiente: 0, titulo: "Pegmatitas graníticas",
-        descripcion: "Rocas graníticas de cristales muy grandes que se forman en las últimas fases de cristalización de un magma, cuando en el líquido residual se concentran elementos raros como el litio, el berilio, el tántalo o el cesio, junto a grandes cristales de feldespato, mica, turmalina y piedras preciosas. Se explotan de forma selectiva, a menudo en canteras o en minas pequeñas, cuidando de no dañar los cristales.",
-        materiales: ["Arsénico", "Berilio", "Estaño", "Feldespato", "Gemas", "Litio", "Manganeso", "Micas", "Minerales radioactivos", "Polucita", "Silicio metálico", "Tántalo", "Tierras raras pesadas", "Turmalinas"]
+        descripcion: "Rocas graníticas de cristales muy grandes que se forman en las últimas fases de cristalización de un magma, cuando en el líquido residual se concentran elementos raros como el litio, el berilio, el tántalo, el cesio, el estaño, el uranio o el itrio y las tierras raras pesadas, junto a grandes cristales de feldespato, mica, turmalina y piedras preciosas. Algunas dan un cuarzo tan puro que se usa para el silicio de alta pureza, como en Spruce Pine (Carolina del Norte). Se explotan de forma selectiva, a menudo en canteras o en minas pequeñas, cuidando de no dañar los cristales.",
+        materiales: ["Berilio", "Estaño", "Feldespato", "Gemas", "Litio", "Micas", "Minerales radioactivos", "Polucita", "Silicio metálico", "Tántalo", "Tierras raras pesadas", "Turmalinas"]
       },
       {
         ambiente: 1, titulo: "Filones, pórfidos y skarns",
         descripcion: "Fluidos calientes con metales, casi siempre ligados a intrusiones magmáticas, circulan por fracturas y rocas permeables y, al enfriarse, depositan sus minerales en filones, en grandes masas diseminadas (pórfidos) o al reaccionar con calizas y otras rocas sedimentarias (skarns y reemplazamientos). Otros nacen junto a volcanes submarinos, como los sulfuros masivos de la Faja Pirítica Ibérica. Dan la mayoría de los metales base y preciosos y sus subproductos, algunos yacimientos de hierro (Vizcaya), uranio (Canadá) y berilio (en tobas volcánicas), y el cuarzo puro para el silicio. Al fundir sus sulfuros se recupera azufre como ácido sulfúrico (una vía industrial, no un yacimiento de azufre). Se explotan en minas subterráneas y grandes cortas, con concentración por flotación.",
-        materiales: ["Antimonio", "Arsénico", "Azufre", "Barita", "Berilio", "Bismuto", "Calcita", "Cobalto", "Cobre", "Cromo", "Estaño", "Estroncio", "Feldespato", "Fluorita", "Galio", "Gemas", "Germanio", "Hierro", "Manganeso", "Mercurio", "Micas", "Minerales radioactivos", "Molibdeno", "Níquel (calidad de batería)", "Oro", "Plata", "Plomo", "Silicio metálico", "Titanio metálico", "Wolframio", "Zinc"]
+        materiales: ["Antimonio", "Arsénico", "Azufre", "Barita", "Berilio", "Bismuto", "Calcita", "Cobalto", "Cobre", "Estaño", "Estroncio", "Fluorita", "Galio", "Gemas", "Germanio", "Hierro", "Manganeso", "Mercurio", "Minerales radioactivos", "Molibdeno", "Níquel (calidad de batería)", "Oro", "Plata", "Plomo", "Silicio metálico", "Wolframio", "Zinc"]
       },
       {
         ambiente: 1, titulo: "Cavidades en rocas volcánicas",
-        descripcion: "En coladas de basalto ya frías, aguas por debajo de unos 200 °C circulan por vesículas y fracturas y depositan zeolitas, apofilita, calcita y cuarzo (amatista, ágata), que tapizan geodas con cristales bien formados. Tienen interés sobre todo coleccionista y ornamental, como en la meseta del Decán (India), Islandia o el sur de Brasil. Los ejemplares se extraen a mano, en pequeñas labores o en canteras de basalto para árido.",
-        materiales: ["Cobre", "Gemas", "Silicio metálico", "Zeolitas"]
+        descripcion: "En coladas de basalto ya frías, aguas por debajo de unos 200 °C circulan por vesículas y fracturas y depositan zeolitas, apofilita, calcita y cuarzo (amatista, ágata), que tapizan geodas con cristales bien formados. En algunas coladas también rellena los huecos cobre nativo, como en la península de Keweenaw (Míchigan), que fue durante un siglo una gran fuente de cobre. Tienen interés sobre todo coleccionista y ornamental, como en la meseta del Decán (India), Islandia o el sur de Brasil. Los ejemplares se extraen a mano, en pequeñas labores o en canteras de basalto para árido.",
+        materiales: ["Cobre", "Gemas", "Zeolitas"]
       },
       {
         ambiente: 2, titulo: "Rocas metamórficas y metasomáticas",
-        descripcion: "Minerales que se forman cuando las rocas se transforman por la presión y la temperatura, sin fundirse: grafito a partir de materia orgánica; granates, micas y aluminosilicatos en esquistos y gneises; mármol y rubí a partir de calizas; zafiro en otras rocas metamórficas; wollastonita y lapislázuli en calizas junto a intrusiones; y cuarcitas, fuente de silicio. Los fluidos calientes pueden además cambiar la composición de la roca (metasomatismo) y formar talco, a partir de dolomías y rocas ultrabásicas, y pirofilita, en rocas ricas en aluminio. Se explotan en canteras a cielo abierto; el mineral se tritura, se concentra y se clasifica.",
-        materiales: ["Aluminosilicatos (andalucita, cianita, sillimanita)", "Arcillas especiales (sepiolita, palygorskita, esmectitas, caolinita)", "Bauxita / alúmina / aluminio", "Berilio", "Calcita", "Gemas", "Grafito", "Granates", "Lapislázuli", "Magnesio", "Manganeso", "Micas", "Silicio metálico", "Titanio metálico", "Turmalinas", "Wollastonita", "Zinc"]
+        descripcion: "Minerales que se forman cuando las rocas se transforman por la presión y la temperatura, sin fundirse: grafito a partir de materia orgánica; granates, micas y aluminosilicatos en esquistos y gneises; mármol y rubí a partir de calizas; zafiro en otras rocas metamórficas; esmeralda en esquistos; wollastonita y lapislázuli en calizas junto a intrusiones; y cuarcitas, fuente de silicio. Los fluidos calientes pueden además cambiar la composición de la roca (metasomatismo) y formar talco y magnesita, a partir de dolomías y rocas ultrabásicas, y pirofilita, en rocas ricas en aluminio. Se explotan en canteras a cielo abierto; el mineral se tritura, se concentra y se clasifica.",
+        materiales: ["Aluminosilicatos (andalucita, cianita, sillimanita)", "Berilio", "Calcita", "Gemas", "Grafito", "Granates", "Lapislázuli", "Magnesio", "Manganeso", "Micas", "Silicio metálico", "Turmalinas", "Wollastonita"]
       },
       {
         ambiente: 3, titulo: "Evaporitas y salmueras",
-        descripcion: "Cuando se evapora el agua de mares someros y de lagos salinos, las sales disueltas precipitan y forman capas de evaporitas, o quedan concentradas en salmueras subterráneas. Se obtienen bombeando las salmueras y dejándolas evaporar al sol en grandes balsas, disolviendo las capas de sal en profundidad o explotándolas en minas de cámaras y pilares; después se purifican mediante procesos químicos.",
-        materiales: ["Azufre", "Boro", "Calcita", "Estroncio", "Litio", "Magnesio", "Sales (halita, silvina, thenardita, trona, glauberita)", "Yeso"]
+        descripcion: "Cuando se evapora el agua de mares someros y de lagos salinos, las sales disueltas precipitan y forman capas de evaporitas (sal, yeso, potasa, boratos, celestina), o quedan concentradas en salmueras subterráneas, ricas en litio y magnesio. En la cima de algunos domos de sal, las bacterias transforman el yeso en azufre nativo. Se obtienen bombeando las salmueras y dejándolas evaporar al sol en grandes balsas, disolviendo las capas de sal en profundidad o explotándolas en minas de cámaras y pilares; después se purifican mediante procesos químicos.",
+        materiales: ["Azufre", "Boro", "Estroncio", "Litio", "Magnesio", "Sales (halita, silvina, thenardita, trona, glauberita)", "Yeso"]
       },
       {
         ambiente: 3, titulo: "Precipitados químicos y bioquímicos",
@@ -19148,11 +19148,11 @@ window.addEventListener("DOMContentLoaded", function () {
       {
         ambiente: 3, titulo: "Placeres",
         descripcion: "La erosión libera minerales densos y resistentes que ríos, oleaje y viento acumulan en arenas y gravas: casiterita, oro, coltán, circón, ilmenita, rutilo, monacita (con torio), granate o piedras preciosas. Se explotan con dragas o maquinaria de movimiento de tierras, sin voladuras, y los minerales se separan por densidad (canales, mesas y espirales), magnetismo o conductividad eléctrica.",
-        materiales: ["Bauxita / alúmina / aluminio", "Cromo", "Estaño", "Gemas", "Granates", "Hafnio", "Metales del grupo del platino", "Minerales radioactivos", "Oro", "Tántalo", "Tierras raras ligeras", "Tierras raras pesadas", "Titanio metálico"]
+        materiales: ["Cromo", "Estaño", "Gemas", "Granates", "Hafnio", "Metales del grupo del platino", "Minerales radioactivos", "Oro", "Tántalo", "Tierras raras ligeras", "Tierras raras pesadas", "Titanio metálico"]
       },
       {
         ambiente: 3, titulo: "Meteorización: lateritas, bauxitas y arcillas",
-        descripcion: "En climas tropicales, la lluvia y el calor alteran profundamente las rocas durante millones de años: se lavan los elementos solubles y se concentran los que resisten, formando lateritas ricas en níquel y cobalto, bauxitas ricas en aluminio y arcillas como el caolín o las arcillas iónicas, capaces de retener tierras raras. Se explotan en minas superficiales a cielo abierto, de poca profundidad.",
+        descripcion: "En climas tropicales, la lluvia y el calor alteran profundamente las rocas durante millones de años: se lavan los elementos solubles y se concentran los que resisten, formando lateritas ricas en níquel y cobalto, bauxitas ricas en aluminio, costras de óxidos de manganeso, ópalo en las grietas de la roca alterada y arcillas como el caolín o las arcillas iónicas, capaces de retener tierras raras. Se explotan en minas superficiales a cielo abierto, de poca profundidad.",
         materiales: ["Arcillas especiales (sepiolita, palygorskita, esmectitas, caolinita)", "Bauxita / alúmina / aluminio", "Cobalto", "Escandio", "Galio", "Gemas", "Manganeso", "Níquel (calidad de batería)", "Tierras raras pesadas"]
       },
       {
