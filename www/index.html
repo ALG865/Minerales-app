@@ -1054,35 +1054,38 @@ html:not([data-entrada="tactil"]) .boton-categorias:hover,
 .nota-estrategica { margin-top: 1.2em; font-style: italic; }
 
 /* Esquema geológico de los tipos de yacimiento */
-.obt-esquema { margin: 0 0 1.4rem; }
+.obt-esquema { margin: 0 0 1rem; }
 .obt-esquema .amb-pt.atenuado { opacity: .45; }
 .obt-esquema .amb-pt { transition: opacity .3s; }
 .obt-esq-ayuda { font-family: Arial, sans-serif; text-align: center; margin: 0 0 .5rem; font-size: .95rem; opacity: .85; }
 .obt-esq-marco { background: #f4efe4; border-radius: 16px; padding: 10px; box-shadow: 0 6px 22px rgba(0,0,0,.25); }
+.obt-esquema .obt-esq-marco { max-width: 380px; margin: 0 auto; padding: 8px; border-radius: 18px; background: rgba(244, 241, 233, .97); box-shadow: 0 8px 24px rgba(0,0,0,.22); }
+.obt-esquema .amb-c circle, .obt-placas-svg circle[fill="#ffd700"] { fill: #16354f; stroke: #f4f1e9; }
+.obt-esquema .amb-c text, .obt-placas-svg circle[fill="#ffd700"] + text { fill: #f4f1e9; }
+html:not([data-entrada="tactil"]) .obt-esquema .amb-pt:hover .amb-c circle, .obt-esquema .amb-pt:focus .amb-c circle { fill: #245779; }
+.obt-esquema .amb-nom, .obt-esquema .amb-fondo { display: none; }
+.obt-esquema .amb-c { transform: scale(1.9); }
 .obt-esq-marco svg { display: block; width: 100%; height: auto; }
 .obt-esquema .amb-pt { cursor: pointer; }
-.obt-esquema .amb-pt:hover .amb-fondo, .obt-esquema .amb-pt:focus .amb-fondo { fill: #fff3b0; }
-.obt-esquema .amb-pt:hover circle, .obt-esquema .amb-pt:focus circle { fill: #ffe766; }
-.obt-placas-btn { font-family: Arial, sans-serif !important; display: block; margin: .9rem auto 0; background: transparent; color: inherit; border: 1.5px solid currentColor; border-radius: 999px; padding: .55rem 1.2rem; font: inherit; font-size: .98rem; cursor: pointer; opacity: .9; }
-.obt-placas-btn:hover { opacity: 1; background: rgba(255,255,255,.08); }
+.obt-placas-btn { display: block; margin: .7rem auto 0; border: 0; border-radius: 12px; padding: .8rem 1.1rem; background: #16354f; color: #f4f1e9; font: 700 1rem Arial, sans-serif; cursor: pointer; box-shadow: 0 6px 18px rgba(0,0,0,.2); transition: transform .2s ease, background .2s ease; }
+html:not([data-entrada="tactil"]) .obt-placas-btn:hover { background: #245779; transform: translateY(-2px); }
 .obtencion-tipo.obt-destello { animation: obtDestello 1.6s ease-out; }
 @keyframes obtDestello { 0% { box-shadow: 0 0 0 4px #ffd700; } 100% { box-shadow: 0 0 0 0 rgba(255,215,0,0); } }
 .obt-placas-modal { position: fixed; inset: 0; z-index: 9000; background: rgba(8,20,34,.78); display: flex; align-items: flex-start; justify-content: center; overflow-y: auto; padding: 2rem 1rem; }
 .obt-placas-modal[hidden] { display: none; }
-.obt-placas-caja { position: relative; background: #fbf8f1; color: #1e2b38; border-radius: 18px; max-width: 1100px; width: 100%; padding: 1.4rem 1.4rem 1.6rem; text-align: left; font-family: Arial, sans-serif; }
-.obt-placas-caja h3 { margin: 0 2.4rem .4rem 0; color: #173b5c; font-size: 1.35rem; }
+.obt-placas-caja { position: relative; background: #f4f1e9; color: #16354f; border-radius: 18px; box-shadow: 0 8px 24px rgba(0,0,0,.3); max-width: 1100px; width: 100%; padding: 1.4rem 1.4rem 1.6rem; text-align: left; font-family: Arial, sans-serif; }
+.obt-placas-caja h3 { margin: 0 2.4rem .4rem 0; color: #8c3f45; font-family: Georgia, serif; font-size: 1.35rem; }
 .obt-placas-intro { margin: 0 0 1rem; line-height: 1.5; }
 .obt-placas-caja .obt-esq-marco { box-shadow: none; padding: 6px; }
-.obt-placas-cerrar { position: absolute; top: .6rem; right: .7rem; width: 2.4rem; height: 2.4rem; border-radius: 50%; border: none; background: #173b5c; color: #fff; font-size: 1.5rem; line-height: 1; cursor: pointer; }
+.obt-placas-cerrar { position: absolute; top: .6rem; right: .7rem; width: 2.4rem; height: 2.4rem; border-radius: 50%; border: none; background: #16354f; color: #fff; font-size: 1.5rem; line-height: 1; cursor: pointer; }
 .obt-pl-ley { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr)); gap: .9rem 1.4rem; margin-top: 1.1rem; }
 .obt-pl-item { display: flex; gap: .65rem; align-items: flex-start; }
-.obt-pl-item .obtencion-num { flex: none; background: #ffd700; color: #173b5c; border: 2px solid #173b5c; }
-.obt-pl-item strong { display: block; color: #173b5c; }
+.obt-pl-item .obtencion-num { flex: none; }
+.obt-pl-item strong { display: block; color: #16354f; }
 .obt-pl-item span:not(.obtencion-num) { display: block; line-height: 1.4; }
 @media (max-width: 700px) {
-  .obt-esquema .amb-nom, .obt-esquema .amb-fondo { display: none; }
-  .obt-esquema .amb-c { transform: scale(1.9); }
   .obt-esq-marco { padding: 5px; border-radius: 12px; }
+  .obt-esquema .obt-esq-marco { max-width: 300px; }
   .obt-placas-modal { padding: 1rem .5rem; }
   .obt-placas-caja { padding: 1rem .9rem 1.2rem; }
 }
